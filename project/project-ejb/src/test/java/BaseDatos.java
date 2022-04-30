@@ -29,6 +29,9 @@ public class BaseDatos {
 		Usuario usuario = new Usuario(1, "123", false,"activo");
 		em.persist(usuario);
 
+		Persona_autorizada pa = new Persona_autorizada(123, 123, "Juan", "Perez", "calle platano");
+		em.persist(pa);
+
 		/*
 		Date d = new Date(22,2,23);
 		Date d1 = new Date(20,5,18);

@@ -38,6 +38,14 @@ public class Persona_autorizada {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Persona_autorizada(int id, int identificacion, String nombre, String apellidos, String direccion) {
+		this.ID = id;
+		this.identificacion = identificacion;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.direccion = direccion;
+	}
+
 	public int getID() {
 		return ID;
 	}
@@ -116,6 +124,14 @@ public class Persona_autorizada {
 
 	public void setUu_usuario(Usuario uu_usuario) {
 		this.uu_usuario = uu_usuario;
+	}
+
+	public Set<AutorizacionEmpresaAutorizado> getAutorizacionSet() {
+		return AutorizacionSet;
+	}
+
+	public void setAutorizacionSet(Set<AutorizacionEmpresaAutorizado> autorizacionSet) {
+		this.AutorizacionSet = autorizacionSet;
 	}
 
 	@Override
