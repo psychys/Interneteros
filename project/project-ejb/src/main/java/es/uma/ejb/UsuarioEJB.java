@@ -79,6 +79,7 @@ public class UsuarioEJB implements GestionUsuario {
         }
 
     }
+
     /*public List<Usuario> getListaUsuarios() {
         // TODO
         EntityTransaction tx=em.getTransaction();

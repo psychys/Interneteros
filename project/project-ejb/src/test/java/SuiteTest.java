@@ -3,7 +3,6 @@ import java.util.Properties;
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
 
-import es.uma.jpa.Usuario;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -11,7 +10,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ClientePrueba.class, CuentaPrueba.class, DivisaPrueba.class, Usuario.class})
+@SuiteClasses({ClientePrueba.class, CuentaPrueba.class, DivisaPrueba.class, UsuarioPrueba.class})
 public class SuiteTest {
 	
 	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
