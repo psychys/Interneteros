@@ -66,6 +66,7 @@ public class ClientePrueba {
 
 	}
 
+	//@Requisito 4
 	@Test
 	public void testMarcarCliente() throws ClienteException {
 

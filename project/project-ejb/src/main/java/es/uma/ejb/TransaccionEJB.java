@@ -16,6 +16,7 @@ public class TransaccionEJB implements GestionTransaccion {
     //@PersistenceContext(name="Trazabilidad")
     private EntityManager em;
 
+    //@Requisitos({"RF13"})
     @Override
     public void CrearTransaccion(Transaccion t) throws TransaccionException {
         Transaccion t1 = em.find(Transaccion.class, t);
@@ -43,7 +44,7 @@ public class TransaccionEJB implements GestionTransaccion {
         return res;
     }
 
-    //requisito 18
+    //@Requisitos({"RF18"})
     public void cambioDivisa(Usuario u, Transaccion t, Divisa d) throws TransaccionException{
         Usuario admin = em.find(Usuario.class,u);
         Transaccion t1 = em.find(Transaccion.class,t);
