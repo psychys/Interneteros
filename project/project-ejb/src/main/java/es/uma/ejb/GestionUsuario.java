@@ -7,12 +7,12 @@ import javax.ws.rs.core.UriBuilder;
 
 public interface GestionUsuario {
 
-    public void CrearUsuario(Usuario c, UriBuilder uriBuilder) throws UsuarioException;
+    public void AltaUsuario(Usuario admin, Usuario u) throws UsuarioException;
 
-    public void ActualizarUsuario(Usuario c) throws UsuarioException;
+    public void ActualizarUsuario(Usuario admin, Usuario u) throws UsuarioException;
 
     public Usuario BuscarUsuario(int id) throws UsuarioException;
 
-    public void BorrarUsuario(Usuario c) throws UsuarioException;
+    public void MarcarUsuario(Usuario admin, Usuario u, String estado) throws UsuarioException;
 
 }

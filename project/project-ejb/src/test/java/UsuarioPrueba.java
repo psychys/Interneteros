@@ -1,4 +1,4 @@
-/*import java.util.Date;
+import java.util.Date;
 
 import java.util.logging.Logger;
 
@@ -10,12 +10,12 @@ import es.uma.exceptions.ClienteException;
 import es.uma.exceptions.UsuarioException;
 import es.uma.jpa.Cliente;
 import es.uma.jpa.Usuario;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 
 import static org.junit.Assert.*;
-
 
 public class UsuarioPrueba {
 
@@ -39,6 +39,8 @@ public class UsuarioPrueba {
         Usuario usuario = new Usuario(2,"123", false, "activo");
 
         gestionUsuario.AltaUsuario(admin, usuario);
+        Assert.assertNotNull("No se ha creado el usuario", this.gestionUsuario.BuscarUsuario(usuario.getId()));
+
 
     }
 
@@ -76,5 +78,5 @@ public class UsuarioPrueba {
 
     }
 
-}*/
+}
 

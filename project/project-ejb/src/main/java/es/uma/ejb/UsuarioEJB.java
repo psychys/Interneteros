@@ -19,28 +19,36 @@ public class UsuarioEJB implements GestionUsuario {
     private static final Logger LOGGER =java.util.logging.Logger.getLogger(UsuarioEJB.class.getCanonicalName());
 
     @Override
-    public void CrearUsuario(Usuario c, UriBuilder uriBuilder) throws UsuarioException {
-        Usuario u1 = em.find(Usuario.class, c.getId());
-        if(u1!= null){
-            throw new UsuarioException("Cliente repetido");
+    public void AltaUsuario(Usuario admin, Usuario u) throws UsuarioException {
+        if(admin.isAdministrador()){
+
+            Usuario u1 = em.find(Usuario.class, u.getId());
+            if(u1!= null){
+                throw new UsuarioException("Usuario repetido");
+            }
+
+            em.persist(u);
+
+        }else{
+            throw new UsuarioException("NO ERES ADMINISTRADOR");
         }
-        //c.setId(generarIdAleatorio());
-        em.persist(c);
-
-        URI uriValidacion = uriBuilder.build(c.getId());
-
-        LOGGER.info(uriValidacion.toString());
 
     }
 
     @Override
-    public void ActualizarUsuario(Usuario c) throws UsuarioException {
-        Usuario usuarioExiste = em.find(Usuario.class, c);
-        if (usuarioExiste == null) {
-            throw new UsuarioException("Usuario no existente");
-        }
+    public void ActualizarUsuario(Usuario admin, Usuario u) throws UsuarioException {
+        if(admin.isAdministrador()) {
 
-        em.merge(c);
+            Usuario usuario = this.BuscarUsuario(u.getId());
+            usuario.setC_cliente(u.getC_cliente());
+            usuario.setAdministrador(u.isAdministrador());
+            usuario.setContrasena(u.getContrasena());
+            usuario.setId(u.getId());
+
+            em.merge(u);
+        }else{
+            throw new UsuarioException("NO ERES ADMINISTRADOR");
+        }
 
     }
 
@@ -54,20 +62,23 @@ public class UsuarioEJB implements GestionUsuario {
     }
 
     @Override
-    public void BorrarUsuario(Usuario c) throws UsuarioException {
+    public void MarcarUsuario(Usuario admin, Usuario u, String estado) throws UsuarioException {
+        if(admin.isAdministrador()) {
 
-        Usuario usuarioExistente = em.find(Usuario.class, c);
+            Usuario usuarioExistente = em.find(Usuario.class, u.getId());
 
-        if(usuarioExistente == null) {
-            throw new UsuarioException("Usuario no existente");
+            if (usuarioExistente == null) {
+                throw new UsuarioException("Usuario no existente");
+            }
+
+            u.setEstado(estado);
+            em.merge(u);
+
+        }else{
+            throw new UsuarioException("NO ERES ADMINISTRADOR");
         }
 
-
-        em.remove(c);
-
-
     }
-
     /*public List<Usuario> getListaUsuarios() {
         // TODO
         EntityTransaction tx=em.getTransaction();
