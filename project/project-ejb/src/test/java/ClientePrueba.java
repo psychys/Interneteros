@@ -35,7 +35,6 @@ public class ClientePrueba {
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
-	//@Requisito 2
 	@Test
 	public void testAltaCliente() throws ClienteException, UsuarioException {
 		Usuario admin = new Usuario(000,"123", true, "activo");
@@ -47,7 +46,6 @@ public class ClientePrueba {
 
 	 }
 
-	//@Requisito 3
 	@Test
 	public void testActualizarCliente() throws ClienteException {
 
@@ -66,7 +64,7 @@ public class ClientePrueba {
 
 	}
 
-	//@Requisito 4
+	//@Requisitos({"RF4"})
 	@Test
 	public void testMarcarCliente() throws ClienteException {
 

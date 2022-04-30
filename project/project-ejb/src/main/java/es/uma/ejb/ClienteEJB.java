@@ -2,12 +2,15 @@ package es.uma.ejb;
 
 
 import es.uma.jpa.Cliente;
+import es.uma.jpa.Cuenta_Fintech;
 import es.uma.jpa.Usuario;
 import es.uma.exceptions.ClienteException;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 @Stateless
@@ -18,7 +21,6 @@ public class ClienteEJB implements GestionCliente {
     @PersistenceContext(name="eBuryEJB")
     private EntityManager em;
 
-    //@Requisito 2
     public void AltaCliente(Usuario admin, Cliente c) throws ClienteException {
         if(admin.isAdministrador()) {
 
@@ -34,7 +36,6 @@ public class ClienteEJB implements GestionCliente {
         }
 
     }
-    // @Requisito 3
     @Override
     public void ActualizarCliente(Usuario admin, Cliente c) throws ClienteException {
         if (admin.isAdministrador()) {
@@ -61,24 +62,40 @@ public class ClienteEJB implements GestionCliente {
         return c;
     }
 
-    //@Requisito 4
+    //@Requisitos({"RF4"})
     @Override
     public void MarcarCliente(Cliente c, String estado, Usuario admin) throws ClienteException {
 
         if(admin.isAdministrador()) {
+            if(!abiertas(c)){ //comprueba que no tiene cuentas abiertas, si no tiene abiertas entra
+                Cliente cliente = em.find(Cliente.class, c.getID());
 
-            Cliente cliente = em.find(Cliente.class, c.getID());
+                if (cliente == null) {
+                    throw new ClienteException("Cliente no existente");
+                }
 
-            if (cliente == null) {
-                throw new ClienteException("Cliente no existente");
+                c.setEstado(estado);
+                em.merge(c);
+            }else{//tiene cuentas abiertas
+                throw new ClienteException("Tiene cuentas abiertas");
             }
-
-            c.setEstado(estado);
-            em.merge(c);
-
         }else{
             throw new ClienteException("NO ERES ADMINISTRADOR");
         }
+    }
+
+    private boolean abiertas(Cliente c) {
+        boolean x = false; //false= tiene todas las cuentas cerradas
+
+        List<Cuenta_Fintech> lista = new ArrayList<>();
+        lista = c.getC_fintech();
+
+        for(int i=0;i<lista.size();i++){
+            if(lista.get(i).getEstado()=="abierta"){
+                x=true;
+            }
+        }
+        return x;
     }
 
     /*public List<Cliente> getListaClientes() {
