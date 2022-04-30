@@ -84,6 +84,4 @@ public class PersonaAutorizadaEJB implements GestionPersonaAutorizada{
 
     }
 
-
-
 }
