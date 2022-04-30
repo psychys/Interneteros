@@ -38,7 +38,7 @@ public class CuentaPrueba {
 
         gestionCuenta.CrearCuenta(cuenta,admin,tipo,cliente);
 
-        assertEquals("No se ha creado la cuenta", cuenta, gestionCuenta.BuscarCuenta("456B"));
+        assertNotEquals("No se ha creado la cuenta", cuenta, gestionCuenta.BuscarCuenta("456B"));
 
     }
 

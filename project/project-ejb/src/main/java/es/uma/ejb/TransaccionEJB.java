@@ -23,6 +23,7 @@ public class TransaccionEJB implements GestionTransaccion {
         if(t1 != null)
             throw new TransaccionException("Transaccion ya existente");
 
+
         Cuenta_referencia origen = (Cuenta_referencia) t1.getOrigen();
         Cuenta_referencia destino = (Cuenta_referencia) t1.getDestino();
 
@@ -33,6 +34,55 @@ public class TransaccionEJB implements GestionTransaccion {
         em.persist(t1);
         em.merge(origen);
         em.merge(destino);
+
+    }
+
+    @Override
+    public void CrearTransaccionAdministrador(Usuario u, Transaccion t) throws TransaccionException {
+        Transaccion t1 = em.find(Transaccion.class, t);
+        if(t1 != null)
+            throw new TransaccionException("Transaccion ya existente");
+        Usuario admin = em.find(Usuario.class,u);
+        if(admin == null)
+            throw new TransaccionException("Usuario inexistente");
+        if(!admin.isAdministrador())
+            throw new TransaccionException("No eres administrador");
+
+
+        Cuenta_referencia origen = (Cuenta_referencia) t1.getOrigen();
+        Cuenta_referencia destino = (Cuenta_referencia) t1.getDestino();
+
+
+        if(origen.equals(origen.getNombre_banco().equalsIgnoreCase("eBury")) || destino.getNombre_banco().equalsIgnoreCase("eBury")){
+
+            String tipo = t.getTipo();
+            if(tipo.equals("ingreso")){
+
+                 origen.setSaldo(origen.getSaldo() + (t1.getCantidad()));
+                 destino.setSaldo((int) (destino.getSaldo() - (t1.getCantidad()*1.01)));
+
+                em.persist(t1);
+                em.merge(origen);
+                em.merge(destino);
+
+            } else if (tipo.equals("cargo")) {
+
+                origen.setSaldo(origen.getSaldo() - (int)(t1.getCantidad()*1.01));
+                destino.setSaldo(destino.getSaldo() + t1.getCantidad());
+
+                em.persist(t1);
+                em.merge(origen);
+                em.merge(destino);
+
+            }else
+                throw new TransaccionException("Tipo incorrecto");
+
+
+
+        }else{
+            throw new TransaccionException("Ninguna de las cuentas es eBury");
+        }
+
 
     }
 

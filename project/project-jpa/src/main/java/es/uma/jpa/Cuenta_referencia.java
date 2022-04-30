@@ -12,9 +12,9 @@ import javax.persistence.*;
 public class
 Cuenta_referencia extends Cuenta{
 
-	@Id
+	/*/@Id
 	@Column(name = "RowId")
-	private String rowId;
+	private String rowId;*/
 	@Column(nullable = false)
 	private String nombre_banco;
 	private String sucursal;
@@ -38,8 +38,8 @@ Cuenta_referencia extends Cuenta{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cuenta_referencia(String rowId, String nombre_banco, String sucursal, String pais, int saldo, Date fecha_apertura, String estado, Segregated c_fintech_segregada, Divisa divisa, Set<DepositadaPooledReferencia> depositadaReferencia) {
-		this.rowId = rowId;
+	public Cuenta_referencia(/*String rowId,*/ String nombre_banco, String sucursal, String pais, int saldo, Date fecha_apertura, String estado, Segregated c_fintech_segregada, Divisa divisa, Set<DepositadaPooledReferencia> depositadaReferencia) {
+		//this.rowId = rowId;
 		this.nombre_banco = nombre_banco;
 		this.sucursal = sucursal;
 		this.pais = pais;
@@ -109,13 +109,13 @@ Cuenta_referencia extends Cuenta{
 		this.divisa = divisa;
 	}
 
-	public String getRowId() {
+	/*public String getRowId() {
 		return rowId;
 	}
 
 	public void setRowId(String rowId) {
 		this.rowId = rowId;
-	}
+	}*/
 
 	@Override
 	public boolean equals(Object o) {
@@ -123,18 +123,18 @@ Cuenta_referencia extends Cuenta{
 		if (o == null || getClass() != o.getClass()) return false;
 		if (!super.equals(o)) return false;
 		Cuenta_referencia that = (Cuenta_referencia) o;
-		return saldo == that.saldo && Objects.equals(rowId, that.rowId) && Objects.equals(nombre_banco, that.nombre_banco) && Objects.equals(sucursal, that.sucursal) && Objects.equals(pais, that.pais) && Objects.equals(fecha_apertura, that.fecha_apertura) && Objects.equals(estado, that.estado) && Objects.equals(c_fintech_segregada, that.c_fintech_segregada) && Objects.equals(divisa, that.divisa) && Objects.equals(DepositadaReferencia, that.DepositadaReferencia);
+		return saldo == that.saldo &&/* Objects.equals(rowId, that.rowId) &&*/ Objects.equals(nombre_banco, that.nombre_banco) && Objects.equals(sucursal, that.sucursal) && Objects.equals(pais, that.pais) && Objects.equals(fecha_apertura, that.fecha_apertura) && Objects.equals(estado, that.estado) && Objects.equals(c_fintech_segregada, that.c_fintech_segregada) && Objects.equals(divisa, that.divisa) && Objects.equals(DepositadaReferencia, that.DepositadaReferencia);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), rowId, nombre_banco, sucursal, pais, saldo, fecha_apertura, estado, c_fintech_segregada, divisa, DepositadaReferencia);
+		return Objects.hash(super.hashCode(), /*rowId,*/ nombre_banco, sucursal, pais, saldo, fecha_apertura, estado, c_fintech_segregada, divisa, DepositadaReferencia);
 	}
 
 	@Override
 	public String toString() {
 		return "Cuenta_referencia{" +
-				"rowId='" + rowId + '\'' +
+				//"rowId='" + rowId + '\'' +
 				", nombre_banco='" + nombre_banco + '\'' +
 				", sucursal='" + sucursal + '\'' +
 				", pais='" + pais + '\'' +
