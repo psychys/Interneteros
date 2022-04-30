@@ -59,24 +59,42 @@ public class Cuenta {
 		this.estado = estado;
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Cuenta cuenta = (Cuenta) o;
-		return Objects.equals(IBAN, cuenta.IBAN) && Objects.equals(SWIFT, cuenta.SWIFT) && Objects.equals(estado, cuenta.estado) && Objects.equals(cuenta_emsior, cuenta.cuenta_emsior) && Objects.equals(cuenta_receptor, cuenta.cuenta_receptor);
+	public List<Transaccion> getCuenta_emsior() {
+		return cuenta_emsior;
 	}
 
-	@Override
+	public void setCuenta_emsior(List<Transaccion> cuenta_emsior) {
+		this.cuenta_emsior = cuenta_emsior;
+	}
+
+	public List<Transaccion> getCuenta_receptor() {
+		return cuenta_receptor;
+	}
+
+	public void setCuenta_receptor(List<Transaccion> cuenta_receptor) {
+		this.cuenta_receptor = cuenta_receptor;
+	}
+
+	public boolean equals(Object object) {
+		if (this == object) return true;
+		if (object == null || getClass() != object.getClass()) return false;
+		if (!super.equals(object)) return false;
+		Cuenta cuenta = (Cuenta) object;
+		return java.util.Objects.equals(IBAN, cuenta.IBAN) && java.util.Objects.equals(SWIFT, cuenta.SWIFT) && java.util.Objects.equals(estado, cuenta.estado);// && java.util.Objects.equals(cuenta_emsior, cuenta.cuenta_emsior) && java.util.Objects.equals(cuenta_receptor, cuenta.cuenta_receptor);
+	}
+
 	public int hashCode() {
-		return Objects.hash(IBAN, SWIFT, estado, cuenta_emsior, cuenta_receptor);
+		return Objects.hash(super.hashCode(), IBAN, SWIFT, estado);//, cuenta_emsior, cuenta_receptor);
 	}
 
-	@Override
-	public String toString() {
+	@java.lang.Override
+	public java.lang.String toString() {
 		return "Cuenta{" +
 				"IBAN='" + IBAN + '\'' +
 				", SWIFT='" + SWIFT + '\'' +
-				", estado='" + estado + '\'' ;
+				", estado='" + estado + '\'';/* +
+				", cuenta_emsior=" + cuenta_emsior +
+				", cuenta_receptor=" + cuenta_receptor +
+				'}';*/
 	}
 }

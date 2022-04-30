@@ -117,90 +117,41 @@ public class Persona_autorizada {
 	public void setUu_usuario(Usuario uu_usuario) {
 		this.uu_usuario = uu_usuario;
 	}
+	public Set<AutorizacionEmpresaAutorizado> getAutorizacionSet() {
+		return AutorizacionSet;
+	}
 
-	@Override
+	public void setAutorizacionSet(Set<AutorizacionEmpresaAutorizado> autorizacionSet) {
+		AutorizacionSet = autorizacionSet;
+	}
+
+	public boolean equals(Object object) {
+		if (this == object) return true;
+		if (object == null || getClass() != object.getClass()) return false;
+		if (!super.equals(object)) return false;
+		Persona_autorizada that = (Persona_autorizada) object;
+		return ID == that.ID && identificacion == that.identificacion && java.util.Objects.equals(nombre, that.nombre) && java.util.Objects.equals(apellidos, that.apellidos) && java.util.Objects.equals(direccion, that.direccion) && java.util.Objects.equals(fecha_nacimiento, that.fecha_nacimiento) && java.util.Objects.equals(estado, that.estado) && java.util.Objects.equals(fecha_inicio, that.fecha_inicio) && java.util.Objects.equals(fecha_fin, that.fecha_fin) && java.util.Objects.equals(AutorizacionSet, that.AutorizacionSet) && java.util.Objects.equals(uu_usuario, that.uu_usuario);
+	}
+
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ID;
-		result = prime * result
-				+ ((apellidos == null) ? 0 : apellidos.hashCode());
-		result = prime * result
-				+ ((direccion == null) ? 0 : direccion.hashCode());
-		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
-		result = prime * result
-				+ ((fecha_fin == null) ? 0 : fecha_fin.hashCode());
-		result = prime * result
-				+ ((fecha_inicio == null) ? 0 : fecha_inicio.hashCode());
-		result = prime
-				* result
-				+ ((fecha_nacimiento == null) ? 0 : fecha_nacimiento.hashCode());
-		result = prime * result + identificacion;
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		return result;
+		//return Objects.hash(super.hashCode(), ID, identificacion, nombre, apellidos, direccion, fecha_nacimiento, estado, fecha_inicio, fecha_fin, AutorizacionSet, uu_usuario);
+		return Integer.hashCode(ID) + Integer.hashCode(identificacion) + nombre.hashCode() + apellidos.hashCode() + direccion.hashCode() + fecha_nacimiento.hashCode() + estado.hashCode() + AutorizacionSet.hashCode() + uu_usuario.hashCode();
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Persona_autorizada other = (Persona_autorizada) obj;
-		if (ID != other.ID)
-			return false;
-		if (apellidos == null) {
-			if (other.apellidos != null)
-				return false;
-		} else if (!apellidos.equals(other.apellidos))
-			return false;
-		if (direccion == null) {
-			if (other.direccion != null)
-				return false;
-		} else if (!direccion.equals(other.direccion))
-			return false;
-		if (estado == null) {
-			if (other.estado != null)
-				return false;
-		} else if (!estado.equals(other.estado))
-			return false;
-		if (fecha_fin == null) {
-			if (other.fecha_fin != null)
-				return false;
-		} else if (!fecha_fin.equals(other.fecha_fin))
-			return false;
-		if (fecha_inicio == null) {
-			if (other.fecha_inicio != null)
-				return false;
-		} else if (!fecha_inicio.equals(other.fecha_inicio))
-			return false;
-		if (fecha_nacimiento == null) {
-			if (other.fecha_nacimiento != null)
-				return false;
-		} else if (!fecha_nacimiento.equals(other.fecha_nacimiento))
-			return false;
-		if (identificacion != other.identificacion)
-			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		return true;
+	@java.lang.Override
+	public java.lang.String toString() {
+		return "Persona_autorizada{" +
+				"ID=" + ID +
+				", identificacion=" + identificacion +
+				", nombre='" + nombre + '\'' +
+				", apellidos='" + apellidos + '\'' +
+				", direccion='" + direccion + '\'' +
+				", fecha_nacimiento=" + fecha_nacimiento +
+				", estado='" + estado + '\'' +
+				", fecha_inicio=" + fecha_inicio +
+				", fecha_fin=" + fecha_fin +
+				", AutorizacionSet=" + AutorizacionSet +
+				", uu_usuario=" + uu_usuario +
+				'}';
 	}
-
-	@Override
-	public String toString() {
-		return "Persona_autorizada [ID=" + ID + ", identificacion="
-				+ identificacion + ", nombre=" + nombre + ", apellidos="
-				+ apellidos + ", direccion=" + direccion
-				+ ", fecha_nacimiento=" + fecha_nacimiento + ", estado="
-				+ estado + ", fecha_inicio=" + fecha_inicio + ", fecha_fin="
-				+ fecha_fin + "]";
-	}
-    
-    
-
 }
