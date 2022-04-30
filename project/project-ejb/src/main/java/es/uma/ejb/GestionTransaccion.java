@@ -9,8 +9,10 @@ import java.util.List;
 
 public interface GestionTransaccion {
 
-    //@Requisitos({"RF13"})
+
     public void CrearTransaccion(Transaccion t) throws TransaccionException;
+    //@Requisitos({"RF13"})
+    public void CrearTransaccionAdministrador(Usuario u,Transaccion t) throws TransaccionException;
 
     //public void ActualizarTransaccion(Transaccion t) throws TransaccionException;
 
