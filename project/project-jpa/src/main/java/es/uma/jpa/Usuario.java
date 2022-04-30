@@ -13,18 +13,21 @@ public class Usuario {
     private String contrasena;
     @Column(nullable = false)
     private boolean administrador;
+    @Column
+    private String estado;
 
-    public Usuario(int id, String contrasena ,boolean administrador, Cliente cliente) {
+    public Usuario(int id, String contrasena ,boolean administrador, Cliente cliente, String estado) {
         this.id = id;
         this.contrasena = contrasena;
         this.administrador = administrador;
         this.c_cliente = cliente;
+        this.estado = estado;
     }
-    public Usuario(int id, String contrasena ,boolean administrador) {
+    public Usuario(int id, String contrasena ,boolean administrador, String estado) {
         this.id = id;
         this.contrasena = contrasena;
         this.administrador = administrador;
-
+        this.estado = estado;
     }
 
     public Usuario() {
@@ -39,6 +42,13 @@ public class Usuario {
     @OneToOne //(mappedBy ="uu_usuario")
     private Persona_autorizada persona_autorizada;
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     public int getId() {
         return id;
@@ -80,27 +90,25 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Usuario usuario = (Usuario) o;
-        return id == usuario.id && administrador == usuario.administrador && Objects.equals(contrasena, usuario.contrasena) && Objects.equals(c_cliente, usuario.c_cliente) && Objects.equals(persona_autorizada, usuario.persona_autorizada);
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
+        Usuario usuario = (Usuario) object;
+        return id == usuario.id && administrador == usuario.administrador && java.util.Objects.equals(contrasena, usuario.contrasena) && java.util.Objects.equals(estado, usuario.estado) && java.util.Objects.equals(c_cliente, usuario.c_cliente) && java.util.Objects.equals(persona_autorizada, usuario.persona_autorizada);
     }
 
-    @Override
     public int hashCode() {
-        return Objects.hash(id, contrasena, administrador, c_cliente, persona_autorizada);
+        return java.util.Objects.hash(super.hashCode(), id, contrasena, administrador, estado, c_cliente, persona_autorizada);
     }
 
-    @Override
-    public String toString() {
+    @java.lang.Override
+    public java.lang.String toString() {
         return "Usuario{" +
                 "id=" + id +
                 ", contrasena='" + contrasena + '\'' +
                 ", administrador=" + administrador +
+                ", estado='" + estado + '\'' +
                 ", c_cliente=" + c_cliente +
                 ", persona_autorizada=" + persona_autorizada +
                 '}';

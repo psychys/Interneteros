@@ -31,7 +31,7 @@ public class DivisaPrueba {
     @Test
     public void testCrearDivisa() throws DivisaException {
 
-        Usuario admin = new Usuario(000, "123", true);
+        Usuario admin = new Usuario(000, "123", true,"activo");
         Divisa divisa = new Divisa("EUR", "Euro", "€", 1);
 
         gestionDivisa.CrearDivisa(divisa, admin);
@@ -43,7 +43,7 @@ public class DivisaPrueba {
     @Test
     public void testBuscarDivisa() throws DivisaException {
 
-        Usuario admin = new Usuario(000, "123", true);
+        Usuario admin = new Usuario(000, "123", true, "activo");
         Divisa divisa = new Divisa("EUR", "Euro", "€", 1);
 
         gestionDivisa.CrearDivisa(divisa, admin);
@@ -57,7 +57,7 @@ public class DivisaPrueba {
     @Test
     public void testActualizarDivisa() throws DivisaException {
 
-        Usuario admin = new Usuario(000, "123", true);
+        Usuario admin = new Usuario(000, "123", true, "activo");
         Divisa divisa = gestionDivisa.BuscarDivisa("USD", admin);
 
         assertEquals(divisa.getCambio_euro() ,1.07, 0);
@@ -74,7 +74,7 @@ public class DivisaPrueba {
     @Test
     public void testEliminarDivisa() throws DivisaException {
 
-        Usuario admin = new Usuario(000, "123", true);
+        Usuario admin = new Usuario(000, "123", true, "activo");
         Divisa divisa = gestionDivisa.BuscarDivisa("USD", admin);
 
         gestionDivisa.EliminarDivisa(divisa, admin);

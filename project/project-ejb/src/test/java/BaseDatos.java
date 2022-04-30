@@ -26,6 +26,9 @@ public class BaseDatos {
 		Divisa divisa = new Divisa("USD", "Dolar", "$", 1.07);
 		em.persist(divisa);
 
+		Usuario usuario = new Usuario(1, "123", false,"activo");
+		em.persist(usuario);
+
 		/*
 		Date d = new Date(22,2,23);
 		Date d1 = new Date(20,5,18);
