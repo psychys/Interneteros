@@ -1,3 +1,4 @@
+import es.uma.jpa.Cliente;
 import es.uma.jpa.Cuenta;
 import es.uma.jpa.Usuario;
 import es.uma.ejb.GestionCuenta;
@@ -6,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.naming.NamingException;
+import java.util.Date;
 import java.util.logging.Logger;
 
 import static org.junit.Assert.*;
@@ -31,8 +33,10 @@ public class CuentaPrueba {
 
         Usuario admin = new Usuario(000, "123", true, "activo");
         Cuenta cuenta = new Cuenta("456B", "123", "abierta");
+        String tipo = "pooled";
+        Cliente cliente = new Cliente(2,456, "cliente",new Date(),null, "calle platano 5", "Malaga", 20749, "España", "activo");
 
-        gestionCuenta.CrearCuenta(cuenta, admin);
+        gestionCuenta.CrearCuenta(cuenta,admin,tipo,cliente);
 
         assertEquals("No se ha creado la cuenta", cuenta, gestionCuenta.BuscarCuenta("456B"));
 
@@ -43,8 +47,10 @@ public class CuentaPrueba {
 
         Usuario admin = new Usuario(000, "123", true, "activo");
         Cuenta cuenta = new Cuenta("456B","123","activa");
+        String tipo = "pooled";
+        Cliente cliente = new Cliente(2,456, "cliente",new Date(),null, "calle platano 5", "Malaga", 20749, "España", "activo");
 
-        gestionCuenta.CrearCuenta(cuenta,admin);
+        gestionCuenta.CrearCuenta(cuenta,admin,tipo,cliente);
 
         cuenta = gestionCuenta.BuscarCuenta("456B");
 

@@ -1,9 +1,7 @@
 package es.uma.ejb;
 
 import es.uma.exceptions.CuentaException;
-import es.uma.jpa.Cuenta;
-import es.uma.jpa.Cuenta_referencia;
-import es.uma.jpa.Usuario;
+import es.uma.jpa.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -23,7 +21,7 @@ public class CuentaEJB implements GestionCuenta {
 
     //@Requisitos({"RF5"})
     @Override
-    public void CrearCuenta(Cuenta c, Usuario u) throws CuentaException {
+    public void CrearCuenta(Cuenta c, Usuario u, String tipo, Cliente cliente) throws CuentaException {
         if(u.isAdministrador()) {//Comprueba si eres administrador
             Cuenta cuenta = em.find(Cuenta.class, c.getIBAN());
 

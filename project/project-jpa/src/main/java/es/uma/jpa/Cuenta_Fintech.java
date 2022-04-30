@@ -17,7 +17,7 @@ public class Cuenta_Fintech extends Cuenta{
 	@Temporal(TemporalType.DATE)
 	private Date fecha_cierre;
 	private String clasificacion;
-	@ManyToOne
+	@ManyToOne (cascade = {CascadeType.PERSIST})
 	private Cliente cliente;
 	
 	public Cuenta_Fintech() {
