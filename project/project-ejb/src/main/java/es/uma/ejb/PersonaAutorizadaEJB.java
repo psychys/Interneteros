@@ -1,9 +1,8 @@
 package es.uma.ejb;
 
 
-import es.uma.jpa.Persona_autorizada;
+import es.uma.jpa.*;
 import es.uma.exceptions.PersonaAutorizadaException;
-import es.uma.jpa.Usuario;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,8 +15,8 @@ public class PersonaAutorizadaEJB implements GestionPersonaAutorizada{
     private EntityManager em;
 
     @Override
-    public void CrearPersonaAutorizada(Persona_autorizada c, Usuario admin) throws PersonaAutorizadaException{
-        Persona_autorizada personaExiste = em.find(Persona_autorizada.class, c.getID());
+    public void CrearPersonaAutorizada(Persona_autorizada pa, Usuario admin) throws PersonaAutorizadaException{
+        Persona_autorizada personaExiste = em.find(Persona_autorizada.class, pa.getID());
 
         if (!admin.isAdministrador()){
             throw new PersonaAutorizadaException("No eres administrador");
@@ -28,12 +27,42 @@ public class PersonaAutorizadaEJB implements GestionPersonaAutorizada{
             throw new PersonaAutorizadaException("PersonaAutorizada ya existe");
         }
 
-        em.persist(c);
+        em.persist(pa);
+    }
+
+    //@Requisitos({"RF6"})
+    @Override
+    public void AniadirPersonaAutorizada(Persona_autorizada pa, Cuenta_Fintech c_fin, Usuario admin) throws PersonaAutorizadaException{
+        Persona_autorizada personaExiste = em.find(Persona_autorizada.class, pa.getID());
+        Cuenta_Fintech cuentaExiste = em.find(Cuenta_Fintech.class, c_fin.getIBAN());
+
+        if (!admin.isAdministrador()){
+            throw new PersonaAutorizadaException("No eres administrador");
+        }
+
+        if (personaExiste == null) {
+            throw new PersonaAutorizadaException("PersonaAutorizada no existente");
+        }
+
+        if (cuentaExiste == null) {
+            throw new PersonaAutorizadaException("Cuenta no existente");
+        }
+
+        Usuario u = c_fin.getCliente().getU_usuario();
+
+        if (u == null) {
+            throw new PersonaAutorizadaException("No hay un usuario enlazado a esta cuenta fintech");
+        }
+
+        u.setPersona_autorizada(pa);
+
+        em.merge(u);
+
     }
 
     @Override
-    public void ActualizarPersonaAutorizada(Persona_autorizada c, Usuario admin) throws PersonaAutorizadaException {
-        Persona_autorizada personaExiste = em.find(Persona_autorizada.class, c.getID());
+    public void ActualizarPersonaAutorizada(Persona_autorizada pa, Usuario admin) throws PersonaAutorizadaException {
+        Persona_autorizada personaExiste = em.find(Persona_autorizada.class, pa.getID());
 
         if (!admin.isAdministrador()){
             throw new PersonaAutorizadaException("No eres administrador");
@@ -44,43 +73,43 @@ public class PersonaAutorizadaEJB implements GestionPersonaAutorizada{
             throw new PersonaAutorizadaException("PersonaAutorizada no existente");
         }
 
-        em.merge(c);
+        em.merge(pa);
 
     }
 
     //@Requisitos({"RF7"})
     @Override
     public Persona_autorizada BuscarPersonaAutorizada(int id, Usuario admin) throws PersonaAutorizadaException {
-        Persona_autorizada c = em.find(Persona_autorizada.class, id);
+        Persona_autorizada pa = em.find(Persona_autorizada.class, id);
 
         if (!admin.isAdministrador()){
             throw new PersonaAutorizadaException("No eres administrador");
         }
 
 
-        if(c == null){
+        if(pa == null){
             throw new PersonaAutorizadaException("Persona autorizada no existente");
         }
-        return c;
+        return pa;
     }
 
     //@Requisitos({"RF8"})
     @Override
-    public void MarcarPersonaAutorizada(Persona_autorizada c, String estado, Usuario admin) throws PersonaAutorizadaException {
+    public void MarcarPersonaAutorizada(Persona_autorizada pa, String estado, Usuario admin) throws PersonaAutorizadaException {
 
-        Persona_autorizada personaExiste = em.find(Persona_autorizada.class, c.getID());
+        Persona_autorizada personaExiste = em.find(Persona_autorizada.class, pa.getID());
 
         if (!admin.isAdministrador()){
             throw new PersonaAutorizadaException("No eres administrador");
         }
 
-        if(c == null) {
+        if(personaExiste == null) {
             throw new PersonaAutorizadaException("Persona autorizada no existente");
         }
 
-        c.setEstado(estado);
+        pa.setEstado(estado);
 
-        em.merge(c);
+        em.merge(pa);
 
     }
 

@@ -32,6 +32,9 @@ public class BaseDatos {
 		Persona_autorizada pa = new Persona_autorizada(123, 123, "Juan", "Perez", "calle platano");
 		em.persist(pa);
 
+		Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date(), new Date(), "");
+		em.persist(c_fin);
+
 		/*
 		Date d = new Date(22,2,23);
 		Date d1 = new Date(20,5,18);

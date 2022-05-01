@@ -44,7 +44,7 @@ public class CuentaEJB implements GestionCuenta {
             LOGGER.info("DENTRO DEL EJB :--------------> " + c.toString());
             Cuenta cu = BuscarCuenta(c.getIBAN());
             cu.setSWIFT(c.getSWIFT());
-            em.merge(cu);
+            em.merge(c);
 
 
         }else{

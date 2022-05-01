@@ -1,5 +1,6 @@
 package es.uma.ejb;
 
+import es.uma.jpa.Cuenta_Fintech;
 import es.uma.jpa.Persona_autorizada;
 import es.uma.exceptions.PersonaAutorizadaException;
 import es.uma.jpa.Usuario;
@@ -7,6 +8,8 @@ import es.uma.jpa.Usuario;
 public interface GestionPersonaAutorizada {
 
     public void CrearPersonaAutorizada(Persona_autorizada c, Usuario admin) throws PersonaAutorizadaException;
+
+    public void AniadirPersonaAutorizada(Persona_autorizada pa, Cuenta_Fintech c_fin, Usuario admin) throws PersonaAutorizadaException;
 
     public void ActualizarPersonaAutorizada(Persona_autorizada c, Usuario admin) throws PersonaAutorizadaException;
 
