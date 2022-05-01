@@ -15,4 +15,7 @@ public interface GestionUsuario {
 
     public void MarcarUsuario(Usuario admin, Usuario u, String estado) throws UsuarioException;
 
+    public boolean LoginAdministrador(Usuario u,int id,String contra) throws UsuarioException;
+
+   public boolean LoginCliente(Usuario u,int id,String contra) throws UsuarioException;
 }

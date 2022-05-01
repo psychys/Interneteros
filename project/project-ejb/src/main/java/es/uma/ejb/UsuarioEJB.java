@@ -7,8 +7,10 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
+import java.util.*;
 import java.util.logging.Logger;
 
 @Stateless
@@ -80,19 +82,50 @@ public class UsuarioEJB implements GestionUsuario {
 
     }
 
-    /*public List<Usuario> getListaUsuarios() {
-        // TODO
-        EntityTransaction tx=em.getTransaction();
-        tx.begin();
-        TypedQuery<Usuario> query = em.createQuery("SELECT p from Usuario p", Usuario.class);
-        List<Usuario> listaProductos = query.getResultList();
-        tx.commit();
-        return listaProductos;
+    @Override
+    public boolean LoginAdministrador(Usuario u,int id,String contrasena) throws UsuarioException {
 
-    private int generarIdAleatorio() {
-        List lista = new ArrayList();
-        lista = getListaUsuarios();
-        return lista.size()+1;
-    }*/
+        //1º compruebo que existe el usuario
+        if (u == null) {
+            throw new UsuarioException("Prueba");
+        }else{
+            //2º compruebo que es admin
+            if(u.isAdministrador()) {
+                int id_admin = u.getId();
+                String contra_admin = u.getContrasena();
+
+                if(id_admin==id && contrasena==contra_admin){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                throw new UsuarioException("No es administrador");
+            }
+        }
+    }
+
+    @Override
+    public boolean LoginCliente(Usuario u,int id,String contrasena) throws UsuarioException {
+        //1º compruebo que existe el usuario
+        if (u == null) {
+            throw new UsuarioException("Prueba");
+        }else{
+            //2º compruebo que es admin
+            if(!u.isAdministrador()) {
+                int id_u = u.getId();
+                String contra_u = u.getContrasena();
+
+                if(id_u==id && contrasena==contra_u){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                throw new UsuarioException("Es administrador, cambiar login");
+            }
+        }
+    }
+
 
 }

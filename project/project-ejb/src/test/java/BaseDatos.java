@@ -35,6 +35,10 @@ public class BaseDatos {
 		Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date(), new Date(), "");
 		em.persist(c_fin);
 
+		Usuario admin = new Usuario(000, "123", true, "activo");
+
+		Usuario usuario_login = new Usuario(777, "123", false, "activo");
+
 		/*
 		Date d = new Date(22,2,23);
 		Date d1 = new Date(20,5,18);

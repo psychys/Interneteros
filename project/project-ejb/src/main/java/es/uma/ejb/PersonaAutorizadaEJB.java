@@ -31,7 +31,7 @@ public class PersonaAutorizadaEJB implements GestionPersonaAutorizada{
     }
 
     //@Requisitos({"RF6"})
-    @Override
+   /* @Override
     public void AniadirPersonaAutorizada(Persona_autorizada pa, Cuenta_Fintech c_fin, Usuario admin) throws PersonaAutorizadaException{
         Persona_autorizada personaExiste = em.find(Persona_autorizada.class, pa.getID());
         Cuenta_Fintech cuentaExiste = em.find(Cuenta_Fintech.class, c_fin.getIBAN());
@@ -59,7 +59,7 @@ public class PersonaAutorizadaEJB implements GestionPersonaAutorizada{
         em.merge(u);
 
     }
-
+*/
     @Override
     public void ActualizarPersonaAutorizada(Persona_autorizada pa, Usuario admin) throws PersonaAutorizadaException {
         Persona_autorizada personaExiste = em.find(Persona_autorizada.class, pa.getID());

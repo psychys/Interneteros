@@ -76,5 +76,23 @@ public class UsuarioPrueba {
 
     }
 
+    @Test
+    public void testLoginAdministrador() throws  UsuarioException{
+        Usuario admin = new Usuario(000, "123", true, "activo");
+
+        boolean res = gestionUsuario.LoginAdministrador(admin,000,"123");
+
+        assertEquals("Iniciada sesion correcta",res, true);
+    }
+
+    @Test
+    public void testLoginCliente() throws  UsuarioException{
+        Usuario usuario_login = new Usuario(777, "123", false, "activo");
+
+        boolean res = gestionUsuario.LoginCliente(usuario_login,777,"123");
+
+        assertEquals("Iniciada sesion correcta",res, true);
+    }
+
 }
 

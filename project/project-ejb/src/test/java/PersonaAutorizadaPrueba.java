@@ -51,11 +51,11 @@ public class PersonaAutorizadaPrueba {
     }
 
     //@Requisitos({"RF6"})
-    @Test
+   /* @Test
     public void testAniadirPersonaAutorizada() throws PersonaAutorizadaException, ClienteException, UsuarioException, CuentaException {
 
         Usuario admin = new Usuario(000, "123", true,"activo");
-        Persona_autorizada pa = gestionPersonaAutorizada.BuscarPersonaAutorizada(123,admin);
+        Persona_autorizada pa = gestionPersonaAutorizada.BuscarPersonaAutorizada(000,admin);
         Cliente c = gestionCliente.BuscarCliente(1);
         Usuario u = gestionUsuario.BuscarUsuario(1);
         Cuenta_Fintech c_fin = (Cuenta_Fintech) gestionCuenta.BuscarCuenta("123");
@@ -74,7 +74,7 @@ public class PersonaAutorizadaPrueba {
 
         assertEquals("No se ha añadido la persona autorizada", pa, c_fin2.getCliente().getU_usuario().getPersona_autorizada());
 
-    }
+    }*/
 
     @Test
     public void testBuscarPersonaAutorizada() throws PersonaAutorizadaException {
