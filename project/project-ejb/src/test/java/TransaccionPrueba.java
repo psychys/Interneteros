@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import javax.naming.NamingException;
 
 import es.uma.ejb.GestionCliente;
+import es.uma.ejb.GestionTransaccion;
 import es.uma.ejb.GestionUsuario;
 import es.uma.exceptions.ClienteException;
 import es.uma.exceptions.UsuarioException;
@@ -24,7 +25,7 @@ public class TransaccionPrueba {
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "eBuryTest";
 	private static final String CLIENTE_EJB = "java:global/classes/ClienteEJB";
 	private static final String USUARIO_EJB = "java:global/classes/UsuarioEJB";
-	private static final String TRANSACCOIN_EJB = "java:global/classes/TransaccionEJB";
+	private static final String TRANSACCION_EJB = "java:global/classes/TransaccionEJB";
 
     private GestionTransaccion gestionTransaccion;
 	private GestionCliente gestionCliente;
