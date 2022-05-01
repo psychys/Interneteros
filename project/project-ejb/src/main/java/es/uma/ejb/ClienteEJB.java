@@ -21,6 +21,7 @@ public class ClienteEJB implements GestionCliente {
     @PersistenceContext(name="eBuryEJB")
     private EntityManager em;
 
+    //@Requisitos({"RF2"})
     public void AltaCliente(Usuario admin, Cliente c) throws ClienteException {
         if(admin.isAdministrador()) {
 
@@ -36,6 +37,7 @@ public class ClienteEJB implements GestionCliente {
         }
 
     }
+    //@Requisitos({"RF3"})
     @Override
     public void ActualizarCliente(Usuario admin, Cliente c) throws ClienteException {
         if (admin.isAdministrador()) {

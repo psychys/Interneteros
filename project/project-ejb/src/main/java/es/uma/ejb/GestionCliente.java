@@ -6,8 +6,10 @@ import es.uma.exceptions.ClienteException;
 
 public interface GestionCliente {
 
+    //@Requisitos({"RF2"})
     public void AltaCliente(Usuario admin, Cliente c) throws ClienteException;
 
+    //@Requisitos({"RF3"})
     public void ActualizarCliente(Usuario admin, Cliente c) throws ClienteException;
 
     public Cliente BuscarCliente(int id) throws ClienteException;
