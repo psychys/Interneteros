@@ -3,6 +3,8 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="ejb" url="file://$PROJECT_DIR$/project-ejb" />
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/project-ear" />
+    <file type="web" url="file://$PROJECT_DIR$/project-war" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
