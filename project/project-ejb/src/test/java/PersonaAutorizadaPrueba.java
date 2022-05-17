@@ -1,4 +1,4 @@
-
+/*
 import es.uma.ejb.*;
 import es.uma.exceptions.ClienteException;
 import es.uma.exceptions.CuentaException;
@@ -74,7 +74,7 @@ public class PersonaAutorizadaPrueba {
 
         assertEquals("No se ha añadido la persona autorizada", pa, c_fin2.getCliente().getU_usuario().getPersona_autorizada());
 
-    }*/
+    }
 
     @Test
     public void testBuscarPersonaAutorizada() throws PersonaAutorizadaException {
@@ -122,3 +122,4 @@ public class PersonaAutorizadaPrueba {
     }
 
 }
+*/
