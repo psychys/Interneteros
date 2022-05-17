@@ -7,13 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="project-ejb" />
+        <module name="project-war" />
         <module name="project-jpa" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="project" target="1.8" />
-      <module name="project-ejb" target="1.8" />
-      <module name="project-jpa" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
