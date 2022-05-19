@@ -19,6 +19,7 @@ public class DepositadaPooledReferencia {
     @JoinColumn(name = "REFERENCIA")
     private Cuenta_referencia cuenta_referencia;
 
+    @Column(name = "saldo", insertable = false , updatable = false )
     private int saldo;
 
     public DepositadaPooledReferencia(){

@@ -19,21 +19,21 @@ public class Divisa {
     private double cambio_euro;
     
     @OneToMany (mappedBy = "emisor")
-    @JoinTable(name = "divisa_emisor", 
-	joinColumns = @JoinColumn(name = "divisa"), 
-	inverseJoinColumns = @JoinColumn(name = "id_trans"))
+    //@JoinTable(name = "divisa_emisor",
+	//joinColumns = @JoinColumn(name = "divisa"),
+	//inverseJoinColumns = @JoinColumn(name = "id_trans"))
     private List<Transaccion> trans_emsior;
     
     @OneToMany (mappedBy = "receptor")
-    @JoinTable(name = "divisa_receptor", 
-	joinColumns = @JoinColumn(name = "divisa"), 
-	inverseJoinColumns = @JoinColumn(name = "id_trans"))
+    //@JoinTable(name = "divisa_receptor",
+	//joinColumns = @JoinColumn(name = "divisa"),
+	//inverseJoinColumns = @JoinColumn(name = "id_trans"))
     private List<Transaccion> trans_receptor;
 
 	@OneToMany (mappedBy = "divisa")
-	@JoinTable(name = "divisa_cref",
-	joinColumns = @JoinColumn(name = "divisa"),
-	inverseJoinColumns = @JoinColumn(name = "c_ref"))
+	//@JoinTable(name = "divisa_cref",
+	//joinColumns = @JoinColumn(name = "divisa"),
+	//inverseJoinColumns = @JoinColumn(name = "c_ref"))
 	private List<Cuenta_referencia> c_ref;
 
 	public List<Cuenta_referencia> getC_ref() {

@@ -1,5 +1,6 @@
 package es.uma.interneteros.jpa;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
@@ -8,6 +9,8 @@ public class AutorizacionId implements Serializable {
 	
 	private int ID_empresa;
 	private int ID_autorizado;
+
+	@Column(name = "tipo", insertable = false , updatable = false )
 	private String tipo;
 	
 	

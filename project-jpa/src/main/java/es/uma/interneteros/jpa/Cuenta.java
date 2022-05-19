@@ -16,15 +16,15 @@ public class Cuenta {
 	private String estado;
 
 	@OneToMany (mappedBy = "origen")
-	@JoinTable(name = "cuenta_origen", 
-	joinColumns = @JoinColumn(name = "cuenta"), 
-	inverseJoinColumns = @JoinColumn(name = "id_trans"))
+	//@JoinTable(name = "cuenta_origen",
+	//joinColumns = @JoinColumn(name = "cuenta"),
+	//inverseJoinColumns = @JoinColumn(name = "id_trans"))
 	private List<Transaccion> cuenta_emsior;
 	
 	@OneToMany (mappedBy = "destino")
-	@JoinTable(name = "cuenta_receptor", 
-	joinColumns = @JoinColumn(name = "divisa"), 
-	inverseJoinColumns = @JoinColumn(name = "id_trans"))
+	//@JoinTable(name = "cuenta_receptor",
+	//joinColumns = @JoinColumn(name = "divisa"),
+	//inverseJoinColumns = @JoinColumn(name = "id_trans"))
 	private List<Transaccion> cuenta_receptor;
 	
 	public Cuenta() {

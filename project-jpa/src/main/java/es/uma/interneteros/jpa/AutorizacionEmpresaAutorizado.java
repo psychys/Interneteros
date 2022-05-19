@@ -18,6 +18,7 @@ public class AutorizacionEmpresaAutorizado {
     @JoinColumn(name = "AUTORIZADO_ID")
     private Persona_autorizada autorizado;
 
+    @Column(name = "tipo", insertable = false , updatable = false )
     private String tipo;
 
 
