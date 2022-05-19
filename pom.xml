@@ -18,5 +18,6 @@
 		<module>project-jpa</module>
 		<module>project-war</module>
 		<module>project-ear</module>
+		<module>project-tests</module>
 	</modules>
 </project>
