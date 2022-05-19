@@ -5,7 +5,7 @@ import es.uma.interneteros.ejb.exceptions.ClienteException;
 import es.uma.interneteros.ejb.exceptions.CuentaException;
 import es.uma.interneteros.ejb.exceptions.PersonaAutorizadaException;
 import es.uma.interneteros.ejb.exceptions.UsuarioException;
-import es.uma.informatica.sii.anotaciones.Requisitos;
+//import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.jpa.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -52,7 +52,7 @@ public class PersonaAutorizadaPrueba {
 
     }
 
-    @Requisitos({"RF6"})
+    //@Requisitos({"RF6"})
    /* @Test
     public void testAniadirPersonaAutorizada() throws PersonaAutorizadaException, ClienteException, UsuarioException, CuentaException {
 
@@ -92,7 +92,7 @@ public class PersonaAutorizadaPrueba {
 
     }
 
-    @Requisitos({"RF7"})
+    //@Requisitos({"RF7"})
     @Test
     public void testActualizarPersonaAutorizada() throws PersonaAutorizadaException {
 
@@ -110,7 +110,7 @@ public class PersonaAutorizadaPrueba {
         assertNotEquals("No se ha actualizado la persona autorizada", calle, pa.getDireccion());
     }
 
-    @Requisitos({"RF8"})
+    //@Requisitos({"RF8"})
     @Test
     public void testMarcarPersonaAutorizada() throws PersonaAutorizadaException {
 

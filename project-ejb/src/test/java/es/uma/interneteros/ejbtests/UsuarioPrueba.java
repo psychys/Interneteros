@@ -14,7 +14,7 @@ import es.uma.interneteros.jpa.Cliente;
 import es.uma.interneteros.jpa.Usuario;
 import org.junit.Before;
 import org.junit.Test;
-import es.uma.informatica.sii.anotaciones.Requisitos;
+//import es.uma.informatica.sii.anotaciones.Requisitos;
 
 
 import static org.junit.Assert.*;

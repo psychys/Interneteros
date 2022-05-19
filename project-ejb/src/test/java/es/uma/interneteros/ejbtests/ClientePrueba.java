@@ -17,7 +17,7 @@ import org.junit.Test;
 
 
 import static org.junit.Assert.*;
-import es.uma.informatica.sii.anotaciones.Requisitos;
+//import es.uma.informatica.sii.anotaciones.Requisitos;
 
 
 public class ClientePrueba {
@@ -67,7 +67,7 @@ public class ClientePrueba {
 
 	}
 
-	@Requisitos({"RF4"})
+	//@Requisitos({"RF4"})
 	@Test
 	public void testMarcarCliente() throws ClienteException {
 

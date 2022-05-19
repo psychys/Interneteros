@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.logging.Logger;
 
 import static org.junit.Assert.*;
-import es.uma.informatica.sii.anotaciones.Requisitos;
+//import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class CuentaPrueba {
 
@@ -30,7 +30,7 @@ public class CuentaPrueba {
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
 
-    @Requisitos({"RF5"})
+    //@Requisitos({"RF5"})
     @Test
     public void testCrearCuenta() throws CuentaException {
 
@@ -79,7 +79,7 @@ public class CuentaPrueba {
 
     }
 
-    @Requisitos({"RF9"})
+    //@Requisitos({"RF9"})
     @Test
     public void testMarcarCuenta() throws CuentaException {
 

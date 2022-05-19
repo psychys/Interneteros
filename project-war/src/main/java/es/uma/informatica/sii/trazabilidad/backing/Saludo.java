@@ -1,4 +1,4 @@
-package es.uma.interneteros.project.backing;
+package es.uma.informatica.sii.trazabilidad.backing;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
