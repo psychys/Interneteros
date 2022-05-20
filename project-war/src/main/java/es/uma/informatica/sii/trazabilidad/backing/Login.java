@@ -5,6 +5,7 @@
  */
 package es.uma.informatica.sii.trazabilidad.backing;
 
+import es.uma.interneteros.ejb.GestionUsuario;
 import es.uma.interneteros.ejb.UsuarioEJB;
 import es.uma.interneteros.ejb.exceptions.UsuarioException;
 import es.uma.interneteros.jpa.Usuario;
@@ -20,7 +21,7 @@ import javax.inject.Inject;
 public class Login {
 
     @Inject
-    private UsuarioEJB usuarioEJB;
+    private GestionUsuario usuarioEJB;
     @Inject
     private InfoSesion sesion;
 
