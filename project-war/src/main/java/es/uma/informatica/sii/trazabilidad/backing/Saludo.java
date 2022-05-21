@@ -8,7 +8,7 @@ import javax.inject.Named;
 public class Saludo {
        
        public String getSaludo() {
-               return "Hola mundo";
+               return "Hola mi rey";
        }
 
 }
