@@ -12,6 +12,7 @@ es/uma/interneteros/ejb/GestionCuenta.class
 es/uma/interneteros/ejb/exceptions/ClienteException.class
 es/uma/interneteros/ejb/GestionDivisa.class
 es/uma/interneteros/ejb/GestionPersonaAutorizada.class
+es/uma/interneteros/ejb/InicializaBBDD.class
 es/uma/interneteros/ejb/DivisaEJB.class
 es/uma/interneteros/ejb/exceptions/TransaccionException.class
 es/uma/interneteros/ejb/TransaccionEJB.class

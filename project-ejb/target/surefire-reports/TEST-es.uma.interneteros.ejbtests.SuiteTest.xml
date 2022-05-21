@@ -1,0 +1,1228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="0" name="es.uma.interneteros.ejbtests.SuiteTest" time="22.184" errors="1" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.312-b07"/>
+    <property name="java.vm.vendor" value="Private Build"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/alumno/Desktop/Interneteros"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="ES"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="skipt.ejb.tests" value="true"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/alumno/Desktop/Interneteros"/>
+    <property name="java.runtime.version" value="1.8.0_312-8u312-b07-0ubuntu1~20.04-b07"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="maven.conf" value="/usr/share/maven/conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="5.13.0-41-generic"/>
+    <property name="library.jansi.path" value="/usr/share/maven/lib/jansi-native"/>
+    <property name="user.home" value="/home/alumno"/>
+    <property name="user.timezone" value="Europe/Madrid"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="alumno"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package -Dskipt.ejb.tests"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="es"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_312"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+    <property name="java.vendor" value="Private Build"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase classname="es.uma.interneteros.ejbtests.SuiteTest" name="es.uma.interneteros.ejbtests.SuiteTest" time="22.184">
+    <error message="Failed to deploy EJB modules - see log for details" type="javax.ejb.EJBException">javax.ejb.EJBException: Failed to deploy EJB modules - see log for details
+	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:125)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool]
+JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool]
+</system-out>
+    <system-err>may 21, 2022 11:51:16 AM org.glassfish.ejb.embedded.EJBContainerProviderImpl getValidFile
+ADVERTENCIA: EJB6008:Specified or calculated application server instance [/home/alumno/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/domains/domain1] does not exist.
+may 21, 2022 11:51:16 AM org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
+INFORMACIÓN: [EJBContainerProviderImpl] Using config file location: file:/tmp/domain1273674153748752654xml
+may 21, 2022 11:51:16 AM org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
+INFORMACIÓN: [EJBContainerProviderImpl] Using runtime class: class com.sun.enterprise.glassfish.bootstrap.StaticGlassFishRuntime
+may 21, 2022 11:51:17 AM com.sun.enterprise.v3.server.CommonClassLoaderServiceImpl findDerbyClient
+INFORMACIÓN: Cannot find javadb client jar file, derby jdbc driver will not be available by default.
+may 21, 2022 11:51:17 AM org.glassfish.resourcebase.resources.api.ResourcesBinder deployResource
+GRAVE: Cannot bind resource [java:jboss/datasources/sii] to naming manager. Following exception occurred [javax.naming.NamingException: java:comp namespace cannot be modified].
+may 21, 2022 11:51:17 AM org.hibernate.validator.internal.util.Version &lt;clinit&gt;
+INFO: HV000001: Hibernate Validator null
+may 21, 2022 11:51:18 AM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+INFORMACIÓN: Authorization Service has successfully initialized.
+may 21, 2022 11:51:19 AM com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
+GRAVE: The SSL certificate has expired: [
+[
+  Version: V3
+  Subject: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
+  Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
+
+  Key:  Sun RSA public key, 1024 bits
+  params: null
+  modulus: 145607243452859689580129548866124791697266876389020072346169573106005067922351621693980274409566977123703120560397141987498630922827852965950283535196583826176478163336993643826795231487853960699742178569310586812871660687609669142799497192378661602695305819033929044820179434366507221428988785371476479913059
+  public exponent: 65537
+  Validity: [From: Tue Jul 07 10:27:35 CEST 2009,
+               To: Fri Jul 05 10:27:35 CEST 2019]
+  Issuer: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
+  SerialNumber: [    4a5306f7]
+
+Certificate Extensions: 1
+[1]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 8F FB 7A 0A BF 38 54 A6   0D 9D CC 28 F8 7A B2 25  ..z..8T....(.z.%
+0010: F2 F8 A1 99                                        ....
+]
+]
+
+]
+  Algorithm: [SHA1withRSA]
+  Signature:
+0000: 7A 53 96 EE 26 C0 6C 06   A5 68 45 43 49 A8 21 B7  zS..&amp;.l..hECI.!.
+0010: 03 E3 3C 22 97 76 B0 EC   0C F1 11 C9 D7 67 20 CA  ..&lt;&quot;.v.......g .
+0020: E5 0E 29 F8 64 FA C5 5A   FA D9 34 76 39 61 C4 21  ..).d..Z..4v9a.!
+0030: 82 A1 C5 27 D8 B7 B3 1B   6C 95 3B 01 6C C3 15 0F  ...&apos;....l.;.l...
+0040: B4 4D 50 E3 8F E9 CC 96   CC FF 95 2B 61 7C 30 D4  .MP........+a.0.
+0050: B1 00 0F 9E 4C 1B F8 08   DC 4C 30 CC 0E CB FC 92  ....L....L0.....
+0060: B3 C5 D5 F5 01 84 33 40   CA 42 B1 A3 2C 88 89 B9  ......3@.B..,...
+0070: 04 90 F3 2C C5 FA E4 A2   DC 16 17 4A 02 A7 ED 94  ...,.......J....
+
+]
+may 21, 2022 11:51:19 AM com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
+GRAVE: The SSL certificate has expired: [
+[
+  Version: V3
+  Subject: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
+  Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
+
+  Key:  Sun RSA public key, 1024 bits
+  params: null
+  modulus: 145607243452859689580129548866124791697266876389020072346169573106005067922351621693980274409566977123703120560397141987498630922827852965950283535196583826176478163336993643826795231487853960699742178569310586812871660687609669142799497192378661602695305819033929044820179434366507221428988785371476479913059
+  public exponent: 65537
+  Validity: [From: Tue Jul 07 10:27:35 CEST 2009,
+               To: Fri Jul 05 10:27:35 CEST 2019]
+  Issuer: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
+  SerialNumber: [    4a5306f7]
+
+Certificate Extensions: 1
+[1]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 8F FB 7A 0A BF 38 54 A6   0D 9D CC 28 F8 7A B2 25  ..z..8T....(.z.%
+0010: F2 F8 A1 99                                        ....
+]
+]
+
+]
+  Algorithm: [SHA1withRSA]
+  Signature:
+0000: 7A 53 96 EE 26 C0 6C 06   A5 68 45 43 49 A8 21 B7  zS..&amp;.l..hECI.!.
+0010: 03 E3 3C 22 97 76 B0 EC   0C F1 11 C9 D7 67 20 CA  ..&lt;&quot;.v.......g .
+0020: E5 0E 29 F8 64 FA C5 5A   FA D9 34 76 39 61 C4 21  ..).d..Z..4v9a.!
+0030: 82 A1 C5 27 D8 B7 B3 1B   6C 95 3B 01 6C C3 15 0F  ...&apos;....l.;.l...
+0040: B4 4D 50 E3 8F E9 CC 96   CC FF 95 2B 61 7C 30 D4  .MP........+a.0.
+0050: B1 00 0F 9E 4C 1B F8 08   DC 4C 30 CC 0E CB FC 92  ....L....L0.....
+0060: B3 C5 D5 F5 01 84 33 40   CA 42 B1 A3 2C 88 89 B9  ......3@.B..,...
+0070: 04 90 F3 2C C5 FA E4 A2   DC 16 17 4A 02 A7 ED 94  ...,.......J....
+
+]
+may 21, 2022 11:51:19 AM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+INFORMACIÓN: Undefined Product Name - define product and version info in config/branding  0.0.0  (0) startup time : Embedded (1.043ms), startup services(1.740ms), total(2.783ms)
+may 21, 2022 11:51:19 AM com.sun.jts.CosTransactions.DefaultTransactionService setServerName
+INFORMACIÓN: JTS5014: Recoverable JTS instance, serverId = [100]
+may 21, 2022 11:51:19 AM org.glassfish.admin.mbeanserver.JMXStartupService$JMXConnectorsStarterThread run
+INFORMACIÓN: JMXStartupService has disabled JMXConnector system
+may 21, 2022 11:51:19 AM com.sun.enterprise.connectors.jms.util.JmsRaUtil getInstalledMqVersion
+ADVERTENCIA: Check for a new version of MQ installation failed : /tmp/gfembed959607679120846367tmp/lib/install/applications/jmsra/../imqjmsra.rar (No existe el archivo o el directorio):/tmp/gfembed959607679120846367tmp/lib/install/applications/jmsra/imqjmsra.rar
+may 21, 2022 11:51:19 AM org.glassfish.ejb.embedded.EJBContainerProviderImpl skipJar
+INFORMACIÓN: ... skipping entry with a Manifest file with a special attribute: glassfish-embedded-all-5.1.0.jar
+may 21, 2022 11:51:20 AM org.glassfish.deployment.common.GenericAnnotationDetector scanArchive
+ADVERTENCIA: NCLS-DEPLOYMENT-00009
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding EJB module to ScatteredArchive classes
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive project-jpa-0.0.1-SNAPSHOT.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive h2-1.4.200.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive hamcrest-core-1.3.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive eclipselink-2.7.6.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive jakarta.persistence-2.2.3.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive javax.mail-1.6.0.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive junit-4.13.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive test-classes
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive commonj.sdo-2.1.1.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive javaee-api-8.0.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive tools.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive activation-1.1.jar
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.EJBContainerImpl deploy
+INFORMACIÓN: [EJBContainerImpl] Deploying app: org.glassfish.embeddable.archive.ScatteredArchive@30d2f9ea
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.EJBContainerImpl deploy
+INFORMACIÓN: [EJBContainerImpl] GlassFish status: STARTED
+may 21, 2022 11:51:20 AM org.glassfish.ejb.embedded.EJBContainerImpl deploy
+INFORMACIÓN: [EJBContainerImpl] Deploying as a ScatteredArchive
+may 21, 2022 11:51:30 AM org.glassfish.hk2.classmodel.reflect.Parser$5 on
+GRAVE: Exception while visiting META-INF/versions/10/org/h2/util/NetUtils2.class of size 876
+java.lang.IllegalArgumentException
+	at org.glassfish.hk2.external.org.objectweb.asm.ClassReader.&lt;init&gt;(ClassReader.java:160)
+	at org.glassfish.hk2.external.org.objectweb.asm.ClassReader.&lt;init&gt;(ClassReader.java:143)
+	at org.glassfish.hk2.external.org.objectweb.asm.ClassReader.&lt;init&gt;(ClassReader.java:418)
+	at org.glassfish.hk2.classmodel.reflect.Parser$5.on(Parser.java:335)
+	at com.sun.enterprise.v3.server.ReadableArchiveScannerAdapter.handleEntry(ReadableArchiveScannerAdapter.java:141)
+	at com.sun.enterprise.v3.server.ReadableArchiveScannerAdapter.onSelectedEntries(ReadableArchiveScannerAdapter.java:103)
+	at org.glassfish.hk2.classmodel.reflect.Parser.doJob(Parser.java:321)
+	at org.glassfish.hk2.classmodel.reflect.Parser.access$300(Parser.java:44)
+	at org.glassfish.hk2.classmodel.reflect.Parser$3.call(Parser.java:280)
+	at org.glassfish.hk2.classmodel.reflect.Parser$3.call(Parser.java:269)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+may 21, 2022 11:51:31 AM com.sun.enterprise.security.SecurityLifecycle &lt;init&gt;
+INFORMACIÓN: Java security manager is disabled.
+may 21, 2022 11:51:31 AM com.sun.enterprise.security.SecurityLifecycle onInitialization
+INFORMACIÓN: Entering Security Startup Service.
+may 21, 2022 11:51:31 AM com.sun.enterprise.security.PolicyLoader loadPolicy
+INFORMACIÓN: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+may 21, 2022 11:51:31 AM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+INFORMACIÓN: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+may 21, 2022 11:51:31 AM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+INFORMACIÓN: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+may 21, 2022 11:51:31 AM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+INFORMACIÓN: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+may 21, 2022 11:51:31 AM com.sun.enterprise.security.SecurityLifecycle onInitialization
+INFORMACIÓN: Security Service(s) started successfully.
+may 21, 2022 11:51:35 AM org.eclipse.persistence.session./file:/tmp/gfembed959607679120846367tmp/applications/classes/_project
+INFORMACIÓN: EclipseLink, version: Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a
+may 21, 2022 11:51:37 AM org.eclipse.persistence.session./file:/tmp/gfembed959607679120846367tmp/applications/classes/_project
+GRAVE: 
+Local Exception Stack: 
+Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:768)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:704)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:635)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.postConnectDatasource(DatabaseSessionImpl.java:874)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:817)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:769)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getDatabaseSession(EntityManagerFactoryDelegate.java:197)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.getDatabaseSession(EntityManagerFactoryImpl.java:542)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:388)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.loadPU(PersistenceUnitLoader.java:175)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.&lt;init&gt;(PersistenceUnitLoader.java:83)
+	at org.glassfish.persistence.jpa.JPADeployer$1.visitPUD(JPADeployer.java:199)
+	at org.glassfish.persistence.jpa.JPADeployer$PersistenceUnitDescriptorIterator.iteratePUDs(JPADeployer.java:486)
+	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:206)
+	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+
+Local Exception Stack: 
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+	at org.eclipse.persistence.exceptions.DescriptorException.noMappingForPrimaryKey(DescriptorException.java:1084)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.initializePrimaryKey(ObjectBuilder.java:3925)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.initialize(ObjectBuilder.java:3709)
+	at org.eclipse.persistence.descriptors.ClassDescriptor.initialize(ClassDescriptor.java:3320)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:745)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:704)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:635)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.postConnectDatasource(DatabaseSessionImpl.java:874)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:817)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:769)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getDatabaseSession(EntityManagerFactoryDelegate.java:197)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.getDatabaseSession(EntityManagerFactoryImpl.java:542)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:388)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.loadPU(PersistenceUnitLoader.java:175)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.&lt;init&gt;(PersistenceUnitLoader.java:83)
+	at org.glassfish.persistence.jpa.JPADeployer$1.visitPUD(JPADeployer.java:199)
+	at org.glassfish.persistence.jpa.JPADeployer$PersistenceUnitDescriptorIterator.iteratePUDs(JPADeployer.java:486)
+	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:206)
+	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+
+Local Exception Stack: 
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+	at org.eclipse.persistence.exceptions.DescriptorException.noMappingForPrimaryKey(DescriptorException.java:1084)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.initializePrimaryKey(ObjectBuilder.java:3925)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.initialize(ObjectBuilder.java:3709)
+	at org.eclipse.persistence.descriptors.ClassDescriptor.initialize(ClassDescriptor.java:3320)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:745)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:704)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:635)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.postConnectDatasource(DatabaseSessionImpl.java:874)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:817)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:769)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getDatabaseSession(EntityManagerFactoryDelegate.java:197)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.getDatabaseSession(EntityManagerFactoryImpl.java:542)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:388)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.loadPU(PersistenceUnitLoader.java:175)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.&lt;init&gt;(PersistenceUnitLoader.java:83)
+	at org.glassfish.persistence.jpa.JPADeployer$1.visitPUD(JPADeployer.java:199)
+	at org.glassfish.persistence.jpa.JPADeployer$PersistenceUnitDescriptorIterator.iteratePUDs(JPADeployer.java:486)
+	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:206)
+	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+may 21, 2022 11:51:37 AM org.eclipse.persistence.session./file:/tmp/gfembed959607679120846367tmp/applications/classes/_project.server
+ADVERTENCIA: Problem while unregistering MBean: javax.management.InstanceNotFoundException: TopLink:Name=Development-/file_/tmp/gfembed959607679120846367tmp/applications/classes/_project,Type=Configuration
+may 21, 2022 11:51:37 AM org.eclipse.persistence.session./file:/tmp/gfembed959607679120846367tmp/applications/classes/_project.server
+ADVERTENCIA: Problem while unregistering MBean: javax.management.InstanceNotFoundException: TopLink:Name=Session(/file_/tmp/gfembed959607679120846367tmp/applications/classes/_project)
+may 21, 2022 11:51:37 AM org.eclipse.persistence.session./file:/tmp/gfembed959607679120846367tmp/applications/classes/_project.connection
+INFORMACIÓN: /file:/tmp/gfembed959607679120846367tmp/applications/classes/_project logout successful
+may 21, 2022 11:51:37 AM org.eclipse.persistence.session./file:/tmp/gfembed959607679120846367tmp/applications/classes/_project.ejb
+GRAVE: 
+Local Exception Stack: 
+Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:768)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:704)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:635)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.postConnectDatasource(DatabaseSessionImpl.java:874)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:817)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:769)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getDatabaseSession(EntityManagerFactoryDelegate.java:197)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.getDatabaseSession(EntityManagerFactoryImpl.java:542)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:388)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.loadPU(PersistenceUnitLoader.java:175)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.&lt;init&gt;(PersistenceUnitLoader.java:83)
+	at org.glassfish.persistence.jpa.JPADeployer$1.visitPUD(JPADeployer.java:199)
+	at org.glassfish.persistence.jpa.JPADeployer$PersistenceUnitDescriptorIterator.iteratePUDs(JPADeployer.java:486)
+	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:206)
+	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+
+Local Exception Stack: 
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+	at org.eclipse.persistence.exceptions.DescriptorException.noMappingForPrimaryKey(DescriptorException.java:1084)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.initializePrimaryKey(ObjectBuilder.java:3925)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.initialize(ObjectBuilder.java:3709)
+	at org.eclipse.persistence.descriptors.ClassDescriptor.initialize(ClassDescriptor.java:3320)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:745)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:704)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:635)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.postConnectDatasource(DatabaseSessionImpl.java:874)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:817)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:769)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getDatabaseSession(EntityManagerFactoryDelegate.java:197)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.getDatabaseSession(EntityManagerFactoryImpl.java:542)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:388)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.loadPU(PersistenceUnitLoader.java:175)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.&lt;init&gt;(PersistenceUnitLoader.java:83)
+	at org.glassfish.persistence.jpa.JPADeployer$1.visitPUD(JPADeployer.java:199)
+	at org.glassfish.persistence.jpa.JPADeployer$PersistenceUnitDescriptorIterator.iteratePUDs(JPADeployer.java:486)
+	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:206)
+	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+
+Local Exception Stack: 
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+	at org.eclipse.persistence.exceptions.DescriptorException.noMappingForPrimaryKey(DescriptorException.java:1084)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.initializePrimaryKey(ObjectBuilder.java:3925)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.initialize(ObjectBuilder.java:3709)
+	at org.eclipse.persistence.descriptors.ClassDescriptor.initialize(ClassDescriptor.java:3320)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:745)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:704)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:635)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.postConnectDatasource(DatabaseSessionImpl.java:874)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:817)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:769)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getDatabaseSession(EntityManagerFactoryDelegate.java:197)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.getDatabaseSession(EntityManagerFactoryImpl.java:542)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:388)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.loadPU(PersistenceUnitLoader.java:175)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.&lt;init&gt;(PersistenceUnitLoader.java:83)
+	at org.glassfish.persistence.jpa.JPADeployer$1.visitPUD(JPADeployer.java:199)
+	at org.glassfish.persistence.jpa.JPADeployer$PersistenceUnitDescriptorIterator.iteratePUDs(JPADeployer.java:486)
+	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:206)
+	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+may 21, 2022 11:51:37 AM org.glassfish.api.ActionReport failure
+GRAVE: Exception while invoking class org.glassfish.persistence.jpa.JPADeployer prepare method
+javax.persistence.PersistenceException: Exception [EclipseLink-28019] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Deployment of PersistenceUnit [project] failed. Close all factories for this PersistenceUnit.
+Internal Exception: Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.createDeployFailedPersistenceException(EntityManagerSetupImpl.java:908)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:848)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getDatabaseSession(EntityManagerFactoryDelegate.java:197)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.getDatabaseSession(EntityManagerFactoryImpl.java:542)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:388)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.loadPU(PersistenceUnitLoader.java:175)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.&lt;init&gt;(PersistenceUnitLoader.java:83)
+	at org.glassfish.persistence.jpa.JPADeployer$1.visitPUD(JPADeployer.java:199)
+	at org.glassfish.persistence.jpa.JPADeployer$PersistenceUnitDescriptorIterator.iteratePUDs(JPADeployer.java:486)
+	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:206)
+	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: Exception [EclipseLink-28019] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Deployment of PersistenceUnit [project] failed. Close all factories for this PersistenceUnit.
+Internal Exception: Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+	at org.eclipse.persistence.exceptions.EntityManagerSetupException.deployFailed(EntityManagerSetupException.java:241)
+	... 61 more
+Caused by: Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:768)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:704)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:635)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.postConnectDatasource(DatabaseSessionImpl.java:874)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:817)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:769)
+	... 59 more
+may 21, 2022 11:51:37 AM org.glassfish.api.ActionReport failure
+GRAVE: Exception while preparing the app
+may 21, 2022 11:51:37 AM com.sun.enterprise.v3.server.ApplicationLifecycle deploy
+GRAVE: Exception during lifecycle processing
+javax.persistence.PersistenceException: Exception [EclipseLink-28019] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Deployment of PersistenceUnit [project] failed. Close all factories for this PersistenceUnit.
+Internal Exception: Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.createDeployFailedPersistenceException(EntityManagerSetupImpl.java:908)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:848)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getDatabaseSession(EntityManagerFactoryDelegate.java:197)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.getDatabaseSession(EntityManagerFactoryImpl.java:542)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:388)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.loadPU(PersistenceUnitLoader.java:175)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.&lt;init&gt;(PersistenceUnitLoader.java:83)
+	at org.glassfish.persistence.jpa.JPADeployer$1.visitPUD(JPADeployer.java:199)
+	at org.glassfish.persistence.jpa.JPADeployer$PersistenceUnitDescriptorIterator.iteratePUDs(JPADeployer.java:486)
+	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:206)
+	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: Exception [EclipseLink-28019] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Deployment of PersistenceUnit [project] failed. Close all factories for this PersistenceUnit.
+Internal Exception: Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+	at org.eclipse.persistence.exceptions.EntityManagerSetupException.deployFailed(EntityManagerSetupException.java:241)
+	... 61 more
+Caused by: Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:768)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:704)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:635)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.postConnectDatasource(DatabaseSessionImpl.java:874)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:817)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:769)
+	... 59 more
+
+may 21, 2022 11:51:37 AM org.glassfish.deployment.admin.DeployCommand execute
+GRAVE: Exception while preparing the app : Exception [EclipseLink-28019] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Deployment of PersistenceUnit [project] failed. Close all factories for this PersistenceUnit.
+Internal Exception: Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+Local Exception Stack: 
+Exception [EclipseLink-28019] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Deployment of PersistenceUnit [project] failed. Close all factories for this PersistenceUnit.
+Internal Exception: Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+	at org.eclipse.persistence.exceptions.EntityManagerSetupException.deployFailed(EntityManagerSetupException.java:241)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.createDeployFailedPersistenceException(EntityManagerSetupImpl.java:908)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:848)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getDatabaseSession(EntityManagerFactoryDelegate.java:197)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.getDatabaseSession(EntityManagerFactoryImpl.java:542)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactoryImpl(PersistenceProvider.java:388)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createContainerEntityManagerFactory(PersistenceProvider.java:316)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.loadPU(PersistenceUnitLoader.java:175)
+	at org.glassfish.persistence.jpa.PersistenceUnitLoader.&lt;init&gt;(PersistenceUnitLoader.java:83)
+	at org.glassfish.persistence.jpa.JPADeployer$1.visitPUD(JPADeployer.java:199)
+	at org.glassfish.persistence.jpa.JPADeployer$PersistenceUnitDescriptorIterator.iteratePUDs(JPADeployer.java:486)
+	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:206)
+	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:360)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
+	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [AUTORIZACIONEMPRESAAUTORIZADO.tipo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.AutorizacionEmpresaAutorizado --&gt; [DatabaseTable(AUTORIZACIONEMPRESAAUTORIZADO)])
+
+Exception [EclipseLink-46] (Eclipse Persistence Services - 2.7.4.v20190115-ad5b7c6b2a): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: There should be one non-read-only mapping defined for the primary key field [DEPOSITADAPOOLEDREFERENCIA.saldo].
+Descriptor: RelationalDescriptor(es.uma.interneteros.jpa.DepositadaPooledReferencia --&gt; [DatabaseTable(DEPOSITADAPOOLEDREFERENCIA)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:768)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:704)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.initializeDescriptors(DatabaseSessionImpl.java:635)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.postConnectDatasource(DatabaseSessionImpl.java:874)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:817)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:769)
+	... 59 more
+
+may 21, 2022 11:51:37 AM org.glassfish.ejb.embedded.EJBContainerProviderImpl createEJBContainer
+INFORMACIÓN: [EJBContainerProviderImpl] Cleaning up on failure ...
+may 21, 2022 11:51:37 AM com.sun.enterprise.connectors.service.ConnectorResourceAdminServiceImpl deleteConnectorResource
+GRAVE: RAR7133: Unable to remove resource [ java:jboss/datasources/sii ] from jndi
+may 21, 2022 11:51:37 AM com.sun.enterprise.connectors.service.ConnectorResourceAdminServiceImpl deleteConnectorResource
+GRAVE: 
+com.sun.appserv.connectors.internal.api.ConnectorRuntimeException: Failed to delete connector resource from jndi
+	at com.sun.enterprise.connectors.service.ConnectorResourceAdminServiceImpl.deleteConnectorResource(ConnectorResourceAdminServiceImpl.java:157)
+	at com.sun.enterprise.connectors.ConnectorRuntime.deleteConnectorResource(ConnectorRuntime.java:356)
+	at org.glassfish.jdbc.deployer.JdbcResourceDeployer.deleteResource(JdbcResourceDeployer.java:133)
+	at org.glassfish.jdbc.deployer.JdbcResourceDeployer.undeployResource(JdbcResourceDeployer.java:128)
+	at org.glassfish.resourcebase.resources.listener.ResourceManager.undeployResources(ResourceManager.java:213)
+	at com.sun.enterprise.connectors.ConnectorRuntime.cleanUpResourcesAndShutdownAllActiveRAs(ConnectorRuntime.java:976)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.cleanupConnectorRuntime(EJBContainerImpl.java:228)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.forceClose(EJBContainerImpl.java:168)
+	at org.glassfish.ejb.embedded.EJBContainerImpl.close(EJBContainerImpl.java:155)
+	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:123)
+	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:103)
+	at es.uma.interneteros.ejbtests.SuiteTest.setUpClass(SuiteTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: javax.naming.NamingException: java:comp namespace cannot be modified
+	at com.sun.enterprise.naming.impl.JavaURLContext.unbind(JavaURLContext.java:273)
+	at com.sun.enterprise.naming.impl.SerialContext.unbind(SerialContext.java:681)
+	at javax.naming.InitialContext.unbind(InitialContext.java:441)
+	at javax.naming.InitialContext.unbind(InitialContext.java:441)
+	at com.sun.enterprise.naming.impl.GlassfishNamingManagerImpl.unpublishObject(GlassfishNamingManagerImpl.java:226)
+	at org.glassfish.resourcebase.resources.naming.ResourceNamingService.unpublishObject(ResourceNamingService.java:175)
+	at com.sun.enterprise.connectors.service.ConnectorResourceAdminServiceImpl.deleteConnectorResource(ConnectorResourceAdminServiceImpl.java:142)
+	... 35 more
+
+may 21, 2022 11:51:37 AM org.glassfish.resourcebase.resources.listener.ResourceManager undeployResources
+ADVERTENCIA: Unable to undeploy resource [java:jboss/datasources/sii] due to following exception: [com.sun.appserv.connectors.internal.api.ConnectorRuntimeException: Failed to delete connector resource from jndi].
+may 21, 2022 11:51:37 AM com.sun.enterprise.connectors.service.ResourceAdapterAdminServiceImpl sendStopToResourceAdapter
+INFORMACIÓN: RAR7094: __ds_jdbc_ra shutdown successful.
+may 21, 2022 11:51:37 AM org.glassfish.admin.mbeanserver.JMXStartupService shutdown
+INFORMACIÓN: JMXStartupService and JMXConnectors have been shut down.
+may 21, 2022 11:51:37 AM com.sun.enterprise.connectors.service.ConnectorResourceAdminServiceImpl deleteConnectorResource
+GRAVE: RAR7133: Unable to remove resource [ java:jboss/datasources/sii ] from jndi
+may 21, 2022 11:51:37 AM com.sun.enterprise.connectors.service.ConnectorResourceAdminServiceImpl deleteConnectorResource
+GRAVE: 
+com.sun.appserv.connectors.internal.api.ConnectorRuntimeException: Failed to delete connector resource from jndi
+	at com.sun.enterprise.connectors.service.ConnectorResourceAdminServiceImpl.deleteConnectorResource(ConnectorResourceAdminServiceImpl.java:157)
+	at com.sun.enterprise.connectors.ConnectorRuntime.deleteConnectorResource(ConnectorRuntime.java:356)
+	at org.glassfish.jdbc.deployer.JdbcResourceDeployer.deleteResource(JdbcResourceDeployer.java:133)
+	at org.glassfish.jdbc.deployer.JdbcResourceDeployer.undeployResource(JdbcResourceDeployer.java:128)
+	at org.glassfish.resourcebase.resources.listener.ResourceManager.undeployResources(ResourceManager.java:213)
+	at com.sun.enterprise.connectors.ConnectorRuntime.cleanUpResourcesAndShutdownAllActiveRAs(ConnectorRuntime.java:976)
+	at com.sun.appserv.connectors.internal.ConnectorResourceManagerLifecycleListener.resourceManagerShutdown(ConnectorResourceManagerLifecycleListener.java:169)
+	at com.sun.appserv.connectors.internal.ConnectorResourceManagerLifecycleListener.resourceManagerLifecycleEvent(ConnectorResourceManagerLifecycleListener.java:155)
+	at org.glassfish.resourcebase.resources.listener.ResourceManager.notifyListeners(ResourceManager.java:113)
+	at org.glassfish.resourcebase.resources.listener.ResourceManager.preDestroy(ResourceManager.java:187)
+	at org.jvnet.hk2.internal.ClazzCreator.preDestroyMe(ClazzCreator.java:316)
+	at org.jvnet.hk2.internal.ClazzCreator.dispose(ClazzCreator.java:381)
+	at org.jvnet.hk2.internal.SystemDescriptor.dispose(SystemDescriptor.java:518)
+	at org.glassfish.hk2.runlevel.internal.AsyncRunLevelContext.destroyOne(AsyncRunLevelContext.java:403)
+	at org.glassfish.hk2.runlevel.RunLevelContext.destroyOne(RunLevelContext.java:81)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.destroy(ServiceHandleImpl.java:165)
+	at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture$DownQueueRunner.run(CurrentTaskFuture.java:1270)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: javax.naming.NamingException: java:comp namespace cannot be modified
+	at com.sun.enterprise.naming.impl.JavaURLContext.unbind(JavaURLContext.java:273)
+	at com.sun.enterprise.naming.impl.SerialContext.unbind(SerialContext.java:681)
+	at javax.naming.InitialContext.unbind(InitialContext.java:441)
+	at javax.naming.InitialContext.unbind(InitialContext.java:441)
+	at com.sun.enterprise.naming.impl.GlassfishNamingManagerImpl.unpublishObject(GlassfishNamingManagerImpl.java:226)
+	at org.glassfish.resourcebase.resources.naming.ResourceNamingService.unpublishObject(ResourceNamingService.java:175)
+	at com.sun.enterprise.connectors.service.ConnectorResourceAdminServiceImpl.deleteConnectorResource(ConnectorResourceAdminServiceImpl.java:142)
+	... 19 more
+
+may 21, 2022 11:51:38 AM org.glassfish.resourcebase.resources.listener.ResourceManager undeployResources
+ADVERTENCIA: Unable to undeploy resource [java:jboss/datasources/sii] due to following exception: [com.sun.appserv.connectors.internal.api.ConnectorRuntimeException: Failed to delete connector resource from jndi].
+may 21, 2022 11:51:38 AM com.sun.enterprise.v3.server.AppServerStartup stop
+INFORMACIÓN: Shutdown procedure finished
+</system-err>
+  </testcase>
+</testsuite>

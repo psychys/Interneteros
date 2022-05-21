@@ -47,7 +47,7 @@ public class ProjectSelenium {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    baseURL="http://"+server+":8080/trazabilidad-war/";
+    baseURL="http://"+server+":8080/project-war/";
   }
 
   @Before
