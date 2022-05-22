@@ -49,7 +49,6 @@ public class Login {
             if (logeado) {
                 return "index.xhtml";
             }
-
         } catch (UsuarioException e) {
             FacesMessage fm = new FacesMessage("Error al logearse");
             FacesContext.getCurrentInstance().addMessage("login:user", fm);

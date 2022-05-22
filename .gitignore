@@ -1,0 +1,6 @@
+
+project-ear/target/
+
+.idea/webContexts.xml
+
+project-war/src/main/java/es/uma/informatica/sii/trazabilidad/backing/InfoSesion.java
