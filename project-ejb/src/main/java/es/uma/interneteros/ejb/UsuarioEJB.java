@@ -85,8 +85,16 @@ public class UsuarioEJB implements GestionUsuario {
     @Override
     public boolean LoginAdministrador(Usuario u,int id,String contrasena) throws UsuarioException {
 
+        try{
+            Usuario user = BuscarUsuario(id);
+            return user.getContrasena().equals(contrasena) && user.isAdministrador();
+        }catch(UsuarioException e){
+            System.err.println("Usuario inexistente");
+            return false;
+        }
+
         //1º compruebo que existe el usuario
-        if (u == null) {
+        /*if (u == null) {
             throw new UsuarioException("Prueba");
         }else{
             //2º compruebo que es admin
@@ -102,12 +110,20 @@ public class UsuarioEJB implements GestionUsuario {
             }else{
                 throw new UsuarioException("No es administrador");
             }
-        }
+        }*/
     }
     //@Requisitos({"RF10"})
     @Override
     public boolean LoginCliente(Usuario u,int id,String contrasena) throws UsuarioException {
         //1º compruebo que existe el usuario
+        try{
+            Usuario user = BuscarUsuario(id);
+            return user.getContrasena().equals(contrasena);
+        }catch(UsuarioException e){
+            System.err.println("Usuario inexistente");
+            return false;
+        }
+        /*
         if (u == null) {
             throw new UsuarioException("Prueba");
         }else{
@@ -124,7 +140,10 @@ public class UsuarioEJB implements GestionUsuario {
             }else{
                 throw new UsuarioException("Es administrador, cambiar login");
             }
-        }
+        }*/
+
+
+
     }
 
 

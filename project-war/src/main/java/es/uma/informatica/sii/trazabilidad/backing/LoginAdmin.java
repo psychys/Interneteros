@@ -42,17 +42,18 @@ public class LoginAdmin {
         this.usuario = usuario;
     }
 
-    public String entrar() {
+    public synchronized String entrar() {
         try {
             boolean logeado = usuarioEJB.LoginAdministrador(usuario, usuario.getId(), usuario.getContrasena());
-            sesion.setUsuario(usuario);
+
             if (logeado) {
+                sesion.setUsuario(usuario);
                 return "vista_admin.xhtml";
             }
 
         } catch (UsuarioException e) {
             FacesMessage fm = new FacesMessage("Error al logearse");
-            FacesContext.getCurrentInstance().addMessage("login:user", fm);
+            FacesContext.getCurrentInstance().addMessage("loginAdmin:user", fm);
         }
 
         /*

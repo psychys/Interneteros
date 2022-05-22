@@ -1,0 +1,15 @@
+es/uma/interneteros/jpa/AutorizacionId.class
+es/uma/interneteros/jpa/DepositadaId.class
+es/uma/interneteros/jpa/Transaccion.class
+es/uma/interneteros/jpa/Segregated.class
+es/uma/interneteros/jpa/Persona_autorizada.class
+es/uma/interneteros/jpa/Main.class
+es/uma/interneteros/jpa/Cliente.class
+es/uma/interneteros/jpa/Pooled.class
+es/uma/interneteros/jpa/Empresa.class
+es/uma/interneteros/jpa/Usuario.class
+es/uma/interneteros/jpa/Cuenta_referencia.class
+es/uma/interneteros/jpa/Cuenta.class
+es/uma/interneteros/jpa/Individual.class
+es/uma/interneteros/jpa/Divisa.class
+es/uma/interneteros/jpa/Cuenta_Fintech.class

@@ -45,8 +45,9 @@ public class Login {
     public String entrar() {
         try {
             boolean logeado = usuarioEJB.LoginCliente(usuario, usuario.getId(), usuario.getContrasena());
-            sesion.setUsuario(usuario);
+
             if (logeado) {
+                sesion.setUsuario(usuario);
                 return "vista_cliente.xhtml";
             }
         } catch (UsuarioException e) {
