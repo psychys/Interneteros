@@ -47,7 +47,7 @@ public class LoginAdmin {
             boolean logeado = usuarioEJB.LoginAdministrador(usuario, usuario.getId(), usuario.getContrasena());
             sesion.setUsuario(usuario);
             if (logeado) {
-                return "index.xhtml";
+                return "vista_admin.xhtml";
             }
 
         } catch (UsuarioException e) {

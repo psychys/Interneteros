@@ -47,7 +47,7 @@ public class Login {
             boolean logeado = usuarioEJB.LoginCliente(usuario, usuario.getId(), usuario.getContrasena());
             sesion.setUsuario(usuario);
             if (logeado) {
-                return "index.xhtml";
+                return "vista_cliente.xhtml";
             }
         } catch (UsuarioException e) {
             FacesMessage fm = new FacesMessage("Error al logearse");
