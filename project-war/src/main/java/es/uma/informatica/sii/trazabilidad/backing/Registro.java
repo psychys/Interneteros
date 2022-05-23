@@ -57,14 +57,6 @@ public class Registro {
         this.cuenta = cuenta;
     }
 
-    public String getCodigoValidacion() {
-        return codigoValidacion;
-    }
-
-    public void setCodigoValidacion(String codigoValidacion) {
-        this.codigoValidacion = codigoValidacion;
-    }
-
     public Registro() {
         usuario = new Usuario();
     }
@@ -113,16 +105,10 @@ public class Registro {
                 FacesContext.getCurrentInstance().addMessage(null, fm);
                 return null;
             }
-            /*
-            UriBuilder uriBuilder = UriBuilder.fromUri(thisUri.substring(0, ultimaBarra))
-            		.path("validarCuenta.xhtml")
-            		.queryParam(PARAM_CUENTA, "{cuenta}")
-            		.queryParam(PARAM_VALIDACION, "{validacion}");
 
-            */
             usuarioEJB.AltaUsuario(admin, usuario);
             registroOK = true;
-            return "exitoRegistro.xhtml";
+            return "login.xhtml";
             
         } catch (UsuarioException e) {
             FacesMessage fm = new FacesMessage("Existe un usuario con la misma cuenta");
@@ -131,28 +117,5 @@ public class Registro {
         }
         return null;
     }
-    /*
-    public String validarCuenta() {
-        try {
-            if (cuenta != null && codigoValidacion != null) {
-                negocio.validarCuenta(cuenta, codigoValidacion);
-            }
-            mensajeValidacion = "La validación ha sido correcta, ahora puede acceder con este usuario.";
-            validacionOK = true;
-        } catch (AgendaException e) {
-            mensajeValidacion = "Ha habido un error con la validación, compruebe que la URL es correcta.";
-            validacionOK = false;
-        }
-        return null;
-    }
 
-
-    public String getMensajeValidacion() {
-        return mensajeValidacion;
-    }
-
-    public boolean isValidacionOK() {
-        return validacionOK;
-    }
-    */
 }
