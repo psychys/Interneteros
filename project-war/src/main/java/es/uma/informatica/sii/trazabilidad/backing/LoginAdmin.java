@@ -70,5 +70,4 @@ public class LoginAdmin {
         */
         return null;
     }
-
 }
