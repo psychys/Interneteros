@@ -32,7 +32,7 @@ public class BaseDatos {
 		Divisa divisa = new Divisa("USD", "Dolar", "$", 1.07);
 		em.persist(divisa);
 
-		Usuario usuario = new Usuario(1, "123", false,"activo");
+		Usuario usuario = new Usuario("1", "123", false,"activo");
 		em.persist(usuario);
 
 		Persona_autorizada pa = new Persona_autorizada(123, 123, "Juan", "Perez", "calle platano");
@@ -41,17 +41,17 @@ public class BaseDatos {
 		Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date(), new Date(), "");
 		em.persist(c_fin);
 
-		Usuario admin = new Usuario(0, "0", true, "activo");
+		Usuario admin = new Usuario("000", "0", true, "activo");
 		em.persist(admin);
 		
-		Usuario u2 = new Usuario(2,"123",false,"activo");
+		Usuario u2 = new Usuario("2","123",false,"activo");
 		em.persist(u2);
 
-		Usuario a2 = new Usuario(3,"123",true,"activo");
+		Usuario a2 = new Usuario("3","123",true,"activo");
 		em.persist(a2);
 
 
-		Usuario usuario_login = new Usuario(777, "123", false, "activo");
+		Usuario usuario_login = new Usuario("777", "123", false, "activo");
 		em.persist(usuario_login);
 		/*
 		Date d = new Date(22,2,23);

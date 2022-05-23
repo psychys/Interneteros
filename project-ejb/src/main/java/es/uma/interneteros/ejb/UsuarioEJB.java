@@ -55,7 +55,7 @@ public class UsuarioEJB implements GestionUsuario {
     }
 
     @Override
-    public Usuario BuscarUsuario(int id) throws UsuarioException {
+    public Usuario BuscarUsuario(String id) throws UsuarioException {
         Usuario u = em.find(Usuario.class, id);
         if(u == null){
             throw new UsuarioException("Usuario no existente");
@@ -83,7 +83,7 @@ public class UsuarioEJB implements GestionUsuario {
     }
     //@Requisitos({"RF1"})
     @Override
-    public boolean LoginAdministrador(Usuario u,int id,String contrasena) throws UsuarioException {
+    public boolean LoginAdministrador(Usuario u,String id,String contrasena) throws UsuarioException {
 
         try{
             Usuario user = BuscarUsuario(id);
@@ -114,7 +114,7 @@ public class UsuarioEJB implements GestionUsuario {
     }
     //@Requisitos({"RF10"})
     @Override
-    public boolean LoginCliente(Usuario u,int id,String contrasena) throws UsuarioException {
+    public boolean LoginCliente(Usuario u,String id,String contrasena) throws UsuarioException {
         //1º compruebo que existe el usuario
         try{
             Usuario user = BuscarUsuario(id);

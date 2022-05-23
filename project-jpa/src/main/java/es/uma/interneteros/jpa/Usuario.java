@@ -7,8 +7,7 @@ import java.util.Objects;
 @Table(name = "usuario")
 public class Usuario {
     @Id
-    @GeneratedValue
-    private int id;
+    private String id;
     @Column(nullable = false)
     private String contrasena;
     @Column(nullable = false)
@@ -16,14 +15,14 @@ public class Usuario {
     @Column
     private String estado;
 
-    public Usuario(int id, String contrasena ,boolean administrador, Cliente cliente, String estado) {
+    public Usuario(String id, String contrasena ,boolean administrador, Cliente cliente, String estado) {
         this.id = id;
         this.contrasena = contrasena;
         this.administrador = administrador;
         this.c_cliente = cliente;
         this.estado = estado;
     }
-    public Usuario(int id, String contrasena ,boolean administrador, String estado) {
+    public Usuario(String id, String contrasena ,boolean administrador, String estado) {
         this.id = id;
         this.contrasena = contrasena;
         this.administrador = administrador;
@@ -50,11 +49,11 @@ public class Usuario {
         this.estado = estado;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

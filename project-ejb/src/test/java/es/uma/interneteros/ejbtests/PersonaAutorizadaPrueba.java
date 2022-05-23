@@ -43,7 +43,7 @@ public class PersonaAutorizadaPrueba {
     @Test
     public void testCrearPersonaAutorizada() throws PersonaAutorizadaException {
 
-        Usuario admin = new Usuario(000, "123", true,"activo");
+        Usuario admin = new Usuario("000", "123", true,"activo");
         Persona_autorizada pa = new Persona_autorizada(456, 456, "Juan", "Perez", "calle platano");
 
         gestionPersonaAutorizada.CrearPersonaAutorizada(pa, admin);
@@ -81,7 +81,7 @@ public class PersonaAutorizadaPrueba {
     @Test
     public void testBuscarPersonaAutorizada() throws PersonaAutorizadaException {
 
-        Usuario admin = new Usuario(000, "123", true, "activo");
+        Usuario admin = new Usuario("000", "123", true, "activo");
         Persona_autorizada pa = new Persona_autorizada(456, 456, "Juan", "Perez", "calle platano");
 
         gestionPersonaAutorizada.CrearPersonaAutorizada(pa, admin);
@@ -96,7 +96,7 @@ public class PersonaAutorizadaPrueba {
     @Test
     public void testActualizarPersonaAutorizada() throws PersonaAutorizadaException {
 
-        Usuario admin = new Usuario(000, "123", true, "activo");
+        Usuario admin = new Usuario("000", "123", true, "activo");
         Persona_autorizada pa = gestionPersonaAutorizada.BuscarPersonaAutorizada(123, admin);
 
         assertEquals("Error buscando persona autorizada", pa.getDireccion() ,"calle platano");
@@ -114,7 +114,7 @@ public class PersonaAutorizadaPrueba {
     @Test
     public void testMarcarPersonaAutorizada() throws PersonaAutorizadaException {
 
-        Usuario admin = new Usuario(000, "123", true, "activo");
+        Usuario admin = new Usuario("000", "123", true, "activo");
         Persona_autorizada pa = gestionPersonaAutorizada.BuscarPersonaAutorizada(123, admin);
 
         gestionPersonaAutorizada.MarcarPersonaAutorizada(pa, "desactivado", admin);

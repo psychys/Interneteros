@@ -20,7 +20,7 @@ public class InicializaBBDD {
     @PostConstruct
     public void inicializar (){
 
-        Usuario comprobacion = em.find(Usuario.class, 1);
+        Usuario comprobacion = em.find(Usuario.class, "1");
 
         if(comprobacion != null){
             return;
@@ -35,7 +35,7 @@ public class InicializaBBDD {
         Divisa divisa = new Divisa("USD", "Dolar", "$", 1.07);
         em.persist(divisa);
 
-        Usuario usuario = new Usuario(1, "123", false,"activo");
+        Usuario usuario = new Usuario("1", "123", false,"activo");
         em.persist(usuario);
 
         Persona_autorizada pa = new Persona_autorizada(123, 123, "Juan", "Perez", "calle platano");
@@ -44,10 +44,11 @@ public class InicializaBBDD {
         Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date(), new Date(), "");
         em.persist(c_fin);
 
-        Usuario admin = new Usuario(000, "123", true, "activo");
+        Usuario admin = new Usuario("000", "123", true, "activo");
+        em.persist(admin);
 
-        Usuario usuario_login = new Usuario(777, "123", false, "activo");
-
+        Usuario usuario_login = new Usuario("777", "123", false, "activo");
+        em.persist(usuario_login);
 
 
 

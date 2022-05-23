@@ -34,7 +34,7 @@ public class CuentaPrueba {
     @Test
     public void testCrearCuenta() throws CuentaException {
 
-        Usuario admin = new Usuario(000, "123", true, "activo");
+        Usuario admin = new Usuario("000", "123", true, "activo");
         Cuenta cuenta = new Cuenta("456B", "123", "abierta");
         String tipo = "pooled";
         Cliente cliente = new Cliente(2,456, "cliente",new Date(),null, "calle platano 5", "Malaga", 20749, "España", "activo");
@@ -48,7 +48,7 @@ public class CuentaPrueba {
     @Test
     public void testBuscarCuenta() throws CuentaException {
 
-        Usuario admin = new Usuario(000, "123", true, "activo");
+        Usuario admin = new Usuario("000", "123", true, "activo");
         Cuenta cuenta = new Cuenta("456B","123","activa");
         String tipo = "pooled";
         Cliente cliente = new Cliente(2,456, "cliente",new Date(),null, "calle platano 5", "Malaga", 20749, "España", "activo");
@@ -64,7 +64,7 @@ public class CuentaPrueba {
     @Test
     public void testActualizarCuenta() throws CuentaException {
 
-        Usuario admin = new Usuario(000, "123", true, "activo");
+        Usuario admin = new Usuario("000", "123", true, "activo");
         Cuenta cuenta = gestionCuenta.BuscarCuenta("123A");
 
         assertEquals(cuenta.getSWIFT() ,"123");
@@ -83,7 +83,7 @@ public class CuentaPrueba {
     @Test
     public void testMarcarCuenta() throws CuentaException {
 
-        Usuario admin = new Usuario(000, "123", true, "activo");
+        Usuario admin = new Usuario("000", "123", true, "activo");
         Cuenta cuenta = gestionCuenta.BuscarCuenta("123A");
 
         String estado = cuenta.getEstado();

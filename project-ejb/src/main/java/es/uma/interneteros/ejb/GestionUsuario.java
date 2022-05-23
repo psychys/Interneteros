@@ -11,12 +11,12 @@ public interface GestionUsuario {
 
     public void ActualizarUsuario(Usuario admin, Usuario u) throws UsuarioException;
 
-    public Usuario BuscarUsuario(int id) throws UsuarioException;
+    public Usuario BuscarUsuario(String id) throws UsuarioException;
 
     public void MarcarUsuario(Usuario admin, Usuario u, String estado) throws UsuarioException;
 
     //@Requisitos({"RF1"})
-    public boolean LoginAdministrador(Usuario u,int id,String contra) throws UsuarioException;
+    public boolean LoginAdministrador(Usuario u,String id,String contra) throws UsuarioException;
     //@Requisitos({"RF10"})
-    public boolean LoginCliente(Usuario u,int id,String contra) throws UsuarioException;
+    public boolean LoginCliente(Usuario u,String id,String contra) throws UsuarioException;
 }

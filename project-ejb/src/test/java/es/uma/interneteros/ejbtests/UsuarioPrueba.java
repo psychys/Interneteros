@@ -38,8 +38,8 @@ public class UsuarioPrueba {
     //@Requisito 2
     @Test
     public void testAltaUsuario() throws UsuarioException {
-        Usuario admin = new Usuario(000,"123", true, "activo");
-        Usuario usuario = new Usuario(2,"123", false, "activo");
+        Usuario admin = new Usuario("000","123", true, "activo");
+        Usuario usuario = new Usuario("2","123", false, "activo");
 
         gestionUsuario.AltaUsuario(admin, usuario);
 
@@ -49,8 +49,8 @@ public class UsuarioPrueba {
     @Test
     public void testActualizarUsuario() throws UsuarioException {
 
-        Usuario admin = new Usuario(000, "123", true, "activo");
-        Usuario usuario = gestionUsuario.BuscarUsuario(1);
+        Usuario admin = new Usuario("000", "123", true, "activo");
+        Usuario usuario = gestionUsuario.BuscarUsuario("1");
 
         assertEquals(usuario.getContrasena() ,"123");
 
@@ -58,7 +58,7 @@ public class UsuarioPrueba {
         usuario.setContrasena("321");
         gestionUsuario.ActualizarUsuario(admin,usuario);
 
-        usuario = gestionUsuario.BuscarUsuario(1);
+        usuario = gestionUsuario.BuscarUsuario("1");
 
         assertNotEquals("No se ha actualizado el cliente", usuario.getContrasena(), cont);
 
@@ -67,13 +67,13 @@ public class UsuarioPrueba {
     @Test
     public void testMarcarCliente() throws UsuarioException {
 
-        Usuario admin = new Usuario(000, "123", true, "activo");
-        Usuario usuario = gestionUsuario.BuscarUsuario(1);
+        Usuario admin = new Usuario("000", "123", true, "activo");
+        Usuario usuario = gestionUsuario.BuscarUsuario("1");
 
         String estado = usuario.getEstado();
         gestionUsuario.MarcarUsuario(admin, usuario,"baja");
 
-        usuario = gestionUsuario.BuscarUsuario(1);
+        usuario = gestionUsuario.BuscarUsuario("1");
 
         assertNotEquals("No se ha marcado el cliente", usuario.getEstado(), estado);
 
@@ -81,18 +81,18 @@ public class UsuarioPrueba {
 
     @Test
     public void testLoginAdministrador() throws  UsuarioException{
-        Usuario admin = new Usuario(000, "123", true, "activo");
+        Usuario admin = new Usuario("000", "123", true, "activo");
 
-        boolean res = gestionUsuario.LoginAdministrador(admin,000,"123");
+        boolean res = gestionUsuario.LoginAdministrador(admin,"000","123");
 
         assertEquals("Iniciada sesion correcta",res, true);
     }
 
     @Test
     public void testLoginCliente() throws  UsuarioException{
-        Usuario usuario_login = new Usuario(777, "123", false, "activo");
+        Usuario usuario_login = new Usuario("777", "123", false, "activo");
 
-        boolean res = gestionUsuario.LoginCliente(usuario_login,777,"123");
+        boolean res = gestionUsuario.LoginCliente(usuario_login,"777","123");
 
         assertEquals("Iniciada sesion correcta",res, true);
     }
