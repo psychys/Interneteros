@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
+
+<h:head>
+    <title>Menu Cuentas</title>
+    <link rel="stylesheet" href="recursos/css/styleMenu.css"/>
+</h:head>
+
+<h:body>
+
+    <div class="menu-box">
+        <h2 id="PaginaPrincipalid">Menu de Usuarios</h2>
+        <h:form id="indexIndex">
+            <h:link outcome="BuscarUsuario.xhtml" id = "Buscar_usuario">  Consultar Usuario </h:link>
+            <h:link outcome="EditarUsuario.xhtml" id = "Editar_usuario">  Editar Usuario </h:link>
+            <h:link outcome="EliminarUsuario.xhtml" id = "Eliminar_usuario" >  Eliminar Usuario </h:link>
+            <h:link outcome="CrearUsuario.xhtml" id = "Crear_usuario" >  Crear Usuario </h:link>
+            <h:link outcome="vista_admin.xhtml" id = "volver_v_admin" >  Volver </h:link>
+        </h:form>
+    </div>
+
+</h:body>
+</html>

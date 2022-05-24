@@ -1,6 +1,7 @@
 package es.uma.interneteros.ejb;
 
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.jpa.*;
 import es.uma.interneteros.ejb.exceptions.PersonaAutorizadaException;
 
@@ -77,7 +78,7 @@ public class PersonaAutorizadaEJB implements GestionPersonaAutorizada{
 
     }
 
-    //@Requisitos({"RF7"})
+    @Requisitos({"RF7"})
     @Override
     public Persona_autorizada BuscarPersonaAutorizada(int id, Usuario admin) throws PersonaAutorizadaException {
         Persona_autorizada pa = em.find(Persona_autorizada.class, id);
@@ -93,7 +94,7 @@ public class PersonaAutorizadaEJB implements GestionPersonaAutorizada{
         return pa;
     }
 
-    //@Requisitos({"RF8"})
+    @Requisitos({"RF8"})
     @Override
     public void MarcarPersonaAutorizada(Persona_autorizada pa, String estado, Usuario admin) throws PersonaAutorizadaException {
 

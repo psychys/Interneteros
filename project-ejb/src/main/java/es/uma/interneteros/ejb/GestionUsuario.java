@@ -1,5 +1,6 @@
 package es.uma.interneteros.ejb;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.jpa.Usuario;
 import es.uma.interneteros.ejb.exceptions.UsuarioException;
 
@@ -15,8 +16,8 @@ public interface GestionUsuario {
 
     public void MarcarUsuario(Usuario admin, Usuario u, String estado) throws UsuarioException;
 
-    //@Requisitos({"RF1"})
+    @Requisitos({"RF1"})
     public boolean LoginAdministrador(Usuario u,String id,String contra) throws UsuarioException;
-    //@Requisitos({"RF10"})
+    @Requisitos({"RF10"})
     public boolean LoginCliente(Usuario u,String id,String contra) throws UsuarioException;
 }

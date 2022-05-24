@@ -23,9 +23,6 @@ public class BaseDatos {
 		Cliente cliente = new Cliente(1,123, "cliente",new Date(),null, "calle platano 5", "Malaga", 20749, "España", "activo");
 		em.persist(cliente);
 
-		Cliente cliente2 = new Cliente(3,123, "autorizado",new Date(),null, "calle platano 3", "Malaga", 20749, "España", "activo");
-		em.persist(cliente2);
-
 		Cuenta cuenta = new Cuenta("123A","123","activa");
 		em.persist(cuenta);
 
@@ -41,15 +38,8 @@ public class BaseDatos {
 		Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date(), new Date(), "");
 		em.persist(c_fin);
 
-		Usuario admin = new Usuario("000", "0", true, "activo");
+		Usuario admin = new Usuario("000", "123", true, "activo");
 		em.persist(admin);
-		
-		Usuario u2 = new Usuario("2","123",false,"activo");
-		em.persist(u2);
-
-		Usuario a2 = new Usuario("3","123",true,"activo");
-		em.persist(a2);
-
 
 		Usuario usuario_login = new Usuario("777", "123", false, "activo");
 		em.persist(usuario_login);

@@ -1,6 +1,7 @@
 package es.uma.interneteros.ejb;
 
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.jpa.*;
 import es.uma.interneteros.ejb.exceptions.TransaccionException;
 
@@ -16,7 +17,7 @@ public class TransaccionEJB implements GestionTransaccion {
     //@PersistenceContext(name="Trazabilidad")
     private EntityManager em;
 
-    //@Requisitos({"RF13"})
+    @Requisitos({"RF13"})
     @Override
     public void CrearTransaccion(Transaccion t) throws TransaccionException {
         Transaccion t1 = em.find(Transaccion.class, t);
@@ -94,7 +95,7 @@ public class TransaccionEJB implements GestionTransaccion {
         return res;
     }
 
-    //@Requisitos({"RF18"})
+    @Requisitos({"RF18"})
     public void cambioDivisa(Usuario u, Transaccion t, Divisa d) throws TransaccionException{
         Usuario admin = em.find(Usuario.class,u);
         Transaccion t1 = em.find(Transaccion.class,t);

@@ -1,5 +1,6 @@
 package es.uma.interneteros.ejb;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.jpa.Divisa;
 import es.uma.interneteros.jpa.Transaccion;
 import es.uma.interneteros.ejb.exceptions.TransaccionException;
@@ -11,12 +12,12 @@ public interface GestionTransaccion {
 
 
     public void CrearTransaccion(Transaccion t) throws TransaccionException;
-    //@Requisitos({"RF13"})
+    @Requisitos({"RF13"})
     public void CrearTransaccionAdministrador(Usuario u,Transaccion t) throws TransaccionException;
 
     //public void ActualizarTransaccion(Transaccion t) throws TransaccionException;
 
-    //@Requisitos({"RF18"})
+    @Requisitos({"RF18"})
     public void cambioDivisa(Usuario u, Transaccion t, Divisa d) throws TransaccionException;
 
     public List<Transaccion> obtenerTransacciones();

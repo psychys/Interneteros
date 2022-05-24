@@ -1,5 +1,6 @@
 package es.uma.interneteros.ejbtests;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.jpa.Cliente;
 import es.uma.interneteros.jpa.Cuenta;
 import es.uma.interneteros.jpa.Usuario;
@@ -30,7 +31,7 @@ public class CuentaPrueba {
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
 
-    //@Requisitos({"RF5"})
+    @Requisitos({"RF5"})
     @Test
     public void testCrearCuenta() throws CuentaException {
 
@@ -79,7 +80,7 @@ public class CuentaPrueba {
 
     }
 
-    //@Requisitos({"RF9"})
+    @Requisitos({"RF9"})
     @Test
     public void testMarcarCuenta() throws CuentaException {
 

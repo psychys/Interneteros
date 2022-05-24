@@ -1,6 +1,7 @@
 package es.uma.interneteros.ejb;
 
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.jpa.Cliente;
 import es.uma.interneteros.jpa.Cuenta_Fintech;
 import es.uma.interneteros.jpa.Usuario;
@@ -21,7 +22,7 @@ public class ClienteEJB implements GestionCliente {
     @PersistenceContext(name="eBuryEJB")
     private EntityManager em;
 
-    //@Requisitos({"RF2"})
+    @Requisitos({"RF2"})
     public void AltaCliente(Usuario admin, Cliente c) throws ClienteException {
         if(admin.isAdministrador()) {
 
@@ -37,7 +38,7 @@ public class ClienteEJB implements GestionCliente {
         }
 
     }
-    //@Requisitos({"RF3"})
+    @Requisitos({"RF3"})
     @Override
     public void ActualizarCliente(Usuario admin, Cliente c) throws ClienteException {
         if (admin.isAdministrador()) {
@@ -64,7 +65,7 @@ public class ClienteEJB implements GestionCliente {
         return c;
     }
 
-    //@Requisitos({"RF4"})
+    @Requisitos({"RF4"})
     @Override
     public void MarcarCliente(Cliente c, String estado, Usuario admin) throws ClienteException {
 

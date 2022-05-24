@@ -14,7 +14,7 @@ import es.uma.interneteros.jpa.Cliente;
 import es.uma.interneteros.jpa.Usuario;
 import org.junit.Before;
 import org.junit.Test;
-//import es.uma.informatica.sii.anotaciones.Requisitos;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 
 import static org.junit.Assert.*;
@@ -35,7 +35,7 @@ public class UsuarioPrueba {
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
 
-    //@Requisito 2
+    @Requisitos({"RF2"})
     @Test
     public void testAltaUsuario() throws UsuarioException {
         Usuario admin = new Usuario("000","123", true, "activo");
@@ -45,7 +45,7 @@ public class UsuarioPrueba {
 
     }
 
-    //@Requisito 3
+    @Requisitos({"RF3"})
     @Test
     public void testActualizarUsuario() throws UsuarioException {
 

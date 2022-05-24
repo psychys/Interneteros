@@ -1,5 +1,6 @@
 package es.uma.interneteros.ejbtests;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.ejb.*;
 import es.uma.interneteros.ejb.exceptions.ClienteException;
 import es.uma.interneteros.ejb.exceptions.CuentaException;
@@ -92,7 +93,7 @@ public class PersonaAutorizadaPrueba {
 
     }
 
-    //@Requisitos({"RF7"})
+    @Requisitos({"RF7"})
     @Test
     public void testActualizarPersonaAutorizada() throws PersonaAutorizadaException {
 
@@ -110,7 +111,7 @@ public class PersonaAutorizadaPrueba {
         assertNotEquals("No se ha actualizado la persona autorizada", calle, pa.getDireccion());
     }
 
-    //@Requisitos({"RF8"})
+    @Requisitos({"RF8"})
     @Test
     public void testMarcarPersonaAutorizada() throws PersonaAutorizadaException {
 

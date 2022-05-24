@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import javax.naming.NamingException;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.ejb.GestionCliente;
 import es.uma.interneteros.ejb.GestionUsuario;
 import es.uma.interneteros.ejb.exceptions.ClienteException;
@@ -67,7 +68,7 @@ public class ClientePrueba {
 
 	}
 
-	//@Requisitos({"RF4"})
+	@Requisitos({"RF4"})
 	@Test
 	public void testMarcarCliente() throws ClienteException {
 

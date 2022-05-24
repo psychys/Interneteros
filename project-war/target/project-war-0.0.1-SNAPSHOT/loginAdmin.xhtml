@@ -5,42 +5,38 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Login de Administrador</title>
+        <link rel="stylesheet" href="recursos/css/styleLogin.css" />
     </h:head>
+
     <h:body>
+        <div class="login-box">
+            <h2>Login Autorizados</h2>
+            <h:form id="Login-Form">
+                <div class="user-box">
+                    <h:inputText value="#{loginAdmin.usuario.id}" required="true" id="Login-ID"/>
+                    <label>Usuario Autorizado</label>
+                </div>
+                <div class="user-box">
+                    <h:inputSecret value="#{loginAdmin.usuario.contrasena}" required="true" id="Login-Contra"/>
+                    <label>Contraseña</label>
+                </div>
+                <h:commandLink type ="submit" action="#{loginAdmin.entrar()}" id="EntrarLoginid">
 
-        <h:form id="loginAdmin">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Entrar
+                </h:commandLink>
 
-            <c:choose>
-                <c:when test="#{!empty infoSesion.usuario}">
-                    <p>Está autenticado como <h:outputText value="#{infoSesion.usuario.id}"/>.</p>
-                    <p>Para iniciar sesión con otra cuenta debe <h:commandLink action="#{infoSesion.invalidarSesion()}">salir</h:commandLink> primero de la aplicación</p>
-                </c:when>
+                <h:link outcome="index.xhtml" id = "Volver_atras"> Volver </h:link>
 
-                <c:otherwise>
-                    <h:panelGrid columns="3">
-                        <h:outputText value="Nombre de usuario:"/>
-                        <h:inputText id="user" required="true" value="#{loginAdmin.usuario.id}"/>
-                        <h:message id="userMessage" for="user"/>
-
-                        <h:outputText value="Contraseña:"/>
-                        <h:inputSecret id="pass" required="true" value="#{loginAdmin.usuario.contrasena}"/>
-                        <h:message id="passwordMessage" for="pass"/>
-
-                        <h:commandButton id="botonLoginA" value="Entrar" action="#{loginAdmin.entrar()}"/>
-
-
-                    </h:panelGrid>
-
-                </c:otherwise>
-            </c:choose>
-
-
-
-
-        </h:form>
-
-
-
+            </h:form>
+        </div>
     </h:body>
+
+
+
+
 </html>
 

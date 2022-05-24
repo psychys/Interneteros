@@ -20,11 +20,11 @@ public class InicializaBBDD {
     @PostConstruct
     public void inicializar (){
 
-        Usuario comprobacion = em.find(Usuario.class, "1");
+        /*Usuario comprobacion = em.find(Usuario.class, "1");
 
         if(comprobacion != null){
             return;
-        }
+        }*/
 
         Cliente cliente = new Cliente(1,123, "cliente",new Date(),null, "calle platano 5", "Malaga", 20749, "España", "activo");
         em.persist(cliente);

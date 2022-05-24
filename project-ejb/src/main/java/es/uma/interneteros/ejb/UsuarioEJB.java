@@ -1,5 +1,6 @@
 package es.uma.interneteros.ejb;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.jpa.Usuario;
 import es.uma.interneteros.ejb.exceptions.UsuarioException;
 
@@ -81,7 +82,7 @@ public class UsuarioEJB implements GestionUsuario {
         }
 
     }
-    //@Requisitos({"RF1"})
+    @Requisitos({"RF1"})
     @Override
     public boolean LoginAdministrador(Usuario u,String id,String contrasena) throws UsuarioException {
 
@@ -112,7 +113,7 @@ public class UsuarioEJB implements GestionUsuario {
             }
         }*/
     }
-    //@Requisitos({"RF10"})
+    @Requisitos({"RF10"})
     @Override
     public boolean LoginCliente(Usuario u,String id,String contrasena) throws UsuarioException {
         //1º compruebo que existe el usuario
