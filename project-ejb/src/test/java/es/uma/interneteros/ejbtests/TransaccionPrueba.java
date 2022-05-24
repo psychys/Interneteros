@@ -46,7 +46,7 @@ public class TransaccionPrueba {
 	@Test
 	public void testAltaCliente() throws ClienteException, UsuarioException {
 		Usuario admin = new Usuario("000","123", true, "activo");
-		Cliente cliente = new Cliente(2,456, "cliente",new Date(),null, "calle platano 5", "Malaga", 20749, "España", "activo");
+		Cliente cliente = new Cliente("2",456, "cliente",new Date(),null, "calle platano 5", "Malaga", 20749, "España", "activo");
 
 		gestionCliente.AltaCliente(admin, cliente);
 
@@ -58,7 +58,7 @@ public class TransaccionPrueba {
 	public void testActualizarCliente() throws ClienteException {
 
 		Usuario admin = new Usuario("000", "123", true, "activo");
-		Cliente cliente = gestionCliente.BuscarCliente(1);
+		Cliente cliente = gestionCliente.BuscarCliente("1");
 
 		assertEquals(cliente.getDireccion() ,"calle platano 5");
 
@@ -66,7 +66,7 @@ public class TransaccionPrueba {
 		cliente.setDireccion("calle coco 25");
 		gestionCliente.ActualizarCliente(admin, cliente);
 
-		cliente = gestionCliente.BuscarCliente(1);
+		cliente = gestionCliente.BuscarCliente("1");
 
 		assertNotEquals("No se ha actualizado el cliente", cliente.getDireccion(), direccion);
 
@@ -77,12 +77,12 @@ public class TransaccionPrueba {
 	public void testMarcarCliente() throws ClienteException {
 
 		Usuario admin = new Usuario("000", "123", true, "activo");
-		Cliente cliente = gestionCliente.BuscarCliente(1);
+		Cliente cliente = gestionCliente.BuscarCliente("1");
 
 		String estado = cliente.getEstado();
 		gestionCliente.MarcarCliente(cliente,"baja",admin);
 
-		cliente = gestionCliente.BuscarCliente(1);
+		cliente = gestionCliente.BuscarCliente("1");
 
 		assertNotEquals("No se ha marcado el cliente", cliente.getEstado(), estado);
 

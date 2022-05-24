@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Cliente {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private int ID;
+    private String ID;
     @Column(unique = true)
     private int Identificacion;
     @Column(nullable = false)
@@ -46,7 +46,7 @@ public class Cliente {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cliente(int ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, int c_postal,
+	public Cliente(String ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, int c_postal,
 				   String pais, String estado, List<Cuenta_Fintech> c_fintech) {
 		this.ID = ID;
 		Identificacion = identificacion;
@@ -60,7 +60,7 @@ public class Cliente {
 		Estado = estado;
 		this.c_fintech = c_fintech;
 	}
-	public Cliente(int ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, int c_postal,
+	public Cliente(String ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, int c_postal,
 				   String pais, String estado) {
 		this.ID = ID;
 		Identificacion = identificacion;
@@ -74,11 +74,11 @@ public class Cliente {
 		Estado = estado;
 	}
 
-	public int getID() {
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 

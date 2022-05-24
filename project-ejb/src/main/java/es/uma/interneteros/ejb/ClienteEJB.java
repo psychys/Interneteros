@@ -57,7 +57,7 @@ public class ClienteEJB implements GestionCliente {
     }
 
     @Override
-    public Cliente BuscarCliente(int id) throws ClienteException {
+    public Cliente BuscarCliente(String id) throws ClienteException {
         Cliente c = em.find(Cliente.class, id);
         if(c == null){
             throw new ClienteException("Cliente no existente");

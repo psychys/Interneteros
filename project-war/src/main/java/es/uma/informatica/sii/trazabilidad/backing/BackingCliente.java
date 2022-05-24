@@ -2,15 +2,19 @@ package es.uma.informatica.sii.trazabilidad.backing;
 
 
 import es.uma.interneteros.ejb.GestionCliente;
+import es.uma.interneteros.ejb.exceptions.ClienteException;
+import es.uma.interneteros.jpa.Cliente;
+import es.uma.interneteros.jpa.Individual;
+import es.uma.interneteros.jpa.Usuario;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
 
-@Named(value= "Cliente")
+@Named(value= "backingcliente")
 @RequestScoped
-public class Cliente {
+public class BackingCliente {
 
 
     @Inject
@@ -18,22 +22,28 @@ public class Cliente {
     @Inject
     private InfoSesion sesion;
 
-    private Cliente cliente;
+    private Individual cliente;
+    
+    public BackingCliente() throws ClienteException {
+        Usuario usu = sesion.getUsuario();
+            this.cliente = (Individual) clientes.BuscarCliente(usu.getId());
+
+    }
 
     public String getNombre(){
         return cliente.getNombre();
     }
 
     public String getApellido(){
-        return cliente.getApellido();
+        return cliente.getApellidos();
     }
 
-    public String getIdentificacion(){
+    public int getIdentificacion(){
         return cliente.getIdentificacion();
     }
 
     public Date getFecha(){
-        return cliente.getFecha();
+        return cliente.getFecha_Alta();
     }
 
     public String getDireccion(){
@@ -45,7 +55,7 @@ public class Cliente {
     }
 
     public int getCP(){
-        return cliente.getCP();
+        return cliente.getC_postal();
     }
 
     public String getPais(){
