@@ -93,7 +93,7 @@ public class Registro {
                 return null;
             }
 
-            HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance()
+           /* HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance()
             		.getExternalContext()
             		.getRequest();
             
@@ -104,11 +104,13 @@ public class Registro {
             	FacesMessage fm = new FacesMessage("Error interno de URL");
                 FacesContext.getCurrentInstance().addMessage(null, fm);
                 return null;
-            }
+            }*/
 
-            usuarioEJB.AltaUsuario(admin, usuario);
-            registroOK = true;
-            return "login.xhtml";
+            usuario.setAdministrador(false);
+            usuario.setEstado("activo");
+            usuarioEJB.AltaUsuario(usuario);
+            //registroOK = true;
+            return "index.xhtml";
             
         } catch (UsuarioException e) {
             FacesMessage fm = new FacesMessage("Existe un usuario con la misma cuenta");

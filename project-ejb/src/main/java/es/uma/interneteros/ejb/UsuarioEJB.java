@@ -22,8 +22,8 @@ public class UsuarioEJB implements GestionUsuario {
     private static final Logger LOGGER =java.util.logging.Logger.getLogger(UsuarioEJB.class.getCanonicalName());
 
     @Override
-    public void AltaUsuario(Usuario admin, Usuario u) throws UsuarioException {
-        if(admin.isAdministrador()){
+    public void AltaUsuario(Usuario u) throws UsuarioException {
+        //if(admin.isAdministrador()){
 
             Usuario u1 = em.find(Usuario.class, u.getId());
             if(u1!= null){
@@ -32,9 +32,9 @@ public class UsuarioEJB implements GestionUsuario {
 
             em.persist(u);
 
-        }else{
-            throw new UsuarioException("NO ERES ADMINISTRADOR");
-        }
+        //}else{
+       //     throw new UsuarioException("NO ERES ADMINISTRADOR");
+       // }
 
     }
 

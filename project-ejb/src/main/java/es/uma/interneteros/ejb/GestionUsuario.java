@@ -8,7 +8,7 @@ import javax.ws.rs.core.UriBuilder;
 
 public interface GestionUsuario {
 
-    public void AltaUsuario(Usuario admin, Usuario u) throws UsuarioException;
+    public void AltaUsuario(Usuario u) throws UsuarioException;
 
     public void ActualizarUsuario(Usuario admin, Usuario u) throws UsuarioException;
 

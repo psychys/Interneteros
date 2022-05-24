@@ -38,10 +38,10 @@ public class UsuarioPrueba {
     @Requisitos({"RF2"})
     @Test
     public void testAltaUsuario() throws UsuarioException {
-        Usuario admin = new Usuario("000","123", true, "activo");
+       // Usuario admin = new Usuario("000","123", true, "activo");
         Usuario usuario = new Usuario("2","123", false, "activo");
 
-        gestionUsuario.AltaUsuario(admin, usuario);
+        gestionUsuario.AltaUsuario(usuario);
 
     }
 
