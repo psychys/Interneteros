@@ -12,54 +12,31 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
 
-@Named(value= "backingcliente")
+@Named(value= "cliente")
 @RequestScoped
 public class BackingCliente {
-
 
     @Inject
     private GestionCliente clientes;
     @Inject
     private InfoSesion sesion;
 
-    private Individual cliente;
-    
-    public BackingCliente() throws ClienteException {
-        Usuario usu = sesion.getUsuario();
-            this.cliente = (Individual) clientes.BuscarCliente(usu.getId());
+    private Individual c;
 
+    public BackingCliente(Individual c) {
+        this.c = c;
     }
 
-    public String getNombre(){
-        return cliente.getNombre();
+    public BackingCliente() {
     }
 
-    public String getApellido(){
-        return cliente.getApellidos();
+    public Individual getC() {
+        return c;
     }
 
-    public int getIdentificacion(){
-        return cliente.getIdentificacion();
+    public void setC(Individual c) {
+        this.c = c;
     }
 
-    public Date getFecha(){
-        return cliente.getFecha_Alta();
-    }
-
-    public String getDireccion(){
-        return cliente.getDireccion();
-    }
-
-    public String getCiudad(){
-        return cliente.getCiudad();
-    }
-
-    public int getCP(){
-        return cliente.getC_postal();
-    }
-
-    public String getPais(){
-        return cliente.getPais();
-    }
 
 }
