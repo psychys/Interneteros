@@ -26,7 +26,7 @@ public class BackingCliente {
     private String apellido;
     private String ciudad;
     private String pais;
-    private String cp;
+    private int cp;
     private String direccion;
     private Date fecha;
     private int identificacion;
@@ -78,11 +78,11 @@ public class BackingCliente {
         this.pais = pais;
     }
 
-    public String getCp() {
+    public int getCp() {
         return cp;
     }
 
-    public void setCp(String cp) {
+    public void setCp(int cp) {
         this.cp = cp;
     }
 
@@ -93,11 +93,11 @@ public class BackingCliente {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
+/*
     public Date getFecha() {
         return fecha;
     }
-
+*/
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -109,4 +109,32 @@ public class BackingCliente {
     public void setIdentificacion(int identificacion) {
         this.identificacion = identificacion;
     }
+
+    public String mostrarPais() throws ClienteException {
+        return clientes.BuscarCliente(sesion.getUsuario().getId()).getPais();
+    }
+
+    public String mostrarCiudad() throws ClienteException {
+        return clientes.BuscarCliente(sesion.getUsuario().getId()).getCiudad();
+    }
+
+    public Date mostrarFecha() throws ClienteException {
+        return clientes.BuscarCliente(sesion.getUsuario().getId()).getFecha_Alta();
+    }
+
+    public int mostrarCP() throws ClienteException {
+        return clientes.BuscarCliente(sesion.getUsuario().getId()).getC_postal();
+    }
+
+    public int mostrarIdentificacion() throws ClienteException {
+        return clientes.BuscarCliente(sesion.getUsuario().getId()).getIdentificacion();
+    }
+
+    public String mostrarDireccion() throws ClienteException {
+        return clientes.BuscarCliente(sesion.getUsuario().getId()).getDireccion();
+    }
+
+
+
+
 }
