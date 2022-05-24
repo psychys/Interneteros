@@ -8,32 +8,22 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.Keys;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
-import java.net.MalformedURLException;
-import java.net.URL;
+
 public class ProjectSelenium {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
-
   private static String baseURL;
   private static Map<String,String> propiedadesExtra = new HashMap<>();
   private final static String UNIDAD_PERSISTENCIA_PRUEBAS = "ProjectSelenium";
+
 
   @BeforeClass
   public void setupClass(){
@@ -49,7 +39,6 @@ public class ProjectSelenium {
     }
     baseURL="http://"+server+":8080/project-war/";
   }
-
   @Before
   public void setUp() {
     driver = new ChromeDriver();
@@ -62,10 +51,28 @@ public class ProjectSelenium {
     driver.quit();
   }
   @Test
-  public void inicio() {
-    driver.get(baseURL);
+  public void loginCliente() {
+    driver.get("http://0.0.0.0:8080/project-war/project-war/");
     driver.manage().window().setSize(new Dimension(800, 568));
-    driver.findElement(By.cssSelector("html")).click();
-    assertThat(driver.findElement(By.cssSelector("h1")).getText(), is("Hola mundo"));
+    driver.findElement(By.id("indexIndex:login_clientes")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("1");
+    driver.findElement(By.id("Login-Form:Login-Contra")).click();
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Menu Cliente"));
+  }
+  @Test
+  public void loginAdmin() {
+    driver.get("http://0.0.0.0:8080/project-war/");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("indexIndex")).click();
+    driver.findElement(By.id("indexIndex:login_autorizados")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).click();
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Menu Autorizado"));
   }
 }

@@ -4,42 +4,54 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Registro de usuario</title>
-        <link rel="stylesheet" href="recursos/css/styleRegistro.css" />
-    </h:head>
+<h:head>
+    <title>Registro de usuario</title>
+    <link rel="stylesheet" href="recursos/css/styleRegistro.css" />
+</h:head>
 
-    <h:body>
+<h:body>
+    <div class="login-box">
+        <h2>Registro Usuario</h2>
         <c:choose>
             <c:when test="#{empty infoSesion.usuario}">
-                <h:form id="registro">
-                    <h:panelGrid columns="3">
-                        <h:outputText value="Nombre de usuario:"/>
-                        <h:inputText id="user" value="#{registro.usuario.id}" required="true"/>
-                        <h:message for="user"/>
-                        <h:outputText value="Contraseña:"/>
-                        <h:inputSecret id="pass" value="#{registro.usuario.contrasena}" required="true"/>
-                        <h:message for="pass"/>
-                        <h:outputText value="Repita contraseña:"/>
-                        <h:inputSecret id="repass" value="#{registro.repass}" required="true"/>
-                        <h:message for="repass"/>
-                        <h:commandButton value="Crear usuario" action="#{registro.registrarUsuario()}"/>
-                        <h:link outcome="index.xhtml">Volver</h:link>
 
-                    </h:panelGrid>
-                    <h:messages/>
-                    
+                <h:form id="Login-Form">
+                    <div class="user-box">
+                        <h:inputText id="user" value="#{registro.usuario.id}" required="true"/>
+                        <label>Nombre de usuario:</label>
+                    </div>
+                    <div class="user-box">
+                        <h:inputSecret id="pass" value="#{registro.usuario.contrasena}" required="true"/>
+                        <label>Contraseña</label>
+                    </div>
+                    <div class="user-box">
+                        <h:inputSecret id="repass" value="#{registro.repass}" required="true"/>
+                        <label>Repita contraseña:</label>
+                    </div>
+
+                    <h:commandLink type ="submit" action="#{registro.registrarUsuario()}" id="EntrarLoginid">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Confirmar
+                    </h:commandLink>
+
+                    <h:link outcome="index.xhtml" id = "Volver_atras"> Volver </h:link>
+
                 </h:form>
-                
+
+
             </c:when>
             <c:otherwise>
                 <h:form>
-                    <p>Para crear un nuevo registro debe 
+                    <p>Para crear un nuevo registro debe
                         <h:commandLink action="#{infoSesion.invalidarSesion()}">salir</h:commandLink> antes de la aplicación.</p>
                 </h:form>
             </c:otherwise>
         </c:choose>
-
-    </h:body>
+    </div>
+</h:body>
 </html>
 
