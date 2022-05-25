@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
+
+<h:head>
+    <title>Crear Cliente</title>
+    <link rel="stylesheet" href="recursos/css/styleMenu.css"/>
+</h:head>
+
+<h:body>
+
+    <div class="menu-box">
+        <h2 id="PaginaPrincipalid">Creacion de Cliente</h2>
+        <h:form id="indexIndex">
+
+            <div class="user-box">
+                <h:inputText id="client" value="#{cliente.identificacion}" required="true"/>
+                <label>Identificacion:</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText id="direccion" value="#{cliente.direccion}" required="true"/>
+                <label>Direccion</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText id="ciudad" value="#{cliente.ciudad}" required="true"/>
+                <label>Ciudad</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText id="cpostal" value="#{cliente.cp}" required="true"/>
+                <label>Codigo postal</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText id="pais" value="#{cliente.pais}" required="true"/>
+                <label>Pais</label>
+            </div>
+
+            <h:commandLink type ="submit" action="#{cliente.crearCliente()}" id="crearCliente">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Crear
+            </h:commandLink>
+
+            <h:link outcome="Cliente.xhtml" id = "volver_cliente" >  Volver </h:link>
+        </h:form>
+    </div>
+
+</h:body>
+</html>

@@ -9,6 +9,8 @@ import es.uma.interneteros.jpa.Individual;
 import es.uma.interneteros.jpa.Usuario;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
@@ -22,6 +24,10 @@ public class BackingCliente {
     private GestionCliente clientes;
     @Inject
     private InfoSesion sesion;
+
+    private Cliente cliente;
+    private Usuario admin = sesion.getUsuario();
+    private String id;
 
     private Individual c;
     private String nombre;
@@ -38,6 +44,14 @@ public class BackingCliente {
     }
 
     public BackingCliente() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Individual getC() {
@@ -139,4 +153,37 @@ public class BackingCliente {
         Cuenta_referencia c = (Cuenta_referencia) l.get(1);
         return c.getSaldo();
     }
+
+    public Cliente buscarCliente() throws ClienteException {
+        Cliente cliente = clientes.BuscarCliente(id);
+        return cliente;
+    }
+
+    public void eliminarCliente() throws ClienteException {
+        Cliente cliente = clientes.BuscarCliente(id);
+        if (cliente.getEstado().equals("baja")) {
+            FacesMessage fm = new FacesMessage("El cliente ya esta dado de baja.");
+            FacesContext.getCurrentInstance().addMessage("Cliente:client", fm);
+        } else {
+            clientes.MarcarCliente(cliente, "baja", admin);
+        }
+    }
+
+    public void crearCliente() throws ClienteException {
+        cliente.setTipo_cliente("cliente");
+        cliente.setFecha_Alta(new Date());
+        cliente.setEstado("activo");
+        clientes.AltaCliente(admin, cliente);
+    }
+
+    public void editarCliente() throws ClienteException {
+        Cliente cliente = clientes.BuscarCliente(id);
+        cliente.setDireccion(direccion);
+        cliente.setCiudad(ciudad);
+        cliente.setC_postal(cp);
+        cliente.setPais(pais);
+        clientes.ActualizarCliente(admin, cliente);
+    }
+
+
 }
