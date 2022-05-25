@@ -3,6 +3,7 @@ package es.uma.interneteros.jpa;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Individual extends Cliente{
@@ -14,10 +15,14 @@ public class Individual extends Cliente{
     private String Apellidos;
     private Date Fecha_nacimiento;
 
-    public Individual(String id,String nombre, String apellidos) {
-        super();
+    public Individual(String ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, int c_postal, String pais, String estado, String nombre, String apellidos) {
+        super(ID, identificacion, tipo_cliente, fecha_Alta, fecha_Baja, direccion, ciudad, c_postal, pais, estado);
         Nombre = nombre;
         Apellidos = apellidos;
+    }
+
+    public Individual(){
+
     }
 
     public String getNombre() {

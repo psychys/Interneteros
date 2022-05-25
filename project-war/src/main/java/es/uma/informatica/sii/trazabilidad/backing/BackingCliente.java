@@ -135,6 +135,14 @@ public class BackingCliente {
     public String mostrarDireccion() throws ClienteException {
         return clientes.BuscarCliente(sesion.getUsuario().getId()).getDireccion();
     }
+
+    /*public String mostrarNombre() throws ClienteException {
+        return clientes.BuscarCliente(sesion.getUsuario().getId());
+    }
+
+    public String mostrarApellido() throws ClienteException {
+        return clientes.BuscarCliente(sesion.getUsuario().getId()).getDireccion();
+    }*/
 /*
     public int mostrarSaldo() throws ClienteException {
        List l = clientes.BuscarCliente(sesion.getUsuario().getId()).getC_fintech();
