@@ -2,28 +2,31 @@ package es.uma.informatica.sii.trazabilidad.backing;
 
 
 import es.uma.interneteros.ejb.GestionCliente;
+import es.uma.interneteros.ejb.GestionUsuario;
 import es.uma.interneteros.ejb.exceptions.ClienteException;
-import es.uma.interneteros.jpa.Cliente;
-import es.uma.interneteros.jpa.Cuenta_referencia;
 import es.uma.interneteros.jpa.Individual;
-import es.uma.interneteros.jpa.Usuario;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
-import java.util.List;
 
-@Named(value= "cliente")
+@Named(value= "admin")
 @RequestScoped
-public class BackingCliente {
+public class BackingAdmin {
+
+    @Inject
+    private GestionUsuario usuarios;
 
     @Inject
     private GestionCliente clientes;
+
     @Inject
     private InfoSesion sesion;
+
+    //private Cliente cliente;
+    //private Usuario admin = sesion.getUsuario();
+    private String id;
 
     private Individual c;
     private String nombre;
@@ -35,11 +38,19 @@ public class BackingCliente {
     private Date fecha;
     private int identificacion;
 
-    public BackingCliente(Individual c) {
+    public BackingAdmin(Individual c) {
         this.c = c;
     }
 
-    public BackingCliente() {
+    public BackingAdmin() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Individual getC() {
@@ -142,6 +153,36 @@ public class BackingCliente {
         return c.getSaldo();
     }
 
+    public Cliente buscarCliente() throws ClienteException {
+        Cliente cliente = clientes.BuscarCliente(id);
+        return cliente;
+    }
+
+    public void eliminarCliente() throws ClienteException {
+        Cliente cliente = clientes.BuscarCliente(id);
+        if (cliente.getEstado().equals("baja")) {
+            FacesMessage fm = new FacesMessage("El cliente ya esta dado de baja.");
+            FacesContext.getCurrentInstance().addMessage("Cliente:client", fm);
+        } else {
+            clientes.MarcarCliente(cliente, "baja", admin);
+        }
+    }
+
+    public void crearCliente() throws ClienteException {
+        cliente.setTipo_cliente("cliente");
+        cliente.setFecha_Alta(new Date());
+        cliente.setEstado("activo");
+        clientes.AltaCliente(admin, cliente);
+    }
+
+    public void editarCliente() throws ClienteException {
+        Cliente cliente = clientes.BuscarCliente(id);
+        cliente.setDireccion(direccion);
+        cliente.setCiudad(ciudad);
+        cliente.setC_postal(cp);
+        cliente.setPais(pais);
+        clientes.ActualizarCliente(admin, cliente);
+    }
 */
 
 }
