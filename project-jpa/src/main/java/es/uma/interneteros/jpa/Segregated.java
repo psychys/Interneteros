@@ -11,12 +11,18 @@ public class Segregated extends Cuenta_Fintech {
 	@OneToOne //(mappedBy ="c_fintech_segregada")
 	private Cuenta_referencia c_ref;
 
-	public Segregated() {
+	public Segregated(int comision , Cuenta_referencia c) {
 		super();
+		this.comision = comision;
+		this.c_ref = c;
+
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+
+	public Segregated() {
+
+	}
+
 
 	public Cuenta_referencia getC_ref() {
 		return c_ref;

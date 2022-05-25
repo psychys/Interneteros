@@ -52,6 +52,9 @@ Cuenta_referencia extends Cuenta{
 
 	}
 
+	public Cuenta_referencia(String s, String santander, String malaga, String españa, double v, Date date, String activo) {
+	}
+
 	public Set<DepositadaPooledReferencia> getDepositadaReferencia() {
 		return DepositadaReferencia;
 	}

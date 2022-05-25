@@ -13,7 +13,7 @@
 <h:body>
 
     <div class="user-box">
-        <h:inputText value="#{ login. }" required="true" id="Login-ID"/>
+        <h:outputText value="#{ cliente.mostrarSaldo() }" required="true" id="Login-ID"/>
         <label>Usuario</label>
     </div>
 
