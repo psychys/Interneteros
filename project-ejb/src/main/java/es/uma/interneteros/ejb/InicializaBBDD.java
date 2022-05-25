@@ -27,6 +27,7 @@ public class InicializaBBDD {
         if(comprobacion != null){
             return;
         }*/
+        /*
         Divisa divisa = new Divisa("USD", "Dolar", "$", 1.07);
         em.persist(divisa);
 
@@ -38,8 +39,8 @@ public class InicializaBBDD {
 
         List l = new ArrayList();
         l.add(seg);
-
-        Cliente cliente = new Cliente("1", 123, "cliente", new Date(), null, "calle platano 5", "Malaga", 20749, "España", "activo",l);
+*/
+        Cliente cliente = new Cliente("1", 123, "cliente", new Date(), null, "calle platano 5", "Malaga", 20749, "España", "activo"/*,l*/);
         em.persist(cliente);
 
         Cuenta cuenta = new Cuenta("123A", "123", "activa");
