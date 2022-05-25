@@ -14,6 +14,12 @@ public class Individual extends Cliente{
     private String Apellidos;
     private Date Fecha_nacimiento;
 
+    public Individual(String id,String nombre, String apellidos) {
+        super();
+        Nombre = nombre;
+        Apellidos = apellidos;
+    }
+
     public String getNombre() {
         return Nombre;
     }

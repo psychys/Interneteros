@@ -43,6 +43,9 @@ public class InicializaBBDD {
         Cliente cliente = new Cliente("1", 123, "cliente", new Date(), null, "calle platano 5", "Malaga", 20749, "España", "activo"/*,l*/);
         em.persist(cliente);
 
+        Individual i = new Individual("1","Carlos","Pendejo");
+        em.persist(i);
+
         Cuenta cuenta = new Cuenta("123A", "123", "activa");
         em.persist(cuenta);
 
