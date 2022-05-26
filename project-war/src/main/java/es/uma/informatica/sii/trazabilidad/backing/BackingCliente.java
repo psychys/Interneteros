@@ -17,6 +17,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Parameter;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.Date;
 import java.util.List;
@@ -25,12 +26,13 @@ import java.util.List;
 @RequestScoped
 public class BackingCliente {
 
-    private EntityManager em;
-
     @Inject
     private GestionCliente clientes;
     @Inject
     private InfoSesion sesion;
+
+    @PersistenceContext
+    private EntityManager em;
 
     private Individual c;
     private String nombre;
@@ -144,14 +146,14 @@ public class BackingCliente {
     }
 
     public String mostrarNombre() throws ClienteException {
-        return clientes.BuscarCliente(sesion.getUsuario().getId()).getNombre();
+       // return clientes.BuscarCliente(sesion.getUsuario().getId()).getNombre();
 
-       /* String id = sesion.getUsuario().getId();
+        String ident = sesion.getUsuario().getId();
 
-        Query q = (Query) em.createQuery("Select id FROM Individual id where id.ID = :id ");
-
-       return q.toString();
-       */
+        TypedQuery<Individual> q = em.createQuery("Select id FROM Individual id where id.ID = :id ",Individual.class);
+        q.setParameter("id",ident);
+        List<Individual> l = q.getResultList();
+        return l.get(0).getNombre();
 
     }
 
