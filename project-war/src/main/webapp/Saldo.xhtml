@@ -15,10 +15,9 @@
     <h2>Datos del cliente</h2>
     <h:form id="Login-Form">
 
-    <div class="user-box">
-        <h:outputText value="#{ cliente.mostrarSaldo() }"></h:outputText> required="true" id="Login-ID"/>
-        <label>Usuario</label>
-    </div>
+        <div class="user-box">
+            <a>Saldo: <h:outputText value="#{cliente.mostrarIdentificacion()}"/></a>
+        </div>
 
         <h:link outcome="vista_cliente.xhtml" id = "Volver_atras"> Volver </h:link>
 
