@@ -20,7 +20,7 @@ public class BaseDatos {
 
 		em.getTransaction().begin();
 
-		Cliente cliente = new Cliente("1",123, "cliente",new Date(),null, "calle platano 5", "Malaga", 20749, "España", "activo");
+		Cliente cliente = new Cliente("1","123", "cliente",new Date(),null, "calle platano 5", "Malaga", "20749", "España", "activo");
 		em.persist(cliente);
 
 		Cuenta cuenta = new Cuenta("123A","123","activa");

@@ -42,7 +42,7 @@ public class ClientePrueba {
 	@Test
 	public void testAltaCliente() throws ClienteException, UsuarioException {
 		Usuario admin = new Usuario("000","123", true, "activo");
-		Cliente cliente = new Cliente("2",456, "cliente",new Date(),null, "calle platano 5", "Malaga", 20749, "España", "activo");
+		Cliente cliente = new Cliente("2","456", "cliente",new Date(),null, "calle platano 5", "Malaga", "20749", "España", "activo");
 
 		gestionCliente.AltaCliente(admin, cliente);
 
