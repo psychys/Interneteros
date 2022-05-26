@@ -2,13 +2,12 @@ package es.uma.informatica.sii.trazabilidad.backing;
 
 
 import es.uma.interneteros.ejb.GestionCliente;
+import es.uma.interneteros.ejb.GestionCuenta;
 import es.uma.interneteros.ejb.GestionUsuario;
 import es.uma.interneteros.ejb.exceptions.ClienteException;
+import es.uma.interneteros.ejb.exceptions.CuentaException;
 import es.uma.interneteros.ejb.exceptions.UsuarioException;
-import es.uma.interneteros.jpa.Cliente;
-import es.uma.interneteros.jpa.Cuenta_referencia;
-import es.uma.interneteros.jpa.Individual;
-import es.uma.interneteros.jpa.Usuario;
+import es.uma.interneteros.jpa.*;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -26,6 +25,9 @@ public class BackingAdmin {
 
     @Inject
     private GestionCliente clientes;
+
+    @Inject
+    private GestionCuenta cuentas;
 
     @Inject
     private InfoSesion sesion;
@@ -113,7 +115,7 @@ public class BackingAdmin {
             }
         } catch (ClienteException e) {
             FacesMessage fm = new FacesMessage("Error al buscar el cliente");
-           // FacesContext.getCurrentInstance().addMessage("login:user", fm);
+            FacesContext.getCurrentInstance().addMessage("Cliente:cliente", fm);
         }
         return null;
     }
@@ -166,18 +168,20 @@ public class BackingAdmin {
             }
         } catch (ClienteException e) {
             FacesMessage fm = new FacesMessage("Error al buscar el cliente");
-            // FacesContext.getCurrentInstance().addMessage("login:user", fm);
+            FacesContext.getCurrentInstance().addMessage("Cliente:cliente", fm);
         }
         return null;
     }
 
     public String confirmarEdit() throws ClienteException {
-        Cliente cliente = clientes.BuscarCliente(id);
+        /*Cliente cliente = clientes.BuscarCliente(id);
+        cliente.setID(id);
         cliente.setDireccion(direccion);
         cliente.setCiudad(ciudad);
         cliente.setC_postal(CP);
-        cliente.setPais(pais);
-        em.persist(cliente);
+        cliente.setPais(pais);*/
+        Usuario u = sesion.getUsuario();
+        clientes.ActualizarCliente(u,id);
         return "mostrarDatosCliente.xhtml";
     }
 
@@ -197,7 +201,43 @@ public class BackingAdmin {
         return null;
     }
 
+    //METODOS Y ATRIBUTOS PARA CRUD CUENTA
+
+    private String IBAN;
+    private String SWIFT;
+    private String estado;
+
+    public String getIBAN() {
+        return IBAN;
     }
+
+    public void setIBAN(String IBAN) {
+        this.IBAN = IBAN;
+    }
+
+    public String mostrarSWIFT() throws CuentaException {
+        return cuentas.BuscarCuenta(IBAN).getSWIFT();
+    }
+
+    public String mostrarestado() throws CuentaException {
+        return cuentas.BuscarCuenta(IBAN).getEstado();
+    }
+
+    public String buscarCuentaAdmin() {
+        try {
+            Cuenta c = cuentas.BuscarCuenta(IBAN);
+
+            if (c != null) {
+                return "mostrarDatosCuenta.xhtml";
+            }
+        } catch (CuentaException e) {
+            FacesMessage fm = new FacesMessage("Error al buscar el cuenta");
+            FacesContext.getCurrentInstance().addMessage("Cuenta:cuenta", fm);
+        }
+        return null;
+    }
+
+}
         /*
     public void eliminarCliente() throws ClienteException {
         Cliente cliente = clientes.BuscarCliente(id);

@@ -41,19 +41,19 @@ public class ClienteEJB implements GestionCliente {
     }
     @Requisitos({"RF3"})
     @Override
-    public void ActualizarCliente(Usuario admin, Cliente c) throws ClienteException {
+    public void ActualizarCliente(Usuario admin, String id) throws ClienteException {
         if (admin.isAdministrador()) {
 
-            Cliente cliente = BuscarCliente(c.getID());
-            cliente.setDireccion(c.getDireccion());
-            cliente.setC_postal(c.getC_postal());
-            cliente.setPais(c.getPais());
-            cliente.setCiudad(c.getCiudad());
+            Cliente cliente = BuscarCliente(id);
+            cliente.setDireccion(id);
+            cliente.setC_postal(id);
+            cliente.setPais(id);
+            cliente.setCiudad(id);
             em.merge(cliente);
 
 
         }else{
-            throw new ClienteException("NO ERES ADMINISTRADOR");
+            throw new ClienteException("NO ERES EDU");
         }
     }
 

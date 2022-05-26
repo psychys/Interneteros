@@ -12,7 +12,7 @@ public interface GestionCliente {
     public void AltaCliente(Usuario admin, Cliente c) throws ClienteException;
 
     @Requisitos({"RF3"})
-    public void ActualizarCliente(Usuario admin, Cliente c) throws ClienteException;
+    public void ActualizarCliente(Usuario admin, String id) throws ClienteException;
 
     public Individual BuscarCliente(String id) throws ClienteException;
 
