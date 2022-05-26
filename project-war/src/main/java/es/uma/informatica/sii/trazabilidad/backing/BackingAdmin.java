@@ -9,19 +9,21 @@ import es.uma.interneteros.ejb.exceptions.CuentaException;
 import es.uma.interneteros.ejb.exceptions.UsuarioException;
 import es.uma.interneteros.jpa.*;
 
+import javax.annotation.Resource;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.*;
 import java.util.Date;
 import java.util.List;
 
 @Named(value= "admin")
 @RequestScoped
 public class BackingAdmin {
-    private EntityManager em;
 
     @Inject
     private GestionCliente clientes;
@@ -31,6 +33,12 @@ public class BackingAdmin {
 
     @Inject
     private InfoSesion sesion;
+
+    @PersistenceContext
+    EntityManager em;
+
+    @Resource
+    private UserTransaction user;
 
     private String id;
 
@@ -173,15 +181,19 @@ public class BackingAdmin {
         return null;
     }
 
-    public String confirmarEdit() throws ClienteException {
-        /*Cliente cliente = clientes.BuscarCliente(id);
+    public String confirmarEdit() throws ClienteException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+        Cliente cliente = clientes.BuscarCliente(id);
         cliente.setID(id);
         cliente.setDireccion(direccion);
         cliente.setCiudad(ciudad);
         cliente.setC_postal(CP);
-        cliente.setPais(pais);*/
+        cliente.setPais(pais);
         Usuario u = sesion.getUsuario();
-        clientes.ActualizarCliente(u,id);
+
+        user.begin();
+        em.merge(cliente);
+        user.commit();
+
         return "mostrarDatosCliente.xhtml";
     }
 
