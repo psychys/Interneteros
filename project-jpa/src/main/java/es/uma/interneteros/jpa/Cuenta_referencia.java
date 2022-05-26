@@ -38,6 +38,12 @@ Cuenta_referencia extends Cuenta{
 		// TODO Auto-generated constructor stub
 	}
 
+	public Cuenta_referencia(String IBAN, String SWIFT, String estado, String nombre_banco, int saldo) {
+		super(IBAN, SWIFT, estado);
+		this.nombre_banco = nombre_banco;
+		this.saldo = saldo;
+	}
+
 	public Cuenta_referencia(/*String rowId,*/ String nombre_banco, String sucursal, String pais, int saldo, Date fecha_apertura, String estado, Segregated c_fintech_segregada, Divisa divisa, Set<DepositadaPooledReferencia> depositadaReferencia) {
 		//this.rowId = rowId;
 		this.nombre_banco = nombre_banco;

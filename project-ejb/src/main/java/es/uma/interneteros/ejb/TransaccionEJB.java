@@ -8,31 +8,32 @@ import es.uma.interneteros.ejb.exceptions.TransaccionException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Stateless
 public class TransaccionEJB implements GestionTransaccion {
 
-    //@PersistenceContext(name="Trazabilidad")
+    @PersistenceContext(name="eburyEJB")
     private EntityManager em;
 
     @Requisitos({"RF13"})
     @Override
     public void CrearTransaccion(Transaccion t) throws TransaccionException {
-        Transaccion t1 = em.find(Transaccion.class, t);
+        /*Transaccion t1 = em.find(Transaccion.class, t);
         if(t1 != null)
-            throw new TransaccionException("Transaccion ya existente");
+            throw new TransaccionException("Transaccion ya existente");*/
 
 
-        Cuenta_referencia origen = (Cuenta_referencia) t1.getOrigen();
-        Cuenta_referencia destino = (Cuenta_referencia) t1.getDestino();
+        Cuenta_referencia origen = (Cuenta_referencia) t.getOrigen();
+        Cuenta_referencia destino = (Cuenta_referencia) t.getDestino();
 
-        origen.setSaldo(origen.getSaldo() - (int)(t1.getCantidad()*1.01));
-        destino.setSaldo(destino.getSaldo() + t1.getCantidad());
+        origen.setSaldo(origen.getSaldo() - (int)(t.getCantidad()*1.01));
+        destino.setSaldo(destino.getSaldo() + t.getCantidad());
 
 
-        em.persist(t1);
+        em.persist(t);
         em.merge(origen);
         em.merge(destino);
 

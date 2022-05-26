@@ -36,7 +36,13 @@ public class Transaccion {
     private Cuenta origen;
     @ManyToOne
     private Cuenta destino;
-    
+
+	public Transaccion(int cantidad, Cuenta origen, Cuenta destino) {
+		this.cantidad = cantidad;
+		this.origen = origen;
+		this.destino = destino;
+	}
+
 	public Transaccion() {
 		super();
 		// TODO Auto-generated constructor stub

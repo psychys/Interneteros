@@ -11,17 +11,17 @@
 <h:body>
     <div class="login-box">
         <h2>Transferir dinero</h2>
-        <h:form id="Login-Form">
+        <h:form id="Transfer-Form">
             <div class="user-box">
-                <h:inputText value="#{}" required="true" id="Login-ID"/>
+                <h:inputText value="#{transaccion.id_destino}" required="true" id="Destino_ID"/>
                 <label>ID destinatario</label>
             </div>
             <div class="user-box">
-                <h:inputText value="#{}" required="true" id="Login-ID"/>
+                <h:inputText value="#{transaccion.cantidad}" required="true" id="Dinero"/>
                 <label>Cantidad:</label>
             </div>
 
-            <h:link outcome="Transferencia_correcta.xhtml" id = "Enviar"> Volver </h:link>
+            <h:link outcome="Transferencia_correcta.xhtml" id = "Enviar"> Enviar </h:link>
 
             <h:link outcome="vista_cliente.xhtml" id = "Volver_atras"> Volver </h:link>
 
