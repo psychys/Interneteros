@@ -5,42 +5,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
 
 <h:head>
-    <title>Editar Cliente</title>
-    <link rel="stylesheet" href="recursos/css/styleMenu.css"/>
+    <title>Editar Cliente </title>
+    <link rel="stylesheet" href="recursos/css/styleLogin.css"/>
 </h:head>
 
 <h:body>
-
-    <div class="menu-box">
-        <h2 id="PaginaPrincipalid">Edicion de Cliente</h2>
-        <h:form id="indexIndex">
-
+    <div class="login-box">
+        <h2>Editar Cliente</h2>
+        <h:form id="Login-Form">
             <div class="user-box">
-                <h:inputText id="client" value="#{cliente.id}" required="true"/>
+                <h:inputText value="#{admin.id}" required="true" id="Login-ID"/>
                 <label>Cliente a editar:</label>
             </div>
 
-            <div class="user-box">
-                <h:inputText id="direccion" value="#{cliente.direccion}" required="false"/>
-                <label>Nueva direccion</label>
-            </div>
-
-            <div class="user-box">
-                <h:inputText id="ciudad" value="#{cliente.ciudad}" required="false"/>
-                <label>Nueva ciudad</label>
-            </div>
-
-            <div class="user-box">
-                <h:inputText id="cpostal" value="#{cliente.cp}" required="false"/>
-                <label>Nuevo codigo postal</label>
-            </div>
-
-            <div class="user-box">
-                <h:inputText id="pais" value="#{cliente.pais}" required="false"/>
-                <label>Nuevo pais</label>
-            </div>
-
-            <h:commandLink type ="submit" action="#{cliente.editarCliente()}" id="editarCliente">
+            <h:commandLink type ="submit" action="#{admin.editarClienteAdmin()}" id="buscarCliente">
 
                 <span></span>
                 <span></span>
@@ -52,6 +30,5 @@
             <h:link outcome="Cliente.xhtml" id = "volver_cliente" >  Volver </h:link>
         </h:form>
     </div>
-
 </h:body>
 </html>
