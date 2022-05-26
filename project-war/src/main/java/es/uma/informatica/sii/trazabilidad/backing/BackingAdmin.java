@@ -133,7 +133,7 @@ public class BackingAdmin {
         return clientes.BuscarCliente(id).getC_postal();
     }
 
-    public int mostrarIdentificacion() throws ClienteException {
+    public String mostrarIdentificacion() throws ClienteException {
         return clientes.BuscarCliente(id).getIdentificacion();
     }
 
@@ -177,10 +177,25 @@ public class BackingAdmin {
         cliente.setCiudad(ciudad);
         cliente.setC_postal(CP);
         cliente.setPais(pais);
+        em.persist(cliente);
         return "mostrarDatosCliente.xhtml";
     }
 
+    public String crearCliente() throws ClienteException {
+        Cliente cliente = clientes.BuscarCliente(id);
 
+        if(cliente==null){
+            cliente.setID(id);
+            cliente.setIdentificacion(identificacion);
+            cliente.setDireccion(direccion);
+            cliente.setCiudad(ciudad);
+            cliente.setC_postal(CP);
+            cliente.setPais(pais);
+            em.persist(cliente);
+            return "CreacionClienteExitosa.xhtml";
+        }
+        return null;
+    }
 
     }
         /*
@@ -192,24 +207,11 @@ public class BackingAdmin {
         } else {
             clientes.MarcarCliente(cliente, "baja", admin);
         }
-    }
+    }*/
 
-    public void crearCliente() throws ClienteException {
-        cliente.setTipo_cliente("cliente");
-        cliente.setFecha_Alta(new Date());
-        cliente.setEstado("activo");
-        clientes.AltaCliente(admin, cliente);
-    }
 
-    public void editarCliente() throws ClienteException {
-        Cliente cliente = clientes.BuscarCliente(id);
-        cliente.setDireccion(direccion);
-        cliente.setCiudad(ciudad);
-        cliente.setC_postal(cp);
-        cliente.setPais(pais);
-        clientes.ActualizarCliente(admin, cliente);
-    }
-*/
+
+
 
 
 

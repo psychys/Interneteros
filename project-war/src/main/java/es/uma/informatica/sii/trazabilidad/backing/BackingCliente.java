@@ -135,7 +135,7 @@ public class BackingCliente {
         return clientes.BuscarCliente(sesion.getUsuario().getId()).getC_postal();
     }
 
-    public int mostrarIdentificacion() throws ClienteException {
+    public String mostrarIdentificacion() throws ClienteException {
         return clientes.BuscarCliente(sesion.getUsuario().getId()).getIdentificacion();
     }
 

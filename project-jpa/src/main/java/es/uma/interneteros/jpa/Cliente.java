@@ -13,7 +13,7 @@ public class Cliente {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private String ID;
     @Column(unique = true)
-    private int Identificacion;
+    private String Identificacion;
     @Column(nullable = false)
     private String tipo_cliente;
     @Temporal(TemporalType.DATE)
@@ -46,7 +46,7 @@ public class Cliente {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cliente(String ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, String c_postal,
+	public Cliente(String ID, String identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, String c_postal,
 				   String pais, String estado, List<Cuenta_Fintech> c_fintech) {
 		this.ID = ID;
 		Identificacion = identificacion;
@@ -60,7 +60,7 @@ public class Cliente {
 		Estado = estado;
 		this.c_fintech = c_fintech;
 	}
-	public Cliente(String ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, String c_postal,
+	public Cliente(String ID, String identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, String c_postal,
 				   String pais, String estado) {
 		this.ID = ID;
 		Identificacion = identificacion;
@@ -82,11 +82,11 @@ public class Cliente {
 		ID = iD;
 	}
 
-	public int getIdentificacion() {
+	public String getIdentificacion() {
 		return Identificacion;
 	}
 
-	public void setIdentificacion(int identificacion) {
+	public void setIdentificacion(String identificacion) {
 		Identificacion = identificacion;
 	}
 
