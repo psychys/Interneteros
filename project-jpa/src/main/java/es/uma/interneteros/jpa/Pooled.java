@@ -11,8 +11,8 @@ public class Pooled extends Cuenta_Fintech {
         super();
     }
 
-    public Pooled(String IBAN, String SWIFT, String estado) {
-        super(IBAN, SWIFT, estado);
+    public Pooled(String IBAN, String SWIFT, String estado, Date fecha_apertura) {
+        super(IBAN, SWIFT, estado, fecha_apertura);
     }
 
     @OneToMany(mappedBy = "cuenta_pooled")

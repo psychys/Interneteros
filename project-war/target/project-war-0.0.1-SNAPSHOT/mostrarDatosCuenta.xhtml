@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
+<h:head>
+    <title>Datos cuenta buscada</title>
+    <link rel="stylesheet" href="recursos/css/styleLogin.css" />
+</h:head>
+
+<h:body>
+    <div class="login-box">
+        <h2>Datos cuenta buscada</h2>
+        <h:form id="Login-Form">
+
+            <div class="user-box">
+                <a>Nombre: <h:outputText value="#{admin.getIBAN() }"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Nombre: <h:outputText value="#{admin.mostrarNombre()}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Nombre: <h:outputText value="#{admin.mostrarNombre()}"/></a>
+            </div>
+
+            <h:link outcome="BuscarCuenta.xhtml" id = "Volver_atras"> Volver </h:link>
+
+        </h:form>
+    </div>
+</h:body>
+</html>

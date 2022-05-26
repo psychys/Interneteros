@@ -29,7 +29,7 @@ public class BaseDatos {
 		Persona_autorizada pa = new Persona_autorizada(123, 123, "Juan", "Perez", "calle platano");
 		em.persist(pa);
 
-		Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date(), new Date(), "");
+		Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date());
 		em.persist(c_fin);
 
 		Usuario admin = new Usuario("000", "123", true, "activo");

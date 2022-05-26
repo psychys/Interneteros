@@ -60,15 +60,18 @@ public class InicializaBBDD {
         Persona_autorizada pa = new Persona_autorizada(123, 123, "Juan", "Perez", "calle platano");
         em.persist(pa);
 
-        Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date(), new Date(), "");
+        Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date());
         em.persist(c_fin);
 //Primera cuenta para transacciones
         Cuenta_referencia c_ref1 = new Cuenta_referencia("ES1492", "1234", "activo", "Banco de pesas", 400);
         em.persist(c_ref1);
 
-        Pooled p1 = new Pooled("ES1493","1234","activo");
+        Pooled p1 = new Pooled("ES1493","1234","activo", new Date());
         p1.setFecha_apertura(new Date());
         em.persist(p1);
+
+        Segregated s1 = new Segregated("ES1496","1234","activa",new Date(),c_ref1);
+        em.persist(s1);
 
         DepositadaId id = new DepositadaId();
         id.setIban_pooled(p1.getIBAN());
@@ -81,7 +84,10 @@ public class InicializaBBDD {
         Cuenta_referencia c_ref2 = new Cuenta_referencia("ES1494", "1234", "activo", "Banco de pesas", 1000);
         em.persist(c_ref2);
 
-        Pooled p2 = new Pooled("ES1495","1234","activo");
+        Segregated s2 = new Segregated("ES1497","1234","activa",new Date(),c_ref2);
+        em.persist(s2);
+
+        Pooled p2 = new Pooled("ES1495","1234","activo", new Date());
         p2.setFecha_apertura(new Date());
         em.persist(p2);
 

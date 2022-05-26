@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
+
+<h:head>
+    <title>Consultar Cliente</title>
+    <link rel="stylesheet" href="recursos/css/styleLogin.css"/>
+</h:head>
+
+<h:body>
+    <div class="login-box">
+        <h2>Consulta de Cliente</h2>
+        <h:form id="Login-Form">
+            <div class="user-box">
+                <h:inputText value="#{admin.id}" required="true" id="Login-ID"/>
+                <label>Cliente a buscar:</label>
+            </div>
+
+            <h:commandLink type ="submit" action="#{admin.buscarClienteAdmin()}" id="buscarCliente">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Buscar
+            </h:commandLink>
+
+            <h:link outcome="Cliente.xhtml" id = "volver_cliente" >  Volver </h:link>
+        </h:form>
+    </div>
+</h:body>
+</html>

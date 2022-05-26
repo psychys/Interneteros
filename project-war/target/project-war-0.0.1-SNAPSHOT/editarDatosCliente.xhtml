@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
+<h:head>
+    <title>Editar datos del cliente</title>
+    <link rel="stylesheet" href="recursos/css/styleLogin.css" />
+</h:head>
+
+<h:body>
+    <div class="login-box">
+        <h2>Editar datos del cliente buscado</h2>
+        <h:form id="Login-Form">
+
+            <div class="user-box">
+                <h:inputText value="#{admin.id}" required="true" id="id"/>
+                <label>ID</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText value="#{admin.direccion}" required="true" id="direccion"/>
+                <label>Direccion</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText value="#{admin.ciudad}" required="true" id="ciudad"/>
+                <label>Ciudad</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText value="#{admin.CP}" required="true" id="cp"/>
+                <label>CP</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText value="#{admin.pais}" required="true" id="pais"/>
+                <label>Pais</label>
+            </div>
+
+            <h:commandLink type ="submit" action="#{admin.confirmarEdit()}" id="buscarCliente">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Confirmar
+            </h:commandLink>
+
+            <h:link outcome="BuscarCliente.xhtml" id = "Volver_atras"> Volver </h:link>
+
+        </h:form>
+    </div>
+</h:body>
+</html>

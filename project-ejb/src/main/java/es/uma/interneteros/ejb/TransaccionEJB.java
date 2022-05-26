@@ -11,6 +11,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Set;
 
 @Stateless
 public class TransaccionEJB implements GestionTransaccion {
@@ -26,16 +27,20 @@ public class TransaccionEJB implements GestionTransaccion {
             throw new TransaccionException("Transaccion ya existente");*/
 
 
-        Cuenta_referencia origen = (Cuenta_referencia) t.getOrigen();
-        Cuenta_referencia destino = (Cuenta_referencia) t.getDestino();
 
-        origen.setSaldo(origen.getSaldo() - (int)(t.getCantidad()*1.01));
-        destino.setSaldo(destino.getSaldo() + t.getCantidad());
+        if(t.getOrigen().getClass().getName().equals("Segregated") && t.getDestino().getClass().getName().equals("Segregated")){
+            Segregated co = (Segregated) t.getOrigen();
+            Segregated cd = (Segregated) t.getDestino();
+            co.getC_ref().setSaldo(co.getC_ref().getSaldo() - (int)(t.getCantidad()*1.01));
+            cd.getC_ref().setSaldo(cd.getC_ref().getSaldo() + t.getCantidad());
+            em.merge(cd);
+            em.merge(co);
+
+        }
 
 
         em.persist(t);
-        em.merge(origen);
-        em.merge(destino);
+
 
     }
 
