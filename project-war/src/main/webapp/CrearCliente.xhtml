@@ -16,36 +16,41 @@
         <h:form id="indexIndex">
 
             <div class="user-box">
-                <h:inputText id="client" value="#{cliente.id}" required="true"/>
+                <h:inputText id="idi" value="#{admin.id}" required="true"/>
+                <label>ID:</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText id="tipo" value="#{admin.tipo_cliente}" required="true"/>
+                <label>Tipo Cliente:</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText id="client" value="#{admin.identificacion}" required="true"/>
                 <label>Identificacion:</label>
             </div>
 
             <div class="user-box">
-                <h:inputText id="client" value="#{cliente.identificacion}" required="true"/>
-                <label>Identificacion:</label>
-            </div>
-
-            <div class="user-box">
-                <h:inputText id="direccion" value="#{cliente.direccion}" required="true"/>
+                <h:inputText id="direccion" value="#{admin.direccion}" required="true"/>
                 <label>Direccion</label>
             </div>
 
             <div class="user-box">
-                <h:inputText id="ciudad" value="#{cliente.ciudad}" required="true"/>
+                <h:inputText id="ciudad" value="#{admin.ciudad}" required="true"/>
                 <label>Ciudad</label>
             </div>
 
             <div class="user-box">
-                <h:inputText id="cpostal" value="#{cliente.CP}" required="true"/>
+                <h:inputText id="cpostal" value="#{admin.CP}" required="true"/>
                 <label>Codigo postal</label>
             </div>
 
             <div class="user-box">
-                <h:inputText id="pais" value="#{cliente.pais}" required="true"/>
+                <h:inputText id="pais" value="#{admin.pais}" required="true"/>
                 <label>Pais</label>
             </div>
 
-            <h:commandLink type ="submit" action="#{cliente.crearCliente()}" id="crearCliente">
+            <h:commandLink type ="submit" action="#{admin.crearCliente()}" id="crearCliente">
 
                 <span></span>
                 <span></span>

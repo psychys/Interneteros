@@ -50,6 +50,8 @@ public class BackingAdmin {
     private String identificacion;
     private String direccion;
 
+    private String tipo_cliente;
+
     public String getId() {
         return id;
     }
@@ -112,6 +114,14 @@ public class BackingAdmin {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public String getTipo_cliente() {
+        return tipo_cliente;
+    }
+
+    public void setTipo_cliente(String tipo_cliente) {
+        this.tipo_cliente = tipo_cliente;
     }
 
     public String buscarClienteAdmin() throws ClienteException {
@@ -197,20 +207,21 @@ public class BackingAdmin {
         return "mostrarDatosCliente.xhtml";
     }
 
-    public String crearCliente() throws ClienteException {
-        Cliente cliente = clientes.BuscarCliente(id);
-
-        if(cliente==null){
+    public String crearCliente() throws ClienteException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+        Cliente cliente = new Cliente();
             cliente.setID(id);
+            cliente.setTipo_cliente(tipo_cliente);
             cliente.setIdentificacion(identificacion);
             cliente.setDireccion(direccion);
             cliente.setCiudad(ciudad);
             cliente.setC_postal(CP);
             cliente.setPais(pais);
+            user.begin();
             em.persist(cliente);
+            user.commit();
             return "CreacionClienteExitosa.xhtml";
-        }
-        return null;
+
+     
     }
 
     //METODOS Y ATRIBUTOS PARA CRUD CUENTA
