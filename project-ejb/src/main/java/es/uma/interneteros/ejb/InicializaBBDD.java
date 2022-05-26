@@ -52,6 +52,7 @@ public class InicializaBBDD {
 
 
         Usuario usuario = new Usuario("1", "123", false, "activo");
+        usuario.setC_cliente(i);
         em.persist(usuario);
 
         Usuario usuario2 = new Usuario("2", "1234", false, "activo");
@@ -73,6 +74,11 @@ public class InicializaBBDD {
         Segregated s1 = new Segregated("ES1496","1234","activa",new Date(),c_ref1);
         em.persist(s1);
 
+        List<Cuenta_Fintech> l = new ArrayList<>();
+        l.add(s1);
+        i.setC_fintech(l);
+        em.merge(i);
+
         DepositadaId id = new DepositadaId();
         id.setIban_pooled(p1.getIBAN());
         id.setIban_referencia(c_ref1.getIBAN());
@@ -86,6 +92,11 @@ public class InicializaBBDD {
 
         Segregated s2 = new Segregated("ES1497","1234","activa",new Date(),c_ref2);
         em.persist(s2);
+
+        List<Cuenta_Fintech> l2 = new ArrayList<>();
+        l2.add(s2);
+        m.setC_fintech(l2);
+        em.merge(m);
 
         Pooled p2 = new Pooled("ES1495","1234","activo", new Date());
         p2.setFecha_apertura(new Date());
