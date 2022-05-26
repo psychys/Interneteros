@@ -131,7 +131,7 @@ public class BackingCliente {
         return clientes.BuscarCliente(sesion.getUsuario().getId()).getFecha_Alta();
     }
 
-    public int mostrarCP() throws ClienteException {
+    public String mostrarCP() throws ClienteException {
         return clientes.BuscarCliente(sesion.getUsuario().getId()).getC_postal();
     }
 

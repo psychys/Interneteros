@@ -26,7 +26,7 @@ public class Cliente {
     @Column(nullable = false)
     private String Ciudad;
     @Column(nullable = false)
-    private int c_postal;
+    private String c_postal;
     @Column(nullable = false)
     private String Pais;
 	private String Estado;
@@ -46,7 +46,7 @@ public class Cliente {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cliente(String ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, int c_postal,
+	public Cliente(String ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, String c_postal,
 				   String pais, String estado, List<Cuenta_Fintech> c_fintech) {
 		this.ID = ID;
 		Identificacion = identificacion;
@@ -60,7 +60,7 @@ public class Cliente {
 		Estado = estado;
 		this.c_fintech = c_fintech;
 	}
-	public Cliente(String ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, int c_postal,
+	public Cliente(String ID, int identificacion, String tipo_cliente, Date fecha_Alta, Date fecha_Baja, String direccion, String ciudad, String c_postal,
 				   String pais, String estado) {
 		this.ID = ID;
 		Identificacion = identificacion;
@@ -130,11 +130,11 @@ public class Cliente {
 		Ciudad = ciudad;
 	}
 
-	public int getC_postal() {
+	public String getC_postal() {
 		return c_postal;
 	}
 
-	public void setC_postal(int c_postal) {
+	public void setC_postal(String c_postal) {
 		this.c_postal = c_postal;
 	}
 

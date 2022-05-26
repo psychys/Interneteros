@@ -41,10 +41,10 @@ public class InicializaBBDD {
         l.add(seg);
 */
 
-        Individual i = new Individual("1", 123, "cliente", new Date(), null, "calle platano 5", "Malaga", 20749, "España", "activo","Carlos","Pendejo");
+        Individual i = new Individual("1", 123, "cliente", new Date(), null, "calle platano 5", "Malaga", "20749", "España", "activo","Carlos","Pendejo");
         em.persist(i);
 
-        Individual m = new Individual("2", 1234, "cliente", new Date(), null, "calle platano 5", "Malaga", 20749, "España", "activo","Pedro","Navaja");
+        Individual m = new Individual("2", 1234, "cliente", new Date(), null, "calle platano 5", "Malaga", "20749", "España", "activo","Pedro","Navaja");
         em.persist(m);
 
         Cuenta cuenta = new Cuenta("123A", "123", "activa");

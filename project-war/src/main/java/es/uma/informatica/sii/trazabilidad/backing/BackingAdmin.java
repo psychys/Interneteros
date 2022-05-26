@@ -129,7 +129,7 @@ public class BackingAdmin {
         return clientes.BuscarCliente(id).getFecha_Alta();
     }
 
-    public int mostrarCP() throws ClienteException {
+    public String mostrarCP() throws ClienteException {
         return clientes.BuscarCliente(id).getC_postal();
     }
 
@@ -172,7 +172,11 @@ public class BackingAdmin {
     }
 
     public String confirmarEdit() throws ClienteException {
-        clientes.ActualizarCliente(sesion.getUsuario(),clientes.BuscarCliente(id));
+        Cliente cliente = clientes.BuscarCliente(id);
+        cliente.setDireccion(direccion);
+        cliente.setCiudad(ciudad);
+        cliente.setC_postal(CP);
+        cliente.setPais(pais);
         return "mostrarDatosCliente.xhtml";
     }
 
