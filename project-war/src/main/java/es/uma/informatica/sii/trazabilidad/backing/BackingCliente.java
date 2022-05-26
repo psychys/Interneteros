@@ -7,18 +7,25 @@ import es.uma.interneteros.jpa.Cliente;
 import es.uma.interneteros.jpa.Cuenta_referencia;
 import es.uma.interneteros.jpa.Individual;
 import es.uma.interneteros.jpa.Usuario;
+import org.eclipse.persistence.internal.jpa.rs.metadata.model.Query;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Typed;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.Parameter;
+import javax.persistence.TypedQuery;
 import java.util.Date;
 import java.util.List;
 
 @Named(value= "cliente")
 @RequestScoped
 public class BackingCliente {
+
+    private EntityManager em;
 
     @Inject
     private GestionCliente clientes;
@@ -136,20 +143,26 @@ public class BackingCliente {
         return clientes.BuscarCliente(sesion.getUsuario().getId()).getDireccion();
     }
 
-    /*public String mostrarNombre() throws ClienteException {
-        return clientes.BuscarCliente(sesion.getUsuario().getId());
+    public String mostrarNombre() throws ClienteException {
+        return clientes.BuscarCliente(sesion.getUsuario().getId()).getNombre();
+
+       /* String id = sesion.getUsuario().getId();
+
+        Query q = (Query) em.createQuery("Select id FROM Individual id where id.ID = :id ");
+
+       return q.toString();
+       */
+
     }
 
     public String mostrarApellido() throws ClienteException {
-        return clientes.BuscarCliente(sesion.getUsuario().getId()).getDireccion();
-    }*/
-/*
+        return clientes.BuscarCliente(sesion.getUsuario().getId()).getApellidos();
+    }
     public int mostrarSaldo() throws ClienteException {
        List l = clientes.BuscarCliente(sesion.getUsuario().getId()).getC_fintech();
         Cuenta_referencia c = (Cuenta_referencia) l.get(1);
         return c.getSaldo();
     }
 
-*/
 
 }

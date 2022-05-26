@@ -22,29 +22,30 @@ public class InicializaBBDD {
     @PostConstruct
     public void inicializar () {
 
-        /*Usuario comprobacion = em.find(Usuario.class, "1");
+        Usuario comprobacion = em.find(Usuario.class, "1");
 
         if(comprobacion != null){
             return;
-        }*/
-        /*
+        }
+    /*
         Divisa divisa = new Divisa("USD", "Dolar", "$", 1.07);
         em.persist(divisa);
 
         Cuenta_referencia c = new Cuenta_referencia("123456789B", "Santander", "Malaga", "España", 10.000, new Date(), "activo");
         em.persist(c);
 
-        Segregated seg = new Segregated(1, c);
+        Segregated seg = new Segregated(, c);
         em.persist(seg);
 
         List l = new ArrayList();
         l.add(seg);
 */
-       // Cliente cliente = new Cliente("1", 123, "cliente", new Date(), null, "calle platano 5", "Malaga", 20749, "España", "activo"/*,l*/);
-        //em.persist(cliente);
 
         Individual i = new Individual("1", 123, "cliente", new Date(), null, "calle platano 5", "Malaga", 20749, "España", "activo","Carlos","Pendejo");
         em.persist(i);
+
+        Individual m = new Individual("2", 1234, "cliente", new Date(), null, "calle platano 5", "Malaga", 20749, "España", "activo","Pedro","Navaja");
+        em.persist(m);
 
         Cuenta cuenta = new Cuenta("123A", "123", "activa");
         em.persist(cuenta);
@@ -52,6 +53,9 @@ public class InicializaBBDD {
 
         Usuario usuario = new Usuario("1", "123", false, "activo");
         em.persist(usuario);
+
+        Usuario usuario2 = new Usuario("2", "1234", false, "activo");
+        em.persist(usuario2);
 
         Persona_autorizada pa = new Persona_autorizada(123, 123, "Juan", "Perez", "calle platano");
         em.persist(pa);
@@ -65,8 +69,6 @@ public class InicializaBBDD {
         Usuario usuario_login = new Usuario("777", "123", false, "activo");
         em.persist(usuario_login);
 
-
     }
-
-
+    
 }

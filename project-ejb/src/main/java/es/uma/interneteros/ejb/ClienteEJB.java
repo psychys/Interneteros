@@ -4,6 +4,7 @@ package es.uma.interneteros.ejb;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.jpa.Cliente;
 import es.uma.interneteros.jpa.Cuenta_Fintech;
+import es.uma.interneteros.jpa.Individual;
 import es.uma.interneteros.jpa.Usuario;
 import es.uma.interneteros.ejb.exceptions.ClienteException;
 
@@ -57,12 +58,13 @@ public class ClienteEJB implements GestionCliente {
     }
 
     @Override
-    public Cliente BuscarCliente(String id) throws ClienteException {
-        Cliente c = em.find(Cliente.class, id);
-        if(c == null){
+    public Individual BuscarCliente(String id) throws ClienteException {
+        //Cliente c = em.find(Cliente.class, id);
+        Individual i = em.find(Individual.class, id);
+        if(i == null){
             throw new ClienteException("Cliente no existente");
         }
-        return c;
+        return i;
     }
 
     @Requisitos({"RF4"})
