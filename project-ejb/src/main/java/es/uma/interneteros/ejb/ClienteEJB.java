@@ -72,7 +72,7 @@ public class ClienteEJB implements GestionCliente {
     public void MarcarCliente(Cliente c, String estado, Usuario admin) throws ClienteException {
 
         if(admin.isAdministrador()) {
-            if(!abiertas(c)){ //comprueba que no tiene cuentas abiertas, si no tiene abiertas entra
+            //if(!abiertas(c)){ //comprueba que no tiene cuentas abiertas, si no tiene abiertas entra
                 Cliente cliente = em.find(Cliente.class, c.getID());
 
                 if (cliente == null) {
@@ -81,10 +81,12 @@ public class ClienteEJB implements GestionCliente {
 
                 c.setEstado(estado);
                 em.merge(c);
-            }else{//tiene cuentas abiertas
-                throw new ClienteException("Tiene cuentas abiertas");
-            }
-          throw new ClienteException("NO ERES ADMINISTRADOR");
+           // }else{//tiene cuentas abiertas
+           //     throw new ClienteException("Tiene cuentas abiertas");
+           // }
+
+        }else{
+            throw new ClienteException("NO ERES ADMINISTRADOR");
         }
     }
 
@@ -95,7 +97,7 @@ public class ClienteEJB implements GestionCliente {
         lista = c.getC_fintech();
 
         for(int i=0;i<lista.size();i++){
-            if(lista.get(i).getEstado()=="abierta"){
+            if(lista.get(i).getEstado()=="activo"){
                 x=true;
             }
         }

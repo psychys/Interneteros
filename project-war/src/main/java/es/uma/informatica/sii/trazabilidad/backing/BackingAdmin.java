@@ -318,6 +318,8 @@ public class BackingAdmin {
     }
 
     public String eliminarCliente() throws ClienteException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+        String res = null;
+
         try {
             Cliente cliente = clientes.BuscarCliente(id);
             if (!cliente.getEstado().equals("baja")) {
@@ -330,21 +332,22 @@ public class BackingAdmin {
                 identificacion = cliente.getIdentificacion();
                 pais = cliente.getPais();
                 CP = cliente.getC_postal();
+                estado = cliente.getEstado();
 
 
-                return "EliminadoClienteExito.xhtml";
-            } else {
+                res = "EliminadoClienteExito.xhtml";
+            } /*else {
                 //FacesMessage fm = new FacesMessage("El usuario ya esta dado de baja");
                 //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
                 return null;
-            }
+            }*/
         } catch (ClienteException e) {
             //FacesMessage fm = new FacesMessage("El usuario no existe");
             //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
-            return null;
+            res = "vista_cliente.xhtml";
         }
 
-
+        return res;
     }
 
 
