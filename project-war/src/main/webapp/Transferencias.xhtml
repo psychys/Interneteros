@@ -13,6 +13,11 @@
         <h2>Transferir dinero</h2>
         <h:form id="Transfer-Form">
             <div class="user-box">
+                <h:inputText value="#{transaccion.IBAN_origen}" required="true" id="Origen_s"/>
+                <label>IBAN origen</label>
+            </div>
+
+            <div class="user-box">
                 <h:inputText value="#{transaccion.IBAN_destino}" required="true" id="Destino_ID"/>
                 <label>IBAN destinatario</label>
             </div>

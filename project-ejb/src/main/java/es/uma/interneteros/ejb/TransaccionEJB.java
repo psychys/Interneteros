@@ -29,7 +29,6 @@ public class TransaccionEJB implements GestionTransaccion {
 
 
         if(t.getOrigen().getClass().getName().equals("Segregated") && t.getDestino().getClass().getName().equals("Segregated")){
-
             Segregated co = (Segregated) t.getOrigen();
             Segregated cd = (Segregated) t.getDestino();
             if(co.getC_ref().getSaldo() >= t.getCantidad()){

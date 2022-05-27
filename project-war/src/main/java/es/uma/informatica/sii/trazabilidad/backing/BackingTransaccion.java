@@ -1,12 +1,11 @@
 package es.uma.informatica.sii.trazabilidad.backing;
 
 
+import es.uma.interneteros.ejb.GestionCuenta;
 import es.uma.interneteros.ejb.GestionTransaccion;
+import es.uma.interneteros.ejb.exceptions.CuentaException;
 import es.uma.interneteros.ejb.exceptions.TransaccionException;
-import es.uma.interneteros.jpa.Cuenta;
-import es.uma.interneteros.jpa.Cuenta_referencia;
-import es.uma.interneteros.jpa.Pooled;
-import es.uma.interneteros.jpa.Transaccion;
+import es.uma.interneteros.jpa.*;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -20,47 +19,28 @@ public class BackingTransaccion {
     private GestionTransaccion trans;
     @Inject
     private InfoSesion sesion;
+    @Inject
+    private GestionCuenta cuentas;
 
-    private String id = sesion.getUsuario().getC_cliente().getID();
-
+    private String IBAN_origen;
     private String IBAN_destino;
-
-    private Cuenta origen ;
-
-    private Cuenta destino;
 
     private int cantidad;
 
-    public String getId() {
-        return id;
+    public String getIBAN_origen() {
+        return IBAN_origen;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIBAN_origen(String IBAN_origen) {
+        this.IBAN_origen = IBAN_origen;
     }
 
     public String getIBAN_destino() {
         return IBAN_destino;
     }
 
-    public void setIBAN_destino(String id_destino) {
-        this.IBAN_destino = id_destino;
-    }
-
-    public Cuenta getOrigen() {
-        return origen;
-    }
-
-    public void setOrigen(Pooled origen) {
-        this.origen = origen;
-    }
-
-    public Cuenta getDestino() {
-        return destino;
-    }
-
-    public void setDestino(Pooled destino) {
-        this.destino = destino;
+    public void setIBAN_destino(String IBAN_destino) {
+        this.IBAN_destino = IBAN_destino;
     }
 
     public int getCantidad() {
@@ -71,7 +51,10 @@ public class BackingTransaccion {
         this.cantidad = cantidad;
     }
 
-    public String realizarTransaccion() throws TransaccionException {
+    public String realizarTransaccion() throws TransaccionException, CuentaException {
+       Cuenta origen = cuentas.BuscarCuenta(IBAN_origen);
+       Cuenta destino = cuentas.BuscarCuenta(IBAN_destino);
+
         Transaccion t = new Transaccion(cantidad,origen,destino);
         trans.CrearTransaccion(t);
         return "Transferencia_correcta.xhtml";
