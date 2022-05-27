@@ -382,8 +382,8 @@ public class BackingAdmin {
         try {
             usuarios.AltaUsuario(usuario);
         } catch (UsuarioException e) {
-            FacesMessage fm = new FacesMessage("El usuario ya existe");
-            FacesContext.getCurrentInstance().addMessage("createuser:id", fm);
+            //FacesMessage fm = new FacesMessage("El usuario ya existe");
+            //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
             return null;
         }
 
