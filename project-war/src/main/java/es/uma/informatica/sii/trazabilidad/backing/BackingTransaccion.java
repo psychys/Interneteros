@@ -12,12 +12,12 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named(value= "transacicon")
+@Named(value= "transaccion")
 @RequestScoped
 public class BackingTransaccion {
 
     @Inject
-    private GestionTransaccion transacciones;
+    private GestionTransaccion trans;
     @Inject
     private InfoSesion sesion;
 
@@ -25,9 +25,9 @@ public class BackingTransaccion {
 
     private String IBAN_destino;
 
-    private Pooled origen;
+    private Cuenta origen ;
 
-    private Pooled destino;
+    private Cuenta destino;
 
     private int cantidad;
 
@@ -71,9 +71,10 @@ public class BackingTransaccion {
         this.cantidad = cantidad;
     }
 
-    public void realizarTransaccion() throws TransaccionException {
+    public String realizarTransaccion() throws TransaccionException {
         Transaccion t = new Transaccion(cantidad,origen,destino);
-        transacciones.CrearTransaccion(t);
+        trans.CrearTransaccion(t);
+        return "Transferencia_correcta.xhtml";
     }
 
 }

@@ -29,12 +29,17 @@ public class TransaccionEJB implements GestionTransaccion {
 
 
         if(t.getOrigen().getClass().getName().equals("Segregated") && t.getDestino().getClass().getName().equals("Segregated")){
+
             Segregated co = (Segregated) t.getOrigen();
             Segregated cd = (Segregated) t.getDestino();
-            co.getC_ref().setSaldo(co.getC_ref().getSaldo() - (int)(t.getCantidad()*1.01));
-            cd.getC_ref().setSaldo(cd.getC_ref().getSaldo() + t.getCantidad());
-            em.merge(cd);
-            em.merge(co);
+            if(co.getC_ref().getSaldo() >= t.getCantidad()){
+                co.getC_ref().setSaldo(co.getC_ref().getSaldo() - (int) (t.getCantidad() * 1.01));
+                cd.getC_ref().setSaldo(cd.getC_ref().getSaldo() + t.getCantidad());
+                em.merge(cd.getC_ref());
+                em.merge(co.getC_ref());
+            }else{
+                throw new TransaccionException("No hay suficiente dinero en la cuenta");
+            }
 
         }
 
