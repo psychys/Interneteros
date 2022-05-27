@@ -19,8 +19,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.*;
+import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
+import java.util.List;import java.util.Date;import java.time.LocalDateTime;
 
 @Named(value= "admin")
 @RequestScoped
@@ -209,18 +210,20 @@ public class BackingAdmin {
     }
 
     public String crearCliente() throws ClienteException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
-        Cliente cliente = new Cliente();
-            cliente.setID(id);
-            cliente.setTipo_cliente(tipo_cliente);
-            cliente.setIdentificacion(identificacion);
-            cliente.setDireccion(direccion);
-            cliente.setCiudad(ciudad);
-            cliente.setC_postal(CP);
-            cliente.setPais(pais);
-            user.begin();
-            em.persist(cliente);
-            user.commit();
-            return "CreacionClienteExitosa.xhtml";
+        Date fecha_apertura = new Date();
+        java.sql.Date d=new java.sql.Date(fecha_apertura.getTime());
+
+        Cliente cliente = new Cliente(id,identificacion,tipo,fecha_apertura,null,direccion,ciudad,CP,pais,"activo");
+
+        try {
+            clientes.ActualizarCliente(sesion.getUsuario(),id);
+        } catch (ClienteException e) {
+            //FacesMessage fm = new FacesMessage("El usuario ya existe");
+            //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+            return null;
+        }
+
+        return "CreacionClienteExitosa.xhtml";
 
      
     }
@@ -317,21 +320,33 @@ public class BackingAdmin {
     }
 
     public String eliminarCliente() throws ClienteException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
-        Cliente cliente = clientes.BuscarCliente(id);
+        try {
+            Cliente cliente = clientes.BuscarCliente(id);
+            if (!cliente.getEstado().equals("baja")) {
+                clientes.MarcarCliente(cliente,"baja",sesion.getUsuario());
 
-        if (cliente.getEstado()!="baja") {
-            Usuario u = sesion.getUsuario();
+                id = cliente.getID();
+                tipo = cliente.getTipo_cliente();
+                ciudad = cliente.getTipo_cliente();
+                direccion = cliente.getDireccion();
+                identificacion = cliente.getIdentificacion();
+                pais = cliente.getPais();
+                CP = cliente.getC_postal();
 
-            user.begin();
-            cliente.setEstado("baja");
-            em.merge(cliente);
-            user.commit();
 
-            return "EliminadoClientoExito.xhtml";
-        }else{
-            return "index.xhtml";//esto es para probar a donde va porque solo cambia el estado pero no se
-            //mueve de la pagina
+                return "EliminadoClienteExito.xhtml";
+            } else {
+                //FacesMessage fm = new FacesMessage("El usuario ya esta dado de baja");
+                //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+                return null;
+            }
+        } catch (ClienteException e) {
+            //FacesMessage fm = new FacesMessage("El usuario no existe");
+            //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+            return null;
         }
+
+
     }
 
 

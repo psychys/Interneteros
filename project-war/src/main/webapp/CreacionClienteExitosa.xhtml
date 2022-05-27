@@ -14,6 +14,40 @@
     <div class="login-box">
         <h2>Creacion de cliente exitosa</h2>
         <h:form id="Login-Form">
+
+            <div class="user-box">
+                <a>Nombre: <h:outputText value="#{admin.mostrarNombre()}"/></a>
+            </div>
+            <div class="user-box">
+                <a>Apellidos: <h:outputText value="#{admin.mostrarApellido()}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Identificacion: <h:outputText value="#{admin.mostrarIdentificacion()}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Fecha Alta: <h:outputText value="#{admin.mostrarFecha()}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Direccion: <h:outputText value="#{admin.mostrarDireccion()}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Ciudad: <h:outputText value="#{admin.mostrarCiudad()}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>CP: <h:outputText value="#{admin.mostrarCP()}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Pais: <h:outputText value="#{admin.mostrarPais()}"/></a>
+            </div>
+
+
+
             <h:link outcome="vista_cliente.xhtml" id = "volver_index" >  Volver </h:link>
         </h:form>
     </div>

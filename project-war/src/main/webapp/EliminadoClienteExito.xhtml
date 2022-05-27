@@ -14,6 +14,39 @@
     <div class="login-box">
         <h2>ELiminacion exitosa</h2>
         <h:form id="Login-Form">
+
+            <div class="user-box">
+                <a>ID: <h:outputText value="#{admin.id}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Tipo: <h:outputText value="#{admin.tipo}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Ciudad: <h:outputText value="#{admin.ciudad}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Pais: <h:outputText value="#{admin.pais}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>CP: <h:outputText value="#{admin.CP}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Direccion: <h:outputText value="#{admin.direccion}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Identificacion: <h:outputText value="#{admin.identificacion}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>estado: <h:outputText value="#{admin.estado}"/></a>
+            </div>
+
             <h:link outcome="Cliente.xhtml" id = "volver_index" >  Volver </h:link>
         </h:form>
     </div>
