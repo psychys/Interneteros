@@ -378,6 +378,40 @@ public class BackingAdmin {
         return res;
     }
 
+    private String tipo_cuenta;
+    private String id_cliente;
+
+    public String getTipo_cuenta() {
+        return tipo_cuenta;
+    }
+
+    public void setTipo_cuenta(String tipo_cuenta) {
+        this.tipo_cuenta = tipo_cuenta;
+    }
+
+    public String getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(String id_cliente) {
+        this.id_cliente = id_cliente;
+    }
+
+    public String crearCuenta() {
+        Cuenta cuenta = new Cuenta(IBAN, SWIFT, estado);
+
+        try {
+            cuentas.CrearCuenta(cuenta,sesion.getUsuario(),tipo_cuenta,clientes.BuscarCliente(id_cliente));
+        } catch (CuentaException e) {
+            //FacesMessage fm = new FacesMessage("El usuario ya existe");
+            //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+            return null;
+        } catch (ClienteException e) {
+            throw new RuntimeException(e);
+        }
+
+        return "CreacionCuentaExitosa.xhtml";
+    }
 
 
     //METODOS Y ATRIBUTOS PARA CRUD USUARIO

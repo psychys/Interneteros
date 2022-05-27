@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
+
+<h:head>
+    <title>Crear Cuenta</title>
+    <link rel="stylesheet" href="recursos/css/styleLogin.css"/>
+</h:head>
+
+<h:body>
+
+    <div class="login-box">
+        <h2 id="PaginaPrincipalid">Creacion de Cuenta</h2>
+        <h:form id="indexIndex">
+
+            <div class="user-box">
+                <h:inputText IBAN="idi" value="#{admin.IBAN}" required="true"/>
+                <label>IBAN:</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText SWIFT="tipo" value="#{admin.SWIFT}" required="true"/>
+                <label>SWIFT:</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText estado="client" value="#{admin.estado}" required="true"/>
+                <label>Estado:</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText tipo="client" value="#{admin.tipo}" required="true"/>
+                <label>Tipo:</label>
+            </div>
+
+            <div class="user-box">
+                <h:inputText id_cliente="client" value="#{admin.id_cliente}" required="true"/>
+                <label>ID_Cliente:</label>
+            </div>
+
+            <h:commandLink type ="submit" action="#{admin.crearCuenta()}" id="crearCliente">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Crear
+            </h:commandLink>
+
+            <h:link outcome="Cuenta.xhtml" id = "volver_cliente" >  Volver </h:link>
+        </h:form>
+    </div>
+
+</h:body>
+</html>
