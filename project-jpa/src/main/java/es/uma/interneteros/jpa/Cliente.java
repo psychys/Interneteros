@@ -10,7 +10,7 @@ import java.util.Objects;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Cliente {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     private String ID;
     @Column(unique = true)
     private String Identificacion;

@@ -208,15 +208,15 @@ public class BackingAdmin {
 
         return "mostrarDatosCliente.xhtml";
     }
+    Date fecha_apertura = new Date();
 
     public String crearCliente() throws ClienteException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
-        Date fecha_apertura = new Date();
         java.sql.Date d=new java.sql.Date(fecha_apertura.getTime());
 
-        Cliente cliente = new Cliente(id,identificacion,tipo,fecha_apertura,null,direccion,ciudad,CP,pais,"activo");
+        Cliente cliente = new Cliente(id,identificacion,tipo_cliente,fecha_apertura,null,direccion,ciudad,CP,pais,"activo");
 
         try {
-            clientes.ActualizarCliente(sesion.getUsuario(),id);
+            clientes.AltaCliente(sesion.getUsuario(),cliente);
         } catch (ClienteException e) {
             //FacesMessage fm = new FacesMessage("El usuario ya existe");
             //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
@@ -224,8 +224,6 @@ public class BackingAdmin {
         }
 
         return "CreacionClienteExitosa.xhtml";
-
-     
     }
 
     //METODOS Y ATRIBUTOS PARA CRUD CUENTA

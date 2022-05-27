@@ -4,7 +4,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
 <h:head>
-    <title>Informacion Transferencia</title>
+    <title>Creacion de cliente exitosa</title>
     <link rel="stylesheet" href="recursos/css/styleLogin.css" />
 </h:head>
 
@@ -16,37 +16,24 @@
         <h:form id="Login-Form">
 
             <div class="user-box">
-                <a>Nombre: <h:outputText value="#{admin.mostrarNombre()}"/></a>
-            </div>
-            <div class="user-box">
-                <a>Apellidos: <h:outputText value="#{admin.mostrarApellido()}"/></a>
+                <a>Identificacion: <h:outputText value="#{admin.identificacion}"/></a>
             </div>
 
             <div class="user-box">
-                <a>Identificacion: <h:outputText value="#{admin.mostrarIdentificacion()}"/></a>
+                <a>Direccion: <h:outputText value="#{admin.direccion}"/></a>
             </div>
 
             <div class="user-box">
-                <a>Fecha Alta: <h:outputText value="#{admin.mostrarFecha()}"/></a>
+                <a>Ciudad: <h:outputText value="#{admin.ciudad}"/></a>
             </div>
 
             <div class="user-box">
-                <a>Direccion: <h:outputText value="#{admin.mostrarDireccion()}"/></a>
+                <a>CP: <h:outputText value="#{admin.CP}"/></a>
             </div>
 
             <div class="user-box">
-                <a>Ciudad: <h:outputText value="#{admin.mostrarCiudad()}"/></a>
+                <a>Pais: <h:outputText value="#{admin.pais}"/></a>
             </div>
-
-            <div class="user-box">
-                <a>CP: <h:outputText value="#{admin.mostrarCP()}"/></a>
-            </div>
-
-            <div class="user-box">
-                <a>Pais: <h:outputText value="#{admin.mostrarPais()}"/></a>
-            </div>
-
-
 
             <h:link outcome="vista_cliente.xhtml" id = "volver_index" >  Volver </h:link>
         </h:form>
