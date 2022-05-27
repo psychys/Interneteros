@@ -390,6 +390,31 @@ public class BackingAdmin {
         return "CreacionUsuarioExitosa.xhtml";
     }
 
+    public String eliminarUsuario() {
+        try {
+            Usuario usuario = usuarios.BuscarUsuario(id);
+            if (!usuario.getEstado().equals("baja")) {
+                usuarios.MarcarUsuario(sesion.getUsuario(),usuario,"baja");
+
+                id = usuario.getId();
+                contrasena = usuario.getContrasena();
+                administrador = usuario.isAdministrador();
+                estadoU = usuario.getEstado();
+
+                return "EliminadoUsuarioExito.xhtml";
+            } else {
+                //FacesMessage fm = new FacesMessage("El usuario ya esta dado de baja");
+                //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+                return null;
+            }
+        } catch (UsuarioException e) {
+            //FacesMessage fm = new FacesMessage("El usuario no existe");
+            //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+            return null;
+        }
+
+    }
+
 }
         /*
     */
