@@ -428,9 +428,26 @@ public class BackingAdmin {
 
     }
 
+    public String buscarUsuario() {
+        try {
+            Usuario usuario = usuarios.BuscarUsuario(id);
+
+            id = usuario.getId();
+            contrasena = usuario.getContrasena();
+            administrador = usuario.isAdministrador();
+            estadoU = usuario.getEstado();
+
+            return "mostrarDatosUsuario.xhtml";
+
+        } catch (UsuarioException e) {
+            FacesMessage fm = new FacesMessage("El usuario no existe");
+            FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+        }
+        return null;
+    }
+
 }
-        /*
-    */
+
 
 
 
