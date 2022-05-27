@@ -84,8 +84,7 @@ public class ClienteEJB implements GestionCliente {
             }else{//tiene cuentas abiertas
                 throw new ClienteException("Tiene cuentas abiertas");
             }
-        }else{
-            throw new ClienteException("NO ERES ADMINISTRADOR");
+          throw new ClienteException("NO ERES ADMINISTRADOR");
         }
     }
 

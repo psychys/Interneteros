@@ -316,6 +316,24 @@ public class BackingAdmin {
         return "mostrarDatosCuenta.xhtml";
     }
 
+    public String eliminarCliente() throws ClienteException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+        Cliente cliente = clientes.BuscarCliente(id);
+
+        if (cliente.getEstado()!="baja") {
+            Usuario u = sesion.getUsuario();
+
+            user.begin();
+            cliente.setEstado("baja");
+            em.merge(cliente);
+            user.commit();
+
+            return "EliminadoClientoExito.xhtml";
+        }else{
+            return "index.xhtml";//esto es para probar a donde va porque solo cambia el estado pero no se
+            //mueve de la pagina
+        }
+    }
+
 
     //METODOS Y ATRIBUTOS PARA CRUD USUARIO
 
@@ -329,15 +347,7 @@ public class BackingAdmin {
 
 }
         /*
-    public void eliminarCliente() throws ClienteException {
-        Cliente cliente = clientes.BuscarCliente(id);
-        if (cliente.getEstado().equals("baja")) {
-            FacesMessage fm = new FacesMessage("El cliente ya esta dado de baja.");
-            FacesContext.getCurrentInstance().addMessage("Cliente:client", fm);
-        } else {
-            clientes.MarcarCliente(cliente, "baja", admin);
-        }
-    }*/
+    */
 
 
 
