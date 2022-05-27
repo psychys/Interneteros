@@ -443,10 +443,37 @@ public class BackingAdmin {
             return "mostrarDatosUsuario.xhtml";
 
         } catch (UsuarioException e) {
-            FacesMessage fm = new FacesMessage("El usuario no existe");
-            FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+            //FacesMessage fm = new FacesMessage("El usuario no existe");
+            //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+            return null;
         }
-        return null;
+    }
+
+    public String editarUsuario() {
+        try {
+            Usuario u = usuarios.BuscarUsuario(id);
+
+            return "editarDatosUsuario.xhtml";
+
+        } catch (UsuarioException e) {
+            //FacesMessage fm = new FacesMessage("El usuario no existe");
+            //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+            return null;
+        }
+    }
+
+    public String confirmEditarUsuario() throws UsuarioException {
+
+        Usuario u = usuarios.BuscarUsuario(id);
+
+        u.setId(id);
+        u.setContrasena(contrasena);
+        u.setAdministrador(administrador);
+        u.setEstado(estadoU);
+
+        usuarios.ActualizarUsuario(sesion.getUsuario(), u);
+
+        return "mostrarDatosUsuario.xhtml";
     }
 
 }
