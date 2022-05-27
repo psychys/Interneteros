@@ -230,6 +230,7 @@ public class BackingAdmin {
     private String IBAN;
     private String SWIFT;
     private String estado;
+    private String tipo;
 
     public String getIBAN() {
         return IBAN;
@@ -247,6 +248,30 @@ public class BackingAdmin {
         return cuentas.BuscarCuenta(IBAN).getEstado();
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getSWIFT() {
+        return SWIFT;
+    }
+
+    public void setSWIFT(String SWIFT) {
+        this.SWIFT = SWIFT;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
     public String buscarCuentaAdmin() {
         try {
             Cuenta c = cuentas.BuscarCuenta(IBAN);
@@ -260,6 +285,39 @@ public class BackingAdmin {
         }
         return null;
     }
+
+    public String editarCuentaAdmin() throws ClienteException {
+        try {
+            Cuenta c = cuentas.BuscarCuenta(IBAN);
+
+            if (c != null) {
+                return "editarDatosCuenta.xhtml";
+            }
+        } catch (CuentaException e) {
+            FacesMessage fm = new FacesMessage("Error al buscar la cuenta");
+            FacesContext.getCurrentInstance().addMessage("Cuenta:cuenta", fm);
+        }
+        return null;
+    }
+
+    public String confirmarEditCuenta() throws CuentaException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+        Cuenta cuenta = cuentas.BuscarCuenta(IBAN);
+        cuenta.setIBAN(IBAN);
+        cuenta.setSWIFT(SWIFT);
+        cuenta.setEstado(estado);
+
+
+        Usuario u = sesion.getUsuario();
+
+        user.begin();
+        em.merge(cuenta);
+        user.commit();
+
+        return "mostrarDatosCuenta.xhtml";
+    }
+
+
+    //METODOS Y ATRIBUTOS PARA CRUD USUARIO
 
     public List<Usuario> getUsuarios() {
         List<Usuario> usuarios;
