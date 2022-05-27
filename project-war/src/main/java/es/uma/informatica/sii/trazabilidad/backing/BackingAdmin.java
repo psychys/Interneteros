@@ -337,12 +337,57 @@ public class BackingAdmin {
 
     //METODOS Y ATRIBUTOS PARA CRUD USUARIO
 
+    @Inject
+    private GestionUsuario usuarios;
+
+    private String contrasena;
+    private boolean administrador;
+    private String estadoU;
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public boolean getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(boolean administrador) {
+        this.administrador = administrador;
+    }
+
+    public String getEstadoU() {
+        return estadoU;
+    }
+
+    public void setEstadoU(String estadoU) {
+        this.estadoU = estadoU;
+    }
+
     public List<Usuario> getUsuarios() {
         List<Usuario> usuarios;
         Query query = em.createQuery("SELECT u FROM Usuario u");
         usuarios = query.getResultList();
 
         return usuarios;
+    }
+
+    public String crearUsuario() {
+        Usuario usuario = new Usuario(id, contrasena, administrador, estadoU);
+
+        try {
+            usuarios.AltaUsuario(usuario);
+        } catch (UsuarioException e) {
+            FacesMessage fm = new FacesMessage("El usuario ya existe");
+            FacesContext.getCurrentInstance().addMessage("createuser:id", fm);
+            return null;
+        }
+
+        return "CreacionUsuarioExitosa.xhtml";
     }
 
 }
