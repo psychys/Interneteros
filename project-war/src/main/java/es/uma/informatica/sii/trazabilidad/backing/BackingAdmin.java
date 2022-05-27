@@ -17,6 +17,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.*;
 import java.util.Date;
 import java.util.List;
@@ -258,6 +259,14 @@ public class BackingAdmin {
             FacesContext.getCurrentInstance().addMessage("Cuenta:cuenta", fm);
         }
         return null;
+    }
+
+    public List<Usuario> getUsuarios() {
+        List<Usuario> usuarios;
+        Query query = em.createQuery("SELECT u FROM Usuario u");
+        usuarios = query.getResultList();
+
+        return usuarios;
     }
 
 }
