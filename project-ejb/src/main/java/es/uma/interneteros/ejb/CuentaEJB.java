@@ -68,11 +68,11 @@ public class CuentaEJB implements GestionCuenta {
        if(u.isAdministrador()){//Comprueba si eres administrador
            //comprobar que tiene saldo 0 en todas sus divisas
 
-           List<Cuenta_referencia> lista = pedirCuentaRef(c);
+           //List<Cuenta_referencia> lista = pedirCuentaRef(c);
            //vamos a recorrer la lista y comprobar que todos sus saldos estan a 0
-           boolean x = comprobarSaldo(lista);
+           //boolean x = comprobarSaldo(lista);
 
-           if(x){//tiene todas las divisas a 0
+          // if(x){//tiene todas las divisas a 0
                Cuenta c1 = em.find(Cuenta.class, c.getIBAN());
 
                if(c1 == null) {
@@ -81,14 +81,14 @@ public class CuentaEJB implements GestionCuenta {
 
                c.setEstado(estado);
                em.merge(c);
-           }else{
-               throw new CuentaException("No tiene todas sus divisas a cero");
-           }
+          // }else{
+           //    throw new CuentaException("No tiene todas sus divisas a cero");
+           //}
        }else{
            throw new CuentaException("NO ERES ADMINISTRADOR");
        }
        }
-
+/*
     private List<Cuenta_referencia> pedirCuentaRef(Cuenta c) {
         //EntityTransaction tx=em.getTransaction();
         //tx.begin();
@@ -97,6 +97,8 @@ public class CuentaEJB implements GestionCuenta {
         //tx.commit();
         return listaCuentaRef;
     }
+
+*/
 
     private boolean comprobarSaldo(List<Cuenta_referencia> lista ) {
         boolean sol = true; //si es false es que tiene dinero en alguna cuenta

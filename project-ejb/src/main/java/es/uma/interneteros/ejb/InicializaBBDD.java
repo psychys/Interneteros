@@ -113,6 +113,9 @@ public class InicializaBBDD {
         Usuario usuario_login = new Usuario("777", "123", false, "activo");
         em.persist(usuario_login);
 
+        Cuenta_referencia quesada = new Cuenta_referencia("ES2000", "1234", "activo", "PAD THAI WOK", 0);
+        em.persist(quesada);
+
     }
     
 }

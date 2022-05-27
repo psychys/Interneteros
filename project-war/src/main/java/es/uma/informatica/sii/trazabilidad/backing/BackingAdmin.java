@@ -226,6 +226,40 @@ public class BackingAdmin {
         return "CreacionClienteExitosa.xhtml";
     }
 
+    public String eliminarCliente() throws ClienteException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+        String res = null;
+
+        try {
+            Cliente cliente = clientes.BuscarCliente(id);
+            if (!cliente.getEstado().equals("baja")) {
+                clientes.MarcarCliente(cliente,"baja",sesion.getUsuario());
+
+                id = cliente.getID();
+                tipo = cliente.getTipo_cliente();
+                ciudad = cliente.getTipo_cliente();
+                direccion = cliente.getDireccion();
+                identificacion = cliente.getIdentificacion();
+                pais = cliente.getPais();
+                CP = cliente.getC_postal();
+                estado = cliente.getEstado();
+
+
+                res = "EliminadoClienteExito.xhtml";
+            } /*else {
+                //FacesMessage fm = new FacesMessage("El usuario ya esta dado de baja");
+                //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+                return null;
+            }*/
+        } catch (ClienteException e) {
+            //FacesMessage fm = new FacesMessage("El usuario no existe");
+            //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
+            res = "vista_cliente.xhtml";
+        }
+
+        return res;
+    }
+
+
     //METODOS Y ATRIBUTOS PARA CRUD CUENTA
 
     private String IBAN;
@@ -317,38 +351,33 @@ public class BackingAdmin {
         return "mostrarDatosCuenta.xhtml";
     }
 
-    public String eliminarCliente() throws ClienteException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+    public String eliminarCuenta() throws CuentaException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
         String res = null;
 
         try {
-            Cliente cliente = clientes.BuscarCliente(id);
-            if (!cliente.getEstado().equals("baja")) {
-                clientes.MarcarCliente(cliente,"baja",sesion.getUsuario());
+            Cuenta cuenta = cuentas.BuscarCuenta(IBAN);
+            if (!cuenta.getEstado().equals("baja")) {
+                cuentas.MarcarCuenta(cuenta,"baja",sesion.getUsuario());
 
-                id = cliente.getID();
-                tipo = cliente.getTipo_cliente();
-                ciudad = cliente.getTipo_cliente();
-                direccion = cliente.getDireccion();
-                identificacion = cliente.getIdentificacion();
-                pais = cliente.getPais();
-                CP = cliente.getC_postal();
-                estado = cliente.getEstado();
+                IBAN = cuenta.getIBAN();
+                SWIFT = cuenta.getSWIFT();
+                estado = cuenta.getEstado();
 
-
-                res = "EliminadoClienteExito.xhtml";
+                res = "EliminadoCuentaExito.xhtml";
             } /*else {
                 //FacesMessage fm = new FacesMessage("El usuario ya esta dado de baja");
                 //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
                 return null;
             }*/
-        } catch (ClienteException e) {
+        } catch (CuentaException e) {
             //FacesMessage fm = new FacesMessage("El usuario no existe");
             //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
-            res = "vista_cliente.xhtml";
+            res = "Login.xhtml";
         }
 
         return res;
     }
+
 
 
     //METODOS Y ATRIBUTOS PARA CRUD USUARIO
