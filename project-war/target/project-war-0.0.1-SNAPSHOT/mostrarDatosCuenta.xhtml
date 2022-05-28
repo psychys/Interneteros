@@ -14,18 +14,18 @@
         <h:form id="Login-Form">
 
             <div class="user-box">
-                <a>Nombre: <h:outputText value="#{admin.getIBAN() }"/></a>
+                <a>IBAN: <h:outputText value="#{admin.getIBAN() }"/></a>
             </div>
 
             <div class="user-box">
-                <a>Nombre: <h:outputText value="#{admin.mostrarNombre()}"/></a>
+                <a>SWIFT: <h:outputText value="#{admin.mostrarSWIFT()}"/></a>
             </div>
 
             <div class="user-box">
-                <a>Nombre: <h:outputText value="#{admin.mostrarNombre()}"/></a>
+                <a>estado: <h:outputText value="#{admin.mostrarestado()}"/></a>
             </div>
 
-            <h:link outcome="BuscarCuenta.xhtml" id = "Volver_atras"> Volver </h:link>
+            <h:link outcome="Cuenta.xhtml" id = "Volver_atras"> Volver </h:link>
 
         </h:form>
     </div>

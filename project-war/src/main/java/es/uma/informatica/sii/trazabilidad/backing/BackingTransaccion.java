@@ -55,11 +55,27 @@ public class BackingTransaccion {
     }
 
     public String realizarTransaccion() throws TransaccionException, CuentaException, HeuristicRollbackException, SystemException, HeuristicMixedException, NotSupportedException, RollbackException {
+       String res = null;
        Cuenta origen = cuentas.BuscarCuenta(IBAN_origen);
        Cuenta destino = cuentas.BuscarCuenta(IBAN_destino);
+       if(sesion.getUsuario().getC_cliente().getC_fintech().contains(origen)) {
 
-        Transaccion t = new Transaccion(Integer.parseInt(cantidad),origen,destino, new Date(),"transferencia");
-        trans.CrearTransaccion(t);
+           Transaccion t = new Transaccion(Integer.parseInt(cantidad), origen, destino, new Date(), "transferencia");
+           trans.CrearTransaccion(t);
+           res = "Transferencia_correcta.xhtml";
+       }else{
+           res = "vista_cliente.xhtml";
+       }
+        return res;
+    }
+
+    public String realizarTransaccionAdmin() throws TransaccionException, CuentaException, HeuristicRollbackException, SystemException, HeuristicMixedException, NotSupportedException, RollbackException {
+        Cuenta origen = cuentas.BuscarCuenta(IBAN_origen);
+        Cuenta destino = cuentas.BuscarCuenta(IBAN_destino);
+
+
+            Transaccion t = new Transaccion(Integer.parseInt(cantidad), origen, destino, new Date(), "transferencia");
+            trans.CrearTransaccion(t);
         return "Transferencia_correcta.xhtml";
     }
 
