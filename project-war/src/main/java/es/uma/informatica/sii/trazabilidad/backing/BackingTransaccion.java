@@ -11,6 +11,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.*;
+import java.sql.DatabaseMetaData;
+import java.util.Date;
 
 @Named(value= "transaccion")
 @RequestScoped
@@ -56,7 +58,7 @@ public class BackingTransaccion {
        Cuenta origen = cuentas.BuscarCuenta(IBAN_origen);
        Cuenta destino = cuentas.BuscarCuenta(IBAN_destino);
 
-        Transaccion t = new Transaccion(Integer.parseInt(cantidad),origen,destino);
+        Transaccion t = new Transaccion(Integer.parseInt(cantidad),origen,destino, new Date(),"transferencia");
         trans.CrearTransaccion(t);
         return "Transferencia_correcta.xhtml";
     }

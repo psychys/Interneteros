@@ -38,10 +38,12 @@ public class Transaccion {
     private Cuenta destino;
 
 
-	public Transaccion(int cantidad, Cuenta origen, Cuenta destino) {
+	public Transaccion(int cantidad, Cuenta origen, Cuenta destino,Date fecha,String tipo) {
 		this.cantidad = cantidad;
 		this.origen = origen;
 		this.destino = destino;
+		fecha_instruccion = fecha;
+		this.tipo = tipo;
 	}
 
 	public Transaccion() {
