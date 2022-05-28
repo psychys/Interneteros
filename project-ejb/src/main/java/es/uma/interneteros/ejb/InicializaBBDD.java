@@ -28,8 +28,7 @@ public class InicializaBBDD {
             return;
         }
     /*
-        Divisa divisa = new Divisa("USD", "Dolar", "$", 1.07);
-        em.persist(divisa);
+
 
         Cuenta_referencia c = new Cuenta_referencia("123456789B", "Santander", "Malaga", "España", 10.000, new Date(), "activo");
         em.persist(c);
@@ -113,9 +112,21 @@ public class InicializaBBDD {
         Usuario usuario_login = new Usuario("777", "123", false, "activo");
         em.persist(usuario_login);
 
-        Cuenta_referencia quesada = new Cuenta_referencia("ES2000", "1234", "activo", "PAD THAI WOK", 0,"referencia");
+        Cuenta_referencia quesada = new Cuenta_referencia("ES2000", "1234", "activo", "PAD THAI WOK", 50000,"referencia");
         em.persist(quesada);
 
+
+        Divisa dolares = new Divisa("USD", "Dolar", "$");
+        em.persist(dolares);
+
+        Divisa libras = new Divisa("GBD","Libra","£");
+        em.persist(libras);
+
+        Divisa euros = new Divisa("EUR","Euro","€");
+        em.persist(euros);
+
+        quesada.setDivisa(euros);
+        em.merge(quesada);
     }
     
 }

@@ -147,15 +147,15 @@ public class TransaccionEJB implements GestionTransaccion {
             }
         }
 
-        euros.setSaldo(euros.getSaldo() + (int) (t1.getCantidad() * d.getCambio_euro()));
+        // euros.setSaldo(euros.getSaldo() + (int) (t1.getCantidad() * d.getCambio_euro()));
 
-        for(DepositadaPooledReferencia dr : aux.getDepositadaReferencia()){
+        /*for(DepositadaPooledReferencia dr : aux.getDepositadaReferencia()){
             if(dr.getCuenta_referencia().equals(euros) && dr.getCuenta_pooled().equals(cuenta)){
                 dr.setSaldo(euros.getSaldo() + (int) (t1.getCantidad() * d.getCambio_euro()));
                 em.merge(dr);
                 break;
             }
-        }
+        }*/
 
         em.persist(t1);
         em.merge(cuenta);

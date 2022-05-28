@@ -15,8 +15,6 @@ public class Divisa {
     @Column(nullable = false)
     private String nombre;
     private String simbolo;
-    @Column (nullable = false)
-    private double cambio_euro;
     
     @OneToMany (mappedBy = "emisor")
     //@JoinTable(name = "divisa_emisor",
@@ -114,54 +112,16 @@ public class Divisa {
 
 
 
-	public double getCambio_euro() {
-		return cambio_euro;
-	}
-
-
-
-
-	public void setCambio_euro(double cambio_euro) {
-		this.cambio_euro = cambio_euro;
-	}
-
-
-
 
 	public Divisa() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Divisa(String abreviatura, String nombre, String simbolo, double cambio_euro) {
+	public Divisa(String abreviatura, String nombre, String simbolo) {
 		this.abreviatura = abreviatura;
 		this.nombre = nombre;
 		this.simbolo = simbolo;
-		this.cambio_euro = cambio_euro;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Divisa divisa = (Divisa) o;
-		return Double.compare(divisa.cambio_euro, cambio_euro) == 0 && Objects.equals(abreviatura, divisa.abreviatura) && Objects.equals(nombre, divisa.nombre) && Objects.equals(simbolo, divisa.simbolo) && Objects.equals(trans_emsior, divisa.trans_emsior) && Objects.equals(trans_receptor, divisa.trans_receptor) && Objects.equals(c_ref, divisa.c_ref);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(abreviatura, nombre, simbolo, cambio_euro, trans_emsior, trans_receptor, c_ref);
-	}
-
-	public Divisa(String abreviatura, String nombre, String simbolo, double cambio_euro, List<Transaccion> trans_emsior, List<Transaccion> trans_receptor, List<Cuenta_referencia> c_ref) {
-		this.abreviatura = abreviatura;
-		this.nombre = nombre;
-		this.simbolo = simbolo;
-		this.cambio_euro = cambio_euro;
-		this.trans_emsior = trans_emsior;
-		this.trans_receptor = trans_receptor;
-		this.c_ref = c_ref;
-
 	}
 
 	@Override
@@ -170,11 +130,25 @@ public class Divisa {
 				"abreviatura='" + abreviatura + '\'' +
 				", nombre='" + nombre + '\'' +
 				", simbolo='" + simbolo + '\'' +
-				", cambio_euro=" + cambio_euro +
 				", trans_emsior=" + trans_emsior +
 				", trans_receptor=" + trans_receptor +
 				", c_ref=" + c_ref +
 				'}';
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(abreviatura, nombre, simbolo, trans_emsior, trans_receptor, c_ref);
+	}
+
+	public Divisa(String abreviatura, String nombre, String simbolo, List<Transaccion> trans_emsior, List<Transaccion> trans_receptor, List<Cuenta_referencia> c_ref) {
+		this.abreviatura = abreviatura;
+		this.nombre = nombre;
+		this.simbolo = simbolo;
+		this.trans_emsior = trans_emsior;
+		this.trans_receptor = trans_receptor;
+		this.c_ref = c_ref;
+
 	}
 
 

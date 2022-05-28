@@ -33,7 +33,7 @@ public class DivisaPrueba {
     public void testCrearDivisa() throws DivisaException {
 
         Usuario admin = new Usuario("000", "123", true,"activo");
-        Divisa divisa = new Divisa("EUR", "Euro", "€", 1);
+        Divisa divisa = new Divisa("EUR", "Euro", "€");
 
         gestionDivisa.CrearDivisa(divisa, admin);
 
@@ -45,7 +45,7 @@ public class DivisaPrueba {
     public void testBuscarDivisa() throws DivisaException {
 
         Usuario admin = new Usuario("000", "123", true, "activo");
-        Divisa divisa = new Divisa("EUR", "Euro", "€", 1);
+        Divisa divisa = new Divisa("EUR", "Euro", "€");
 
         gestionDivisa.CrearDivisa(divisa, admin);
 
@@ -61,15 +61,15 @@ public class DivisaPrueba {
         Usuario admin = new Usuario("000", "123", true, "activo");
         Divisa divisa = gestionDivisa.BuscarDivisa("USD", admin);
 
-        assertEquals(divisa.getCambio_euro() ,1.07, 0);
+        //assertEquals(divisa.getCambio_euro() ,1.07, 0);
 
-        Double cE = divisa.getCambio_euro();
-        divisa.setCambio_euro(1.2);
+       // Double cE = divisa.getCambio_euro();
+        //divisa.setCambio_euro(1.2);
         gestionDivisa.ActualizarDivisa(divisa, admin);
 
         divisa = gestionDivisa.BuscarDivisa("USD", admin);
 
-        assertNotEquals("No se ha actualizado la divisa", cE, divisa.getCambio_euro());
+        //assertNotEquals("No se ha actualizado la divisa", cE, divisa.getCambio_euro());
     }
 
     @Test

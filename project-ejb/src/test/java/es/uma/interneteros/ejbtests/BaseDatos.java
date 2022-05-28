@@ -26,7 +26,7 @@ public class BaseDatos {
 		Cuenta cuenta = new Cuenta("123A","123","activa");
 		em.persist(cuenta);
 
-		Divisa divisa = new Divisa("USD", "Dolar", "$", 1.07);
+		Divisa divisa = new Divisa("USD", "Dolar", "$");
 		em.persist(divisa);
 
 		Usuario usuario = new Usuario("1", "123", false,"activo");
