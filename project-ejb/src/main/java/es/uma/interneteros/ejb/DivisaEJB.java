@@ -58,6 +58,15 @@ public class DivisaEJB implements GestionDivisa {
         return d;
     }
 
+    public Divisa BuscarDivisaCliente(String abreviatura) throws DivisaException {
+
+        Divisa d = em.find(Divisa.class, abreviatura);
+        if(d == null){
+            throw new DivisaException("Divisa no existente");
+        }
+        return d;
+    }
+
     @Override
     public void EliminarDivisa(Divisa d, Usuario u) throws DivisaException {
         if(!u.isAdministrador()){

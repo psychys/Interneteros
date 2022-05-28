@@ -13,4 +13,6 @@ public interface GestionDivisa {
     public Divisa BuscarDivisa(String abreviatura, Usuario u) throws DivisaException;
 
     public void EliminarDivisa(Divisa d, Usuario u) throws DivisaException;
+
+    public Divisa BuscarDivisaCliente(String eur) throws DivisaException;
 }

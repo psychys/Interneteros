@@ -1,5 +1,7 @@
 package es.uma.interneteros.jpa;
 
+import com.sun.org.apache.xpath.internal.operations.Div;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -38,7 +40,9 @@ public class Transaccion {
     private Cuenta destino;
 
 
-	public Transaccion(int cantidad, Cuenta origen, Cuenta destino,Date fecha,String tipo) {
+
+
+	public Transaccion(int cantidad, Cuenta origen, Cuenta destino, Date fecha, String tipo) {
 		this.cantidad = cantidad;
 		this.origen = origen;
 		this.destino = destino;

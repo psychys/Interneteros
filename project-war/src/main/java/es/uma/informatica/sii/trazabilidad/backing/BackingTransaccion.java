@@ -2,8 +2,10 @@ package es.uma.informatica.sii.trazabilidad.backing;
 
 
 import es.uma.interneteros.ejb.GestionCuenta;
+import es.uma.interneteros.ejb.GestionDivisa;
 import es.uma.interneteros.ejb.GestionTransaccion;
 import es.uma.interneteros.ejb.exceptions.CuentaException;
+import es.uma.interneteros.ejb.exceptions.DivisaException;
 import es.uma.interneteros.ejb.exceptions.TransaccionException;
 import es.uma.interneteros.jpa.*;
 
@@ -20,6 +22,9 @@ public class BackingTransaccion {
 
     @Inject
     private GestionTransaccion trans;
+
+    @Inject
+    private GestionDivisa div;
     @Inject
     private InfoSesion sesion;
     @Inject
@@ -54,14 +59,14 @@ public class BackingTransaccion {
         this.cantidad = cantidad;
     }
 
-    public String realizarTransaccion() throws TransaccionException, CuentaException, HeuristicRollbackException, SystemException, HeuristicMixedException, NotSupportedException, RollbackException {
+    public String realizarTransaccion() throws TransaccionException, CuentaException, HeuristicRollbackException, SystemException, HeuristicMixedException, NotSupportedException, RollbackException, DivisaException {
        String res = null;
        Cuenta origen = cuentas.BuscarCuenta(IBAN_origen);
        Cuenta destino = cuentas.BuscarCuenta(IBAN_destino);
        if(sesion.getUsuario().getC_cliente().getC_fintech().contains(origen)) {
 
            Transaccion t = new Transaccion(Integer.parseInt(cantidad), origen, destino, new Date(), "transferencia");
-           trans.CrearTransaccion(t);
+           trans.CrearTransaccion(t,div.BuscarDivisaCliente("EUR"));
            res = "Transferencia_correcta.xhtml";
        }else{
            res = "vista_cliente.xhtml";
@@ -69,13 +74,13 @@ public class BackingTransaccion {
         return res;
     }
 
-    public String realizarTransaccionAdmin() throws TransaccionException, CuentaException, HeuristicRollbackException, SystemException, HeuristicMixedException, NotSupportedException, RollbackException {
+    public String realizarTransaccionAdmin() throws TransaccionException, CuentaException, HeuristicRollbackException, SystemException, HeuristicMixedException, NotSupportedException, RollbackException, DivisaException {
         Cuenta origen = cuentas.BuscarCuenta(IBAN_origen);
         Cuenta destino = cuentas.BuscarCuenta(IBAN_destino);
 
 
             Transaccion t = new Transaccion(Integer.parseInt(cantidad), origen, destino, new Date(), "transferencia");
-            trans.CrearTransaccion(t);
+            trans.CrearTransaccion(t,div.BuscarDivisa("EUR",sesion.getUsuario()));
         return "Transferencia_correcta.xhtml";
     }
 

@@ -26,14 +26,51 @@ public class TransaccionEJB implements GestionTransaccion {
 
     @Requisitos({"RF13"})
     @Override
-    public void CrearTransaccion(Transaccion t) throws TransaccionException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+    public void CrearTransaccion(Transaccion t, Divisa d) throws TransaccionException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
         /*Transaccion t1 = em.find(Transaccion.class, t);
         if(t1 != null)
             throw new TransaccionException("Transaccion ya existente");*/
        if(t.getOrigen().getTipo().equals(t.getDestino().getTipo()) && t.getOrigen().getTipo().equals("segregated"))
             TransaccionSegregated(t.getCantidad(),(Segregated) t.getOrigen(),(Segregated) t.getDestino());
-       ;
+       else if (t.getOrigen().getTipo().equals("pooled") && t.getDestino().getTipo().equals("pooled")) {
+           TransaccionPooled(t.getCantidad(),(Pooled) t.getOrigen(), (Pooled) t.getDestino(),d);
+       }
         em.persist(t);
+
+    }
+
+    private void TransaccionPooled(int cantidad, Pooled origen, Pooled destino, Divisa d) {
+        Cuenta_referencia aux = null;
+        Set<DepositadaPooledReferencia> x = origen.getDepositadaPooled();
+        //Cambiamos el saldo de la cuenta origen
+
+        for(DepositadaPooledReferencia dep : x){
+            if(dep.getCuenta_referencia().getDivisa().equals(d))
+                aux = dep.getCuenta_referencia();
+            break;
+        }
+        for(DepositadaPooledReferencia dep : x){
+            if(dep.getCuenta_referencia().equals(aux) && dep.getCuenta_pooled().equals(origen))
+                if(dep.getSaldo() >= cantidad){
+                    dep.setSaldo(dep.getSaldo() - (int) (cantidad * 1.01));
+                }
+            break;
+        }
+
+        //Cambiamos el saldo de la cuenta destino
+        for(DepositadaPooledReferencia dep : x){
+            if(dep.getCuenta_referencia().getDivisa().equals(d))
+                aux = dep.getCuenta_referencia();
+            break;
+        }
+        for(DepositadaPooledReferencia dep : x){
+            if(dep.getCuenta_referencia().equals(aux) && dep.getCuenta_pooled().equals(destino))
+
+                    dep.setSaldo(dep.getSaldo() + (int) (cantidad * 1.01));
+
+            break;
+        }
+        em.merge(x);
 
     }
 
