@@ -182,11 +182,40 @@ public class BackingCliente {
     }
 
     public String mostrarSaldo() throws ClienteException, CuentaException {
-      Cuenta_referencia c = (Cuenta_referencia) cuentas.BuscarCuenta(this.IBAN);
-      this.saldo=c.getSaldo();
+
+        String res= null;
+        boolean ok=false;
+
+        ok = comprobarCliente(IBAN,sesion.getUsuario().getId());
+
+        if(ok) {
+            Cuenta_referencia c = (Cuenta_referencia) cuentas.BuscarCuenta(this.IBAN);
+
+            String id = sesion.getUsuario().getId();
 
 
-        return "Saldo.xhtml";
+            this.saldo = c.getSaldo();
+
+             res="Saldo.xhtml";
+        }
+        return res;
+
+
+    }
+
+    public boolean comprobarCliente(String iban , String id) throws CuentaException {
+
+        boolean res=false;
+
+        Cuenta_Fintech c = (Cuenta_Fintech) cuentas.BuscarCuenta(IBAN);
+        String cliente = c.getCliente().getID();
+        //Tenemos el id del cliente de la cuenta en concreto.
+        if(id==cliente){
+            res=true;
+        }
+
+
+        return res;
     }
 
 

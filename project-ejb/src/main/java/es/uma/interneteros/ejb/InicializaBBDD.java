@@ -60,8 +60,10 @@ public class InicializaBBDD {
         Persona_autorizada pa = new Persona_autorizada(123, 123, "Juan", "Perez", "calle platano");
         em.persist(pa);
 
-        Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date(),"fintech");
+        Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date(),"fintech",null);
+        c_fin.setCliente(i);
         em.persist(c_fin);
+
 //Primera cuenta para transacciones
         Cuenta_referencia c_ref1 = new Cuenta_referencia("ES1492", "1234", "activo", "Banco de pesas", 400,"referencia");
         em.persist(c_ref1);
@@ -70,7 +72,7 @@ public class InicializaBBDD {
         p1.setFecha_apertura(new Date());
         em.persist(p1);
 
-        Segregated s1 = new Segregated("ES1496","1234","activa",new Date(),c_ref1,"segregated");
+        Segregated s1 = new Segregated("ES1496","1234","activa",new Date(),c_ref1,"segregated",i);
         em.persist(s1);
 
         List<Cuenta_Fintech> l = new ArrayList<>();
@@ -89,7 +91,7 @@ public class InicializaBBDD {
         Cuenta_referencia c_ref2 = new Cuenta_referencia("ES1494", "1234", "activo", "Banco de pesas", 1000,"referencia");
         em.persist(c_ref2);
 
-        Segregated s2 = new Segregated("ES1497","1234","activa",new Date(),c_ref2,"segregated");
+        Segregated s2 = new Segregated("ES1497","1234","activa",new Date(),c_ref2,"segregated",m);
         em.persist(s2);
 
         List<Cuenta_Fintech> l2 = new ArrayList<>();
@@ -114,7 +116,6 @@ public class InicializaBBDD {
 
         Cuenta_referencia quesada = new Cuenta_referencia("ES2000", "1234", "activo", "PAD THAI WOK", 50000,"referencia");
         em.persist(quesada);
-
 
         Divisa dolares = new Divisa("USD", "Dolar", "$");
         em.persist(dolares);

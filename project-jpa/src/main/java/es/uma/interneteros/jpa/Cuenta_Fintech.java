@@ -34,7 +34,7 @@ public class Cuenta_Fintech extends Cuenta{
 		this.fecha_apertura = fecha_apertura;
 	}
 	public Cuenta_Fintech(String IBAN, String SWIFT, String estado,
-						  Date fecha_apertura, String tipo){
+						  Date fecha_apertura, String tipo, Cliente cliente){
 		super(IBAN, SWIFT, estado,tipo);
 		this.fecha_apertura = fecha_apertura;
 	}

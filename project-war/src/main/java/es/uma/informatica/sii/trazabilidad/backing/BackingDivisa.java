@@ -8,6 +8,7 @@ import es.uma.interneteros.ejb.exceptions.CuentaException;
 import es.uma.interneteros.jpa.*;
 import org.eclipse.persistence.internal.jpa.rs.metadata.model.Query;
 
+import javax.annotation.Resource;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Typed;
 import javax.faces.application.FacesMessage;
@@ -18,6 +19,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Parameter;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.*;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +31,9 @@ public class BackingDivisa {
 
     @PersistenceContext
     private EntityManager em;
+
+    @Resource
+    private UserTransaction user;
 
     @Inject
     private GestionDivisa divisas;
@@ -54,7 +59,7 @@ public class BackingDivisa {
         this.divisa = divisa;
     }
 
-    public String realizarcambio() throws CuentaException {
+    public String realizarcambio() throws CuentaException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
 
         String res = null;
 
@@ -63,42 +68,48 @@ public class BackingDivisa {
         Divisa libras = new Divisa("GBD","Libra","£");
         Divisa dolares = new Divisa("USD", "Dolar", "$");
 
-        if(c!=null){
-            String abreviatura= c.getDivisa().getAbreviatura();
-            //obtengo la divisa que tiene mi cuenta
-            //y en divisa tenemos a la que va a cambiar
 
-            if(abreviatura.equals("USD") && divisa.equals("EUR")){
-                //1º cambio abreviatura
-                c.setDivisa(euros);
-                //2º cambio saldo
-                c.setSaldo((int) (c.getSaldo()*0.93));
+            if (c != null) {
+                String abreviatura = c.getDivisa().getAbreviatura();
+                //obtengo la divisa que tiene mi cuenta
+                //y en divisa tenemos a la que va a cambiar
 
-            }else if(abreviatura.equals("USD") && divisa.equals("GBD")){
-                c.setDivisa(libras);
-                c.setSaldo((int) (c.getSaldo()*0.80));
+                if (abreviatura.equals("USD") && divisa.equals("EUR")) {
+                    //1º cambio abreviatura
+                    c.setDivisa(euros);
+                    //2º cambio saldo
+                    c.setSaldo((int) (c.getSaldo() * 0.93));
 
-            }else if(abreviatura.equals("EUR") && divisa.equals("USD")){
-                c.setDivisa(dolares);
-                c.setSaldo((int) (c.getSaldo()*1.07 ));
+                } else if (abreviatura.equals("USD") && divisa.equals("GBD")) {
+                    c.setDivisa(libras);
+                    c.setSaldo((int) (c.getSaldo() * 0.80));
 
-            }else if(abreviatura.equals("GBD") && divisa.equals("USD")){
-                c.setDivisa(dolares);
-                c.setSaldo((int) (c.getSaldo()*1.22 ));
+                } else if (abreviatura.equals("EUR") && divisa.equals("USD")) {
+                    c.setDivisa(dolares);
+                    c.setSaldo((int) ( c.getSaldo() * 2));
 
-            }else if(abreviatura.equals("EUR") && divisa.equals("GBD")){
-                c.setDivisa(libras);
-                c.setSaldo((int) (c.getSaldo()*0.90 ));
+                } else if (abreviatura.equals("GBD") && divisa.equals("USD")) {
+                    c.setDivisa(dolares);
+                    c.setSaldo((int) (c.getSaldo() * 1.22));
 
-            }else if(abreviatura.equals("GBD") && divisa.equals("EUR")){
-                c.setDivisa(euros);
-                c.setSaldo((int) (c.getSaldo()*1.14  ));
+                } else if (abreviatura.equals("EUR") && divisa.equals("GBD")) {
+                    c.setDivisa(libras);
+                    c.setSaldo((int) (c.getSaldo() * 0.90));
 
-            }
-            res = "CambioDivisaExito.xhtml";
-        }
+                } else if (abreviatura.equals("GBD") && divisa.equals("EUR")) {
+                    c.setDivisa(euros);
+                    c.setSaldo((int) (c.getSaldo() * 1.14));
 
-        return res;
+                }
+
+
+                user.begin();
+                em.merge(c);
+                user.commit();
+
+
+           }
+               return "CambioDivisaExito.xhtml";
     }
 
     public String mostrarBanco() throws CuentaException {

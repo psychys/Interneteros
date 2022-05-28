@@ -20,8 +20,8 @@ public class Segregated extends Cuenta_Fintech {
 		this.c_ref = c_ref;
 	}
 
-	public Segregated(String IBAN, String SWIFT, String estado, Date fecha_apertura, Cuenta_referencia c_ref, String tipo) {
-		super(IBAN, SWIFT, estado, fecha_apertura,tipo);
+	public Segregated(String IBAN, String SWIFT, String estado, Date fecha_apertura, Cuenta_referencia c_ref, String tipo, Cliente cliente) {
+		super(IBAN, SWIFT, estado, fecha_apertura,tipo, cliente);
 		this.c_ref = c_ref;
 	}
 
