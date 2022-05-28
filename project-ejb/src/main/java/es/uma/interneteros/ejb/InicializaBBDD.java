@@ -43,6 +43,7 @@ public class InicializaBBDD {
         Individual i = new Individual("1", "123", "cliente", new Date(), null, "calle platano 5", "Malaga", "20749", "España", "activo","Carlos","Pendejo");
         em.persist(i);
 
+
         Individual m = new Individual("2", "1234", "cliente", new Date(), null, "calle platano 5", "Malaga", "20749", "España", "activo","Pedro","Navaja");
         em.persist(m);
 
@@ -50,11 +51,11 @@ public class InicializaBBDD {
         em.persist(cuenta);
 
 
-        Usuario usuario = new Usuario("1", "123", false, "activo");
-        usuario.setC_cliente(i);
+        Usuario usuario = new Usuario("1", "123", false, i,"activo");
+        //usuario.setC_cliente(i);
         em.persist(usuario);
 
-        Usuario usuario2 = new Usuario("2", "1234", false, "activo");
+        Usuario usuario2 = new Usuario("2", "1234", false,m, "activo");
         em.persist(usuario2);
 
         Persona_autorizada pa = new Persona_autorizada(123, 123, "Juan", "Perez", "calle platano");
@@ -128,6 +129,12 @@ public class InicializaBBDD {
 
         quesada.setDivisa(euros);
         em.merge(quesada);
+
+        c_ref1.setDivisa(euros);
+        em.merge(c_ref1);
+
+        c_ref2.setDivisa(euros);
+        em.merge(c_ref2);
     }
     
 }

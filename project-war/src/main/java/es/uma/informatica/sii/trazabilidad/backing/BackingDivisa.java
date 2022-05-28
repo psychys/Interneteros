@@ -5,6 +5,7 @@ import es.uma.interneteros.ejb.GestionCuenta;
 import es.uma.interneteros.ejb.GestionDivisa;
 import es.uma.interneteros.ejb.exceptions.ClienteException;
 import es.uma.interneteros.ejb.exceptions.CuentaException;
+import es.uma.interneteros.ejb.exceptions.DivisaException;
 import es.uma.interneteros.jpa.*;
 import org.eclipse.persistence.internal.jpa.rs.metadata.model.Query;
 
@@ -59,12 +60,16 @@ public class BackingDivisa {
         this.divisa = divisa;
     }
 
-    public String realizarcambio() throws CuentaException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+    public String realizarcambio() throws CuentaException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException, DivisaException {
 
-        String res = null;
+        String res = "vista_admin.xhtml";
 
         Cuenta_referencia c = (Cuenta_referencia) cuentas.BuscarCuenta(IBAN_cuenta);
-        Divisa euros = new Divisa("EUR","Euro","€");
+        if(c!=null){
+            divisas.CambioDivisa(c,divisa);
+            res = "CambioDivisaExito.xhtml";
+        }
+       /* Divisa euros = new Divisa("EUR","Euro","€");
         Divisa libras = new Divisa("GBD","Libra","£");
         Divisa dolares = new Divisa("USD", "Dolar", "$");
 
@@ -108,8 +113,8 @@ public class BackingDivisa {
                 user.commit();
 
 
-           }
-               return "CambioDivisaExito.xhtml";
+           }*/
+               return res;
     }
 
     public String mostrarBanco() throws CuentaException {
