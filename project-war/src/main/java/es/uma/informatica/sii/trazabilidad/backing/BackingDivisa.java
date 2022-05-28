@@ -55,6 +55,9 @@ public class BackingDivisa {
     }
 
     public String realizarcambio() throws CuentaException {
+
+        String res = null;
+
         Cuenta_referencia c = (Cuenta_referencia) cuentas.BuscarCuenta(IBAN_cuenta);
         Divisa euros = new Divisa("EUR","Euro","€");
         Divisa libras = new Divisa("GBD","Libra","£");
@@ -65,37 +68,37 @@ public class BackingDivisa {
             //obtengo la divisa que tiene mi cuenta
             //y en divisa tenemos a la que va a cambiar
 
-            if(abreviatura=="USD" && divisa=="EUR"){
+            if(abreviatura.equals("USD") && divisa.equals("EUR")){
                 //1º cambio abreviatura
                 c.setDivisa(euros);
                 //2º cambio saldo
                 c.setSaldo((int) (c.getSaldo()*0.93));
 
-            }else if(abreviatura=="USD" && divisa=="GBD"){
+            }else if(abreviatura.equals("USD") && divisa.equals("GBD")){
                 c.setDivisa(libras);
                 c.setSaldo((int) (c.getSaldo()*0.80));
 
-            }else if(abreviatura=="EUR" && divisa=="USD"){
+            }else if(abreviatura.equals("EUR") && divisa.equals("USD")){
                 c.setDivisa(dolares);
                 c.setSaldo((int) (c.getSaldo()*1.07 ));
 
-            }else if(abreviatura=="GBD" && divisa=="USD"){
+            }else if(abreviatura.equals("GBD") && divisa.equals("USD")){
                 c.setDivisa(dolares);
                 c.setSaldo((int) (c.getSaldo()*1.22 ));
 
-            }else if(abreviatura=="EUR" && divisa=="GBD"){
+            }else if(abreviatura.equals("EUR") && divisa.equals("GBD")){
                 c.setDivisa(libras);
                 c.setSaldo((int) (c.getSaldo()*0.90 ));
 
-            }else if(abreviatura=="GBD" && divisa=="EUR"){
+            }else if(abreviatura.equals("GBD") && divisa.equals("EUR")){
                 c.setDivisa(euros);
                 c.setSaldo((int) (c.getSaldo()*1.14  ));
 
             }
-            return "CambioDivisaExito.xhtml";
+            res = "CambioDivisaExito.xhtml";
         }
 
-        return null;
+        return res;
     }
 
     public String mostrarBanco() throws CuentaException {
