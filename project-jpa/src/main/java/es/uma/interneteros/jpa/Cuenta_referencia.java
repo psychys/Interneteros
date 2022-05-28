@@ -46,10 +46,9 @@ Cuenta_referencia extends Cuenta{
 	}
 
 	public Cuenta_referencia(String IBAN, String SWIFT, String estado, String nombre_banco, int saldo,String tipo) {
-		super(IBAN, SWIFT, estado);
+		super(IBAN, SWIFT, estado,tipo);
 		this.nombre_banco = nombre_banco;
 		this.saldo = saldo;
-		this.tipo = tipo;
 	}
 
 	public Cuenta_referencia(/*String rowId,*/ String nombre_banco, String sucursal, String pais, int saldo, Date fecha_apertura, String estado, Segregated c_fintech_segregada, Divisa divisa, Set<DepositadaPooledReferencia> depositadaReferencia) {

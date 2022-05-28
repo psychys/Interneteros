@@ -6,12 +6,13 @@ import es.uma.interneteros.jpa.Transaccion;
 import es.uma.interneteros.ejb.exceptions.TransaccionException;
 import es.uma.interneteros.jpa.Usuario;
 
+import javax.transaction.*;
 import java.util.List;
 
 public interface GestionTransaccion {
 
 
-    public void CrearTransaccion(Transaccion t) throws TransaccionException;
+    public void CrearTransaccion(Transaccion t) throws TransaccionException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException;
     @Requisitos({"RF13"})
     public void CrearTransaccionAdministrador(Usuario u,Transaccion t) throws TransaccionException;
 

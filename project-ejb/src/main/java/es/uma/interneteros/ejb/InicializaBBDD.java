@@ -47,7 +47,7 @@ public class InicializaBBDD {
         Individual m = new Individual("2", "1234", "cliente", new Date(), null, "calle platano 5", "Malaga", "20749", "España", "activo","Pedro","Navaja");
         em.persist(m);
 
-        Cuenta cuenta = new Cuenta("123A", "123", "activa");
+        Cuenta cuenta = new Cuenta("123A", "123", "activa","base");
         em.persist(cuenta);
 
 
@@ -61,17 +61,17 @@ public class InicializaBBDD {
         Persona_autorizada pa = new Persona_autorizada(123, 123, "Juan", "Perez", "calle platano");
         em.persist(pa);
 
-        Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date());
+        Cuenta_Fintech c_fin = new Cuenta_Fintech("123", "123", "activo", new Date(),"fintech");
         em.persist(c_fin);
 //Primera cuenta para transacciones
-        Cuenta_referencia c_ref1 = new Cuenta_referencia("ES1492", "1234", "activo", "Banco de pesas", 400);
+        Cuenta_referencia c_ref1 = new Cuenta_referencia("ES1492", "1234", "activo", "Banco de pesas", 400,"referencia");
         em.persist(c_ref1);
 
-        Pooled p1 = new Pooled("ES1493","1234","activo", new Date());
+        Pooled p1 = new Pooled("ES1493","1234","activo", new Date(),"pooled");
         p1.setFecha_apertura(new Date());
         em.persist(p1);
 
-        Segregated s1 = new Segregated("ES1496","1234","activa",new Date(),c_ref1);
+        Segregated s1 = new Segregated("ES1496","1234","activa",new Date(),c_ref1,"segregated");
         em.persist(s1);
 
         List<Cuenta_Fintech> l = new ArrayList<>();
@@ -87,10 +87,10 @@ public class InicializaBBDD {
         DepositadaPooledReferencia d = new DepositadaPooledReferencia(id,p1,c_ref1,c_ref1.getSaldo()) ;
         em.persist(d);
 // Segunda cuenta para transacciones
-        Cuenta_referencia c_ref2 = new Cuenta_referencia("ES1494", "1234", "activo", "Banco de pesas", 1000);
+        Cuenta_referencia c_ref2 = new Cuenta_referencia("ES1494", "1234", "activo", "Banco de pesas", 1000,"referencia");
         em.persist(c_ref2);
 
-        Segregated s2 = new Segregated("ES1497","1234","activa",new Date(),c_ref2);
+        Segregated s2 = new Segregated("ES1497","1234","activa",new Date(),c_ref2,"segregated");
         em.persist(s2);
 
         List<Cuenta_Fintech> l2 = new ArrayList<>();
@@ -98,7 +98,7 @@ public class InicializaBBDD {
         m.setC_fintech(l2);
         em.merge(m);
 
-        Pooled p2 = new Pooled("ES1495","1234","activo", new Date());
+        Pooled p2 = new Pooled("ES1495","1234","activo", new Date(),"pooled");
         p2.setFecha_apertura(new Date());
         em.persist(p2);
 
@@ -113,7 +113,7 @@ public class InicializaBBDD {
         Usuario usuario_login = new Usuario("777", "123", false, "activo");
         em.persist(usuario_login);
 
-        Cuenta_referencia quesada = new Cuenta_referencia("ES2000", "1234", "activo", "PAD THAI WOK", 0);
+        Cuenta_referencia quesada = new Cuenta_referencia("ES2000", "1234", "activo", "PAD THAI WOK", 0,"referencia");
         em.persist(quesada);
 
     }

@@ -5,42 +5,46 @@ import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.interneteros.jpa.*;
 import es.uma.interneteros.ejb.exceptions.TransaccionException;
 
+import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.*;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
 @Stateless
 public class TransaccionEJB implements GestionTransaccion {
 
-    @PersistenceContext(name="eburyEJB")
+    @PersistenceContext(name="eBuryEJB")
     private EntityManager em;
+
+    private static final Logger LOGGER =java.util.logging.Logger.getLogger(CuentaEJB.class.getCanonicalName());
 
     @Requisitos({"RF13"})
     @Override
-    public void CrearTransaccion(Transaccion t) throws TransaccionException {
+    public void CrearTransaccion(Transaccion t) throws TransaccionException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
         /*Transaccion t1 = em.find(Transaccion.class, t);
         if(t1 != null)
             throw new TransaccionException("Transaccion ya existente");*/
-
        if(t.getOrigen().getTipo().equals(t.getDestino().getTipo()) && t.getOrigen().getTipo().equals("segregated"))
             TransaccionSegregated(t.getCantidad(),(Segregated) t.getOrigen(),(Segregated) t.getDestino());
-
+       ;
         em.persist(t);
-
 
     }
 
-    private void TransaccionSegregated(int cantidad, Segregated origen, Segregated destino) throws TransaccionException {
+    private void TransaccionSegregated(int cantidad, Segregated origen, Segregated destino) throws TransaccionException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
         if(origen.getC_ref().getSaldo() >= cantidad){
             Cuenta_referencia cor = origen.getC_ref();
             Cuenta_referencia cdr = destino.getC_ref();
             cor.setSaldo(cor.getSaldo() - (int) (cantidad * 1.01));
             cdr.setSaldo(cdr.getSaldo() + cantidad);
             em.merge(cdr);
+
             em.merge(cor);
         }else{
             throw new TransaccionException("No hay suficiente dinero en la cuenta");

@@ -10,6 +10,7 @@ import es.uma.interneteros.jpa.*;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.transaction.*;
 
 @Named(value= "transaccion")
 @RequestScoped
@@ -25,7 +26,7 @@ public class BackingTransaccion {
     private String IBAN_origen;
     private String IBAN_destino;
 
-    private int cantidad;
+    private String cantidad;
 
     public String getIBAN_origen() {
         return IBAN_origen;
@@ -43,19 +44,19 @@ public class BackingTransaccion {
         this.IBAN_destino = IBAN_destino;
     }
 
-    public int getCantidad() {
+    public String getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 
-    public String realizarTransaccion() throws TransaccionException, CuentaException {
+    public String realizarTransaccion() throws TransaccionException, CuentaException, HeuristicRollbackException, SystemException, HeuristicMixedException, NotSupportedException, RollbackException {
        Cuenta origen = cuentas.BuscarCuenta(IBAN_origen);
        Cuenta destino = cuentas.BuscarCuenta(IBAN_destino);
 
-        Transaccion t = new Transaccion(cantidad,origen,destino);
+        Transaccion t = new Transaccion(Integer.parseInt(cantidad),origen,destino);
         trans.CrearTransaccion(t);
         return "Transferencia_correcta.xhtml";
     }
