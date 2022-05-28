@@ -59,14 +59,16 @@ public class BackingTransaccion {
         this.cantidad = cantidad;
     }
 
-    public String realizarTransaccion() throws TransaccionException, CuentaException, HeuristicRollbackException, SystemException, HeuristicMixedException, NotSupportedException, RollbackException, DivisaException {
+    public String realizarTransaccion() throws TransaccionException, CuentaException,DivisaException {
        String res = null;
        Cuenta origen = cuentas.BuscarCuenta(IBAN_origen);
        Cuenta destino = cuentas.BuscarCuenta(IBAN_destino);
-       if(sesion.getUsuario().getC_cliente().getC_fintech().contains(origen)) {
+       String id_cliente = sesion.getUsuario().getId();
+       String id_cuenta_cliente = ((Cuenta_Fintech) origen).getCliente().getID();
+       if(id_cliente.equals(id_cuenta_cliente) ){
 
            Transaccion t = new Transaccion(Integer.parseInt(cantidad), origen, destino, new Date(), "transferencia");
-           trans.CrearTransaccion(t,div.BuscarDivisaCliente("EUR"));
+           trans.CrearTransaccion(t);//,div.BuscarDivisaCliente("EUR"));
            res = "Transferencia_correcta.xhtml";
        }else{
            res = "vista_cliente.xhtml";
@@ -80,7 +82,7 @@ public class BackingTransaccion {
 
 
             Transaccion t = new Transaccion(Integer.parseInt(cantidad), origen, destino, new Date(), "transferencia");
-            trans.CrearTransaccion(t,div.BuscarDivisa("EUR",sesion.getUsuario()));
+            trans.CrearTransaccion(t);//,div.BuscarDivisa("EUR",sesion.getUsuario()));
         return "Transferencia_correcta.xhtml";
     }
 

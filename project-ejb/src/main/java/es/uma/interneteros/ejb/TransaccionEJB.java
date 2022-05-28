@@ -26,20 +26,20 @@ public class TransaccionEJB implements GestionTransaccion {
 
     @Requisitos({"RF13"})
     @Override
-    public void CrearTransaccion(Transaccion t, Divisa d) throws TransaccionException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+    public void CrearTransaccion(Transaccion t /*,Divisa d*/) throws TransaccionException {
         /*Transaccion t1 = em.find(Transaccion.class, t);
         if(t1 != null)
             throw new TransaccionException("Transaccion ya existente");*/
        if(t.getOrigen().getTipo().equals(t.getDestino().getTipo()) && t.getOrigen().getTipo().equals("segregated"))
-            TransaccionSegregated(t.getCantidad(),(Segregated) t.getOrigen(),(Segregated) t.getDestino());
-       else if (t.getOrigen().getTipo().equals("pooled") && t.getDestino().getTipo().equals("pooled")) {
+           TransaccionSegregated(t.getCantidad(),(Segregated) t.getOrigen(),(Segregated) t.getDestino());
+       /*} else if (t.getOrigen().getTipo().equals("pooled") && t.getDestino().getTipo().equals("pooled")) {
            TransaccionPooled(t.getCantidad(),(Pooled) t.getOrigen(), (Pooled) t.getDestino(),d);
-       }
+       }*/
         em.persist(t);
 
     }
 
-    private void TransaccionPooled(int cantidad, Pooled origen, Pooled destino, Divisa d) {
+    /*private void TransaccionPooled(int cantidad, Pooled origen, Pooled destino, Divisa d) {
         Cuenta_referencia aux = null;
         Set<DepositadaPooledReferencia> x = origen.getDepositadaPooled();
         //Cambiamos el saldo de la cuenta origen
@@ -72,9 +72,9 @@ public class TransaccionEJB implements GestionTransaccion {
         }
         em.merge(x);
 
-    }
+    }*/
 
-    private void TransaccionSegregated(int cantidad, Segregated origen, Segregated destino) throws TransaccionException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+    private void TransaccionSegregated(int cantidad, Segregated origen, Segregated destino) throws TransaccionException {
         if(origen.getC_ref().getSaldo() >= cantidad){
             Cuenta_referencia cor = origen.getC_ref();
             Cuenta_referencia cdr = destino.getC_ref();

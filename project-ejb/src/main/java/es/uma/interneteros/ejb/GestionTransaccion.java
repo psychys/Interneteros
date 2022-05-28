@@ -12,7 +12,7 @@ import java.util.List;
 public interface GestionTransaccion {
 
 
-    public void CrearTransaccion(Transaccion t,Divisa divisa) throws TransaccionException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException;
+    public void CrearTransaccion(Transaccion t/*,Divisa divisa*/) throws TransaccionException;
     @Requisitos({"RF13"})
     public void CrearTransaccionAdministrador(Usuario u,Transaccion t) throws TransaccionException;
 
