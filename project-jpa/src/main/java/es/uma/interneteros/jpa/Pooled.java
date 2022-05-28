@@ -7,12 +7,20 @@ import java.util.Set;
 
 @Entity
 public class Pooled extends Cuenta_Fintech {
+
+    private String tipo;
+
     public Pooled() {
         super();
     }
 
     public Pooled(String IBAN, String SWIFT, String estado, Date fecha_apertura) {
         super(IBAN, SWIFT, estado, fecha_apertura);
+    }
+
+    public Pooled(String IBAN, String SWIFT, String estado, Date fecha_apertura, String tipo) {
+        super(IBAN, SWIFT, estado, fecha_apertura);
+        this.tipo = tipo;
     }
 
     @OneToMany(mappedBy = "cuenta_pooled")
@@ -25,5 +33,9 @@ public class Pooled extends Cuenta_Fintech {
 
     public void setDepositadaPooled(Set<DepositadaPooledReferencia> depositadaPooled) {
         DepositadaPooled = depositadaPooled;
+    }
+
+    public String getTipo() {
+        return tipo;
     }
 }

@@ -26,26 +26,25 @@ public class TransaccionEJB implements GestionTransaccion {
         if(t1 != null)
             throw new TransaccionException("Transaccion ya existente");*/
 
-
-
-        if(t.getOrigen().getClass().getName().equals("Segregated") && t.getDestino().getClass().getName().equals("Segregated")){
-            Segregated co = (Segregated) t.getOrigen();
-            Segregated cd = (Segregated) t.getDestino();
-            if(co.getC_ref().getSaldo() >= t.getCantidad()){
-                co.getC_ref().setSaldo(co.getC_ref().getSaldo() - (int) (t.getCantidad() * 1.01));
-                cd.getC_ref().setSaldo(cd.getC_ref().getSaldo() + t.getCantidad());
-                em.merge(cd.getC_ref());
-                em.merge(co.getC_ref());
-            }else{
-                throw new TransaccionException("No hay suficiente dinero en la cuenta");
-            }
-
-        }
-
+       if(t.getOrigen().getTipo().equals(t.getDestino().getTipo()) && t.getOrigen().getTipo().equals("segregated"))
+            TransaccionSegregated(t.getCantidad(),(Segregated) t.getOrigen(),(Segregated) t.getDestino());
 
         em.persist(t);
 
 
+    }
+
+    private void TransaccionSegregated(int cantidad, Segregated origen, Segregated destino) throws TransaccionException {
+        if(origen.getC_ref().getSaldo() >= cantidad){
+            Cuenta_referencia cor = origen.getC_ref();
+            Cuenta_referencia cdr = destino.getC_ref();
+            cor.setSaldo(cor.getSaldo() - (int) (cantidad * 1.01));
+            cdr.setSaldo(cdr.getSaldo() + cantidad);
+            em.merge(cdr);
+            em.merge(cor);
+        }else{
+            throw new TransaccionException("No hay suficiente dinero en la cuenta");
+        }
     }
 
     @Override

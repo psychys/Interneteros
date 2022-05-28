@@ -19,6 +19,8 @@ public class Cuenta_Fintech extends Cuenta{
 	private String clasificacion;
 	@ManyToOne (cascade = {CascadeType.PERSIST})
 	private Cliente cliente;
+
+	private String tipo;
 	
 	public Cuenta_Fintech() {
 		super();
@@ -31,6 +33,12 @@ public class Cuenta_Fintech extends Cuenta{
 		super(IBAN, SWIFT, estado);
 		this.fecha_apertura = fecha_apertura;
 	}
+	public Cuenta_Fintech(String IBAN, String SWIFT, String estado,
+						  Date fecha_apertura, String tipo){
+		super(IBAN, SWIFT, estado);
+		this.fecha_apertura = fecha_apertura;
+		this.tipo=tipo;
+	}
 
 	public Cliente getCliente() {
 		return cliente;
@@ -41,6 +49,9 @@ public class Cuenta_Fintech extends Cuenta{
 		this.cliente = cliente;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
 
 	public Date getFecha_apertura() {
 		return fecha_apertura;

@@ -31,7 +31,8 @@ Cuenta_referencia extends Cuenta{
 
 	@OneToMany(mappedBy = "cuenta_referencia")
 	private Set<DepositadaPooledReferencia> DepositadaReferencia = new HashSet<DepositadaPooledReferencia>();
-	
+
+	private String tipo;
 	
 	public Cuenta_referencia() {
 		super();
@@ -42,6 +43,13 @@ Cuenta_referencia extends Cuenta{
 		super(IBAN, SWIFT, estado);
 		this.nombre_banco = nombre_banco;
 		this.saldo = saldo;
+	}
+
+	public Cuenta_referencia(String IBAN, String SWIFT, String estado, String nombre_banco, int saldo,String tipo) {
+		super(IBAN, SWIFT, estado);
+		this.nombre_banco = nombre_banco;
+		this.saldo = saldo;
+		this.tipo = tipo;
 	}
 
 	public Cuenta_referencia(/*String rowId,*/ String nombre_banco, String sucursal, String pais, int saldo, Date fecha_apertura, String estado, Segregated c_fintech_segregada, Divisa divisa, Set<DepositadaPooledReferencia> depositadaReferencia) {
@@ -67,6 +75,10 @@ Cuenta_referencia extends Cuenta{
 
 	public void setDepositadaReferencia(Set<DepositadaPooledReferencia> depositadaReferencia) {
 		DepositadaReferencia = depositadaReferencia;
+	}
+
+	public String getTipo() {
+		return tipo;
 	}
 
 	public String getNombre_banco() {

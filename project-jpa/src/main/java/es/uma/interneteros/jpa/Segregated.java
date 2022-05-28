@@ -7,7 +7,10 @@ import java.util.Date;
 
 @Entity
 public class Segregated extends Cuenta_Fintech {
-	
+
+
+	private String tipo;
+
 	private int comision;
 	@OneToOne //(mappedBy ="c_fintech_segregada")
 	private Cuenta_referencia c_ref;
@@ -15,6 +18,12 @@ public class Segregated extends Cuenta_Fintech {
 	public Segregated(String IBAN, String SWIFT, String estado, Date fecha_apertura, Cuenta_referencia c_ref) {
 		super(IBAN, SWIFT, estado, fecha_apertura);
 		this.c_ref = c_ref;
+	}
+
+	public Segregated(String IBAN, String SWIFT, String estado, Date fecha_apertura, Cuenta_referencia c_ref, String tipo) {
+		super(IBAN, SWIFT, estado, fecha_apertura);
+		this.c_ref = c_ref;
+		this.tipo = tipo;
 	}
 
 	/*public Segregated(int comision , Cuenta_referencia c) {
@@ -50,7 +59,9 @@ public class Segregated extends Cuenta_Fintech {
 		this.comision = comision;
 	}
 
-
+	public String getTipo() {
+		return tipo;
+	}
 
 	@Override
 	public int hashCode() {

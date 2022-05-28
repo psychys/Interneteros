@@ -15,6 +15,8 @@ public class Cuenta {
 	@Column(nullable = false)
 	private String estado;
 
+	private String tipo;
+
 	@OneToMany (mappedBy = "origen")
 	//@JoinTable(name = "cuenta_origen",
 	//joinColumns = @JoinColumn(name = "cuenta"),
@@ -36,6 +38,17 @@ public class Cuenta {
 		this.IBAN = IBAN;
 		this.SWIFT = SWIFT;
 		this.estado = estado;
+	}
+
+	public Cuenta(String IBAN, String SWIFT, String estado, String tipo) {
+		this.IBAN = IBAN;
+		this.SWIFT = SWIFT;
+		this.estado = estado;
+		this.tipo = tipo;
+	}
+
+	public String getTipo() {
+		return tipo;
 	}
 
 	public String getIBAN() {

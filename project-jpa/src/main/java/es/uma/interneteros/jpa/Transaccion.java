@@ -37,6 +37,7 @@ public class Transaccion {
     @ManyToOne
     private Cuenta destino;
 
+
 	public Transaccion(int cantidad, Cuenta origen, Cuenta destino) {
 		this.cantidad = cantidad;
 		this.origen = origen;
