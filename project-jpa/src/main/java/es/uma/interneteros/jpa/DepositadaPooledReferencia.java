@@ -20,6 +20,7 @@ public class DepositadaPooledReferencia {
     private Cuenta_referencia cuenta_referencia;
 
     //@Column(name = "saldo", insertable = false , updatable = false )
+    @Column
     private int saldo;
 
     public DepositadaPooledReferencia(){

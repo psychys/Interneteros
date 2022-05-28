@@ -31,10 +31,11 @@ public class Cliente {
     private String Pais;
 	private String Estado;
     
-    @OneToMany (mappedBy = "cliente")
-    //@JoinTable(name = "cliente_fintech",
-	//joinColumns = @JoinColumn(name = "Id_cliente"),
-	//inverseJoinColumns = @JoinColumn(name = "fintech_iban"))
+
+	@OneToMany (mappedBy = "cliente", cascade=CascadeType.PERSIST)
+    @JoinTable(name = "cliente_fintech",
+	joinColumns = @JoinColumn(name = "Id_cliente"),
+	inverseJoinColumns = @JoinColumn(name = "fintech_iban"))
     private List<Cuenta_Fintech> c_fintech;
 
 	@OneToOne(mappedBy ="c_cliente")

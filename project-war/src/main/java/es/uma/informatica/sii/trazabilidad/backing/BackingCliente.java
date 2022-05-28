@@ -2,11 +2,10 @@ package es.uma.informatica.sii.trazabilidad.backing;
 
 
 import es.uma.interneteros.ejb.GestionCliente;
+import es.uma.interneteros.ejb.GestionCuenta;
 import es.uma.interneteros.ejb.exceptions.ClienteException;
-import es.uma.interneteros.jpa.Cliente;
-import es.uma.interneteros.jpa.Cuenta_referencia;
-import es.uma.interneteros.jpa.Individual;
-import es.uma.interneteros.jpa.Usuario;
+import es.uma.interneteros.ejb.exceptions.CuentaException;
+import es.uma.interneteros.jpa.*;
 import org.eclipse.persistence.internal.jpa.rs.metadata.model.Query;
 
 import javax.enterprise.context.RequestScoped;
@@ -29,6 +28,8 @@ public class BackingCliente {
     @Inject
     private GestionCliente clientes;
     @Inject
+    private GestionCuenta cuentas;
+    @Inject
     private InfoSesion sesion;
 
     @PersistenceContext
@@ -43,6 +44,25 @@ public class BackingCliente {
     private String direccion;
     private Date fecha;
     private int identificacion;
+    private String IBAN;
+
+    private int saldo;
+
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
+    }
+
+    public String getIBAN() {
+        return IBAN;
+    }
+
+    public void setIBAN(String IBAN) {
+        this.IBAN = IBAN;
+    }
 
     public BackingCliente(Individual c) {
         this.c = c;
@@ -160,10 +180,13 @@ public class BackingCliente {
     public String mostrarApellido() throws ClienteException {
         return clientes.BuscarCliente(sesion.getUsuario().getId()).getApellidos();
     }
-    public int mostrarSaldo() throws ClienteException {
-       List l = clientes.BuscarCliente(sesion.getUsuario().getId()).getC_fintech();
-        Cuenta_referencia c = (Cuenta_referencia) l.get(1);
-        return c.getSaldo();
+
+    public String mostrarSaldo() throws ClienteException, CuentaException {
+      Cuenta_referencia c = (Cuenta_referencia) cuentas.BuscarCuenta(this.IBAN);
+      this.saldo=c.getSaldo();
+
+
+        return "Saldo.xhtml";
     }
 
 
