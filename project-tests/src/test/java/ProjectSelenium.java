@@ -181,6 +181,24 @@ public class ProjectSelenium {
     driver.close();
   }
 
+  @Test
+  public void cONSULTARDATOSCLIENTEVISTAADMIN() {
+    driver.get("http://0.0.0.0:8080/project-war/");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("indexIndex:login_autorizados")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:clientes")).click();
+    driver.findElement(By.id("indexIndex:Buscar_cliente")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("1");
+    driver.findElement(By.id("Login-Form:buscarCliente")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Datos del cliente buscado"));
+  }
+
   @Requisitos("RF9")
   @Test
   public void bajacuenta() {
@@ -193,6 +211,26 @@ public class ProjectSelenium {
     assert(driver.findElement(By.id("Login-Form:estado")).getText().equals("baja"));
 
     driver.close();
+  }
+
+  @Test
+  public void cONSULTARDATOSUSUARIO() {
+    driver.get("http://0.0.0.0:8080/project-war/login.xhtml");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("1");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:datos_cliente")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    {
+      WebElement element = driver.findElement(By.cssSelector("h2"));
+      Actions builder = new Actions(driver);
+      builder.doubleClick(element).perform();
+    }
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Datos del cliente"));
   }
 
 }
