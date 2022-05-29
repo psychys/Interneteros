@@ -120,13 +120,20 @@ public class ProjectSelenium {
     driver.findElement(By.id("PaginaPrincipalid")).click();
     assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Menu Autorizado"));
   }
+
   @Requisitos("RF2")
   @Test
   public void altacliente() {
-    driver.get("http://0.0.0.0:8080/project-war/CrearCliente.xhtml");
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:clientes")).click();
+    driver.findElement(By.id("indexIndex:Crear_cliente")).click();
 
     driver.findElement(By.id("indexIndex:idi")).sendKeys("7");
-    driver.findElement(By.id("indexIndex:tipo")).sendKeys("cliente");
+    driver.findElement(By.id("indexIndex:tipo")).sendKeys("clietne");
     driver.findElement(By.id("indexIndex:identificacion")).sendKeys("777");
     driver.findElement(By.id("indexIndex:direccion")).sendKeys("c/ platano");
     driver.findElement(By.id("indexIndex:ciudad")).sendKeys("malaga");
@@ -135,35 +142,73 @@ public class ProjectSelenium {
 
     driver.findElement(By.id("indexIndex:crearCliente")).click();
 
-    assert(driver.findElement(By.id("Login-Form:identificacion")).getText().equals("777"));
-    assert(driver.findElement(By.id("Login-Form:direccion")).getText().equals("c/ platano"));
-    assert(driver.findElement(By.id("Login-Form:ciudad")).getText().equals("malaga"));
-    assert(driver.findElement(By.id("Login-Form:cp")).getText().equals("12345"));
-    assert(driver.findElement(By.id("Login-Form:pais")).getText().equals("españa"));
+    assertThat(driver.findElement(By.id("Login-Form:identificacion")).getText(), is("777"));
+    assertThat(driver.findElement(By.id("Login-Form:direccion")).getText(), is("C/ PLATANO"));
+    assertThat(driver.findElement(By.id("Login-Form:ciudad")).getText(), is("MALAGA"));
+    assertThat(driver.findElement(By.id("Login-Form:cp")).getText(), is("12345"));
+    assertThat(driver.findElement(By.id("Login-Form:pais")).getText(), is("ESPAÑA"));
 
+    driver.close();
+  }
+  @Requisitos("RF2")
+  @Test
+  public void altaclientefallido() {
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:clientes")).click();
+    driver.findElement(By.id("indexIndex:Crear_cliente")).click();
+    driver.findElement(By.id("indexIndex:idi")).sendKeys("7");
+    driver.findElement(By.id("indexIndex:tipo")).sendKeys("cliente");
+    driver.findElement(By.id("indexIndex:identificacion")).sendKeys("777");
+    driver.findElement(By.id("indexIndex:direccion")).sendKeys("c/ platano");
+    driver.findElement(By.id("indexIndex:ciudad")).sendKeys("malaga");
+    driver.findElement(By.id("indexIndex:cpostal")).sendKeys("12345");
+    driver.findElement(By.id("indexIndex:pais")).sendKeys("españa");
+    driver.findElement(By.id("indexIndex:crearCliente")).click();
+    assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Creacion de Cliente"));
     driver.close();
   }
 
   @Requisitos("RF3")
   @Test
   public void editarcliente() {
-    driver.get("http://0.0.0.0:8080/project-war/EditarCliente.xhtml");
-
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:clientes")).click();
+    driver.findElement(By.id("indexIndex:Editar_cliente")).click();
     driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("1");
-
     driver.findElement(By.id("Login-Form:editarCliente")).click();
-
-    driver.findElement(By.id("Login-Form:id")).sendKeys("1");
     driver.findElement(By.id("Login-Form:direccion")).sendKeys("calle banana 6");
     driver.findElement(By.id("Login-Form:ciudad")).sendKeys("cadiz");
     driver.findElement(By.id("Login-Form:cp")).sendKeys("12345");
     driver.findElement(By.id("Login-Form:pais")).sendKeys("spain");
+    driver.findElement(By.id("Login-Form:confirmarEdit")).click();
+    assertThat(driver.findElement(By.id("Login-Form:direccion")).getText(), is("CALLE BANANA 6"));
+    assertThat(driver.findElement(By.id("Login-Form:ciudad")).getText(), is("CADIZ"));
+    assertThat(driver.findElement(By.id("Login-Form:cp")).getText(), is("12345"));
+    assertThat(driver.findElement(By.id("Login-Form:pais")).getText(), is("SPAIN"));
+    driver.close();
+  }
 
-    assert (driver.findElement(By.id("Login-Form:direccion")).getText().equals("calle banana 6"));
-    assert (driver.findElement(By.id("Login-Form:ciudad")).getText().equals("cadiz"));
-    assert (driver.findElement(By.id("Login-Form:cp")).getText().equals("12345"));
-    assert (driver.findElement(By.id("Login-Form:pais")).getText().equals("spain"));
-
+  @Requisitos("RF3")
+  @Test
+  public void editarclientefallido() {
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:clientes")).click();
+    driver.findElement(By.id("indexIndex:Editar_cliente")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("253726");
+    driver.findElement(By.id("Login-Form:editarCliente")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Editar Cliente"));
     driver.close();
   }
 
