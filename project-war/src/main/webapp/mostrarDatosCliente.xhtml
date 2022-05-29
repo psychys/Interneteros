@@ -13,34 +13,34 @@
         <h2>Datos del cliente buscado</h2>
         <h:form id="Login-Form">
             <div class="user-box">
-                <a>Nombre: <h:outputText value="#{admin.mostrarNombre()}"/></a>
+                <a>Nombre: <h:outputText value="#{admin.mostrarNombre()}" id="nombre"/></a>
             </div>
             <div class="user-box">
-                <a>Apellidos: <h:outputText value="#{admin.mostrarApellido()}"/></a>
-            </div>
-
-            <div class="user-box">
-                <a>Identificacion: <h:outputText value="#{admin.mostrarIdentificacion()}"/></a>
+                <a>Apellidos: <h:outputText value="#{admin.mostrarApellido()}" id="apellido"/></a>
             </div>
 
             <div class="user-box">
-                <a>Fecha Alta: <h:outputText value="#{admin.mostrarFecha()}"/></a>
+                <a>Identificacion: <h:outputText value="#{admin.mostrarIdentificacion()}" id="identificacion"/></a>
             </div>
 
             <div class="user-box">
-                <a>Direccion: <h:outputText value="#{admin.mostrarDireccion()}"/></a>
+                <a>Fecha Alta: <h:outputText value="#{admin.mostrarFecha()}" id="fecha"/></a>
             </div>
 
             <div class="user-box">
-                <a>Ciudad: <h:outputText value="#{admin.mostrarCiudad()}"/></a>
+                <a>Direccion: <h:outputText value="#{admin.mostrarDireccion()}" id="direccion"/></a>
             </div>
 
             <div class="user-box">
-                <a>CP: <h:outputText value="#{admin.mostrarCP()}"/></a>
+                <a>Ciudad: <h:outputText value="#{admin.mostrarCiudad()}" id="ciudad"/></a>
             </div>
 
             <div class="user-box">
-                <a>Pais: <h:outputText value="#{admin.mostrarPais()}"/></a>
+                <a>CP: <h:outputText value="#{admin.mostrarCP()}" id="cp"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Pais: <h:outputText value="#{admin.mostrarPais()}" id="pais"/></a>
             </div>
 
 
