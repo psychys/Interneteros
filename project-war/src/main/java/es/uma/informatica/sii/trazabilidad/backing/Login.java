@@ -44,6 +44,7 @@ public class Login {
 
     public String entrar() {
         try {
+
             boolean logeado = usuarioEJB.LoginCliente(usuario, usuario.getId(), usuario.getContrasena());
 
             if (logeado) {

@@ -6,11 +6,10 @@ import org.junit.After;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,28 +50,73 @@ public class ProjectSelenium {
     driver.quit();
   }
   @Test
-  public void loginCliente() {
+  public void loginPruebaCliente() {
     driver.get("http://0.0.0.0:8080/project-war/project-war/");
-    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.manage().window().setSize(new Dimension(1680, 1018));
     driver.findElement(By.id("indexIndex:login_clientes")).click();
     driver.findElement(By.id("Login-Form:Login-ID")).click();
     driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("1");
     driver.findElement(By.id("Login-Form:Login-Contra")).click();
     driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
     driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("PaginaPrincipalid")).click();
     assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Menu Cliente"));
+    driver.findElement(By.id("indexIndex")).click();
   }
   @Test
-  public void loginAdmin() {
+  public void loginFailPruebaAdmin() {
     driver.get("http://0.0.0.0:8080/project-war/");
-    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.manage().window().setSize(new Dimension(800, 512));
+    driver.findElement(By.id("indexIndex:login_autorizados")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).click();
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("12345");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Login Autorizados"));
+  }
+  @Test
+  public void loginFailPruebaCliente() {
+    driver.get("http://0.0.0.0:8080/project-war/");
+    driver.manage().window().setSize(new Dimension(1680, 1018));
     driver.findElement(By.id("indexIndex")).click();
+    driver.findElement(By.id("indexIndex:login_clientes")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("1");
+    {
+      WebElement element = driver.findElement(By.id("Login-Form:Login-Contra"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).clickAndHold().perform();
+    }
+    {
+      WebElement element = driver.findElement(By.id("Login-Form:Login-Contra"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    {
+      WebElement element = driver.findElement(By.id("Login-Form:Login-Contra"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).release().perform();
+    }
+    driver.findElement(By.id("Login-Form:Login-Contra")).click();
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("1234");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Login Usuarios"));
+  }
+  @Test
+  public void loginPruebaAdmin() {
+    driver.get("http://0.0.0.0:8080/project-war/");
+    driver.manage().window().setSize(new Dimension(1680, 1018));
     driver.findElement(By.id("indexIndex:login_autorizados")).click();
     driver.findElement(By.id("Login-Form:Login-ID")).click();
     driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
     driver.findElement(By.id("Login-Form:Login-Contra")).click();
     driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
     driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("PaginaPrincipalid")).click();
+    driver.findElement(By.id("PaginaPrincipalid")).click();
     assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Menu Autorizado"));
   }
 }
