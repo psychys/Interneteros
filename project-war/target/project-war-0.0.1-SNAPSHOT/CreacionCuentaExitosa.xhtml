@@ -4,7 +4,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
 <h:head>
-    <title>Creacion de cliente exitosa</title>
+    <title>Creacion de cuenta exitosa</title>
     <link rel="stylesheet" href="recursos/css/styleLogin.css" />
 </h:head>
 
@@ -12,30 +12,30 @@
 
 <h:body>
     <div class="login-box">
-        <h2>Creacion de cliente exitosa</h2>
+        <h2>Creacion de cuenta exitosa</h2>
         <h:form id="Login-Form">
 
             <div class="user-box">
-                <a>Identificacion: <h:outputText value="#{admin.identificacion}" id="identificacion"/></a>
+                <a>IBAN: <h:outputText value="#{admin.IBAN}"/></a>
             </div>
 
             <div class="user-box">
-                <a>Direccion: <h:outputText value="#{admin.direccion}" id="direccion"/></a>
+                <a>SWIFT: <h:outputText value="#{admin.SWIFT}"/></a>
             </div>
 
             <div class="user-box">
-                <a>Ciudad: <h:outputText value="#{admin.ciudad}" id="ciudad"/></a>
+                <a>Estado: <h:outputText value="#{admin.estado}"/></a>
             </div>
 
             <div class="user-box">
-                <a>CP: <h:outputText value="#{admin.CP}" id="cp"/></a>
+                <a>Tipo: <h:outputText value="#{admin.tipo_cuenta}"/></a>
             </div>
 
             <div class="user-box">
-                <a>Pais: <h:outputText value="#{admin.pais}" id="pais"/></a>
+                <a>Cliente: <h:outputText value="#{admin.id_cliente}"/></a>
             </div>
 
-            <h:link outcome="Cliente.xhtml" id = "volver_index" >  Volver </h:link>
+            <h:link outcome="Cuenta.xhtml" id = "volver_index" >  Volver </h:link>
         </h:form>
     </div>
 </h:body>

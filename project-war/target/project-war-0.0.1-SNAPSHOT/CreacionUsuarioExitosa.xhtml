@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
+<h:head>
+    <title>Creacion de usuario exitosa</title>
+    <link rel="stylesheet" href="recursos/css/styleLogin.css" />
+</h:head>
+
+<h:body>
+    <div class="login-box">
+        <h2>Creacion de usuario exitosa</h2>
+
+        <h:form id="Login-Form">
+            <div class="user-box">
+                <a>ID: <h:outputText value="#{admin.id}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Contraseña: <h:outputText value="#{admin.contrasena}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Admin: <h:outputText value="#{admin.administrador}"/></a>
+            </div>
+
+            <div class="user-box">
+                <a>Estado: <h:outputText value="#{admin.estadoU}"/></a>
+            </div>
+
+            <h:link outcome="Usuario.xhtml" id = "volver_usuario" >  Volver </h:link>
+        </h:form>
+    </div>
+</h:body>
+
+
+</html>

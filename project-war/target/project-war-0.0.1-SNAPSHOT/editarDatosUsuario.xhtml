@@ -4,13 +4,13 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
 <h:head>
-    <title>Editar datos del cliente</title>
+    <title>Editar Usuario</title>
     <link rel="stylesheet" href="recursos/css/styleLogin.css" />
 </h:head>
 
 <h:body>
     <div class="login-box">
-        <h2>Editar datos del cliente buscado</h2>
+        <h2>Rellene los datos del usuario a editar</h2>
         <h:form id="Login-Form">
 
             <div class="user-box">
@@ -19,26 +19,21 @@
             </div>
 
             <div class="user-box">
-                <h:inputText value="#{admin.direccion}" required="true" id="direccion"/>
-                <label>Direccion</label>
+                <h:inputText value="#{admin.contrasena}" required="true" id="contrasena"/>
+                <label>Contraseña</label>
             </div>
 
             <div class="user-box">
-                <h:inputText value="#{admin.ciudad}" required="true" id="ciudad"/>
-                <label>Ciudad</label>
+                <h:inputText value="#{admin.administrador}" required="true" id="administrador"/>
+                <label>Admin</label>
             </div>
 
             <div class="user-box">
-                <h:inputText value="#{admin.CP}" required="true" id="cp"/>
-                <label>CP</label>
+                <h:inputText value="#{admin.estadoU}" required="true" id="estadoU"/>
+                <label>Estado</label>
             </div>
 
-            <div class="user-box">
-                <h:inputText value="#{admin.pais}" required="true" id="pais"/>
-                <label>Pais</label>
-            </div>
-
-            <h:commandLink type ="submit" action="#{admin.confirmarEdit()}" id="confirmarEdit">
+            <h:commandLink type ="submit" action="#{admin.confirmEditarUsuario()}" id="editarUsuario">
 
                 <span></span>
                 <span></span>
@@ -47,7 +42,7 @@
                 Confirmar
             </h:commandLink>
 
-            <h:link outcome="Cliente.xhtml" id = "Volver_atras"> Volver </h:link>
+            <h:link outcome="EditarUsuario.xhtml" id = "Volver_atras"> Volver </h:link>
 
         </h:form>
     </div>

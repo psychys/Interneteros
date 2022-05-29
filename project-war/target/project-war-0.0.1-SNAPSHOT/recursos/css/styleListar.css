@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#154360,  #21618c);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+table.auto{
+    table-layout:auto;
+}
+
+.list-box {
+
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1680px;
+    padding: 40px;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    overflow-x: scroll;
+}
+
+.list-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.list-box .datatable-box {
+    width: 100%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-box input {
+    width: auto;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #fff;
+    /*margin-bottom: 15px;*/
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-box form a, .list-box form input{
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-box a:hover, .list-box input:hover{
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td, th, label{
+    text-align: center;
+    color: #fff;
+    padding: 6px;
+    margin-left: auto;
+    margin-right: auto;
+}

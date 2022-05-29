@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
-public class ProjectSelenium {
+public class ProjectSeleniumIT {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -28,7 +28,7 @@ public class ProjectSelenium {
   @BeforeClass
   public void setupClass(){
     String server="localhost";
-    try (InputStream is = ProjectSelenium.class.getClassLoader().getResourceAsStream("pom.properties")) {
+    try (InputStream is = ProjectSeleniumIT.class.getClassLoader().getResourceAsStream("pom.properties")) {
       Properties pomProperties = new Properties();
       pomProperties.load(is);
       server=pomProperties.getProperty("server.host");

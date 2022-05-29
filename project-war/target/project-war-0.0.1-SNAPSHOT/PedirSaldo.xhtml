@@ -5,30 +5,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
 
 <h:head>
-    <title>Editar Cliente </title>
+    <title>Pedir IBAN</title>
     <link rel="stylesheet" href="recursos/css/styleLogin.css"/>
 </h:head>
 
 <h:body>
+
     <div class="login-box">
-        <h2>Editar Cliente</h2>
-        <h:form id="Login-Form">
+        <h2 id="PaginaPrincipalid">Inserte IBAN</h2>
+        <h:form id="indexIndex">
+
             <div class="user-box">
-                <h:inputText value="#{admin.id}" required="true" id="Login-ID"/>
-                <label>Cliente a editar:</label>
+                <h:inputText id="idi" value="#{cliente.IBAN}" required="true"/>
+                <label>IBAN:</label>
             </div>
 
-            <h:commandLink type ="submit" action="#{admin.editarClienteAdmin()}" id="editarCliente">
+            <h:commandLink type ="submit" action="#{cliente.mostrarSaldo()}" id="crearCliente">
 
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                Editar
+                Insertar
             </h:commandLink>
 
-            <h:link outcome="Cliente.xhtml" id = "volver_cliente" >  Volver </h:link>
+            <h:link outcome="vista_cliente.xhtml" id = "volver_cliente" >  Volver </h:link>
         </h:form>
     </div>
+
 </h:body>
 </html>

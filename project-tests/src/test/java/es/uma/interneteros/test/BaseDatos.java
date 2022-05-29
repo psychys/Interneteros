@@ -1,3 +1,4 @@
+package es.uma.interneteros.test;
 import es.uma.interneteros.jpa.*;
 
 import javax.persistence.EntityManager;
