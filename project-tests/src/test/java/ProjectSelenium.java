@@ -336,4 +336,109 @@ public class ProjectSelenium {
     assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Datos del cliente"));
   }
 
+  @Test
+  public void registroOK() {
+    driver.get("http://0.0.0.0:8080/project-war/");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("indexIndex:registro_usuario")).click();
+    driver.findElement(By.id("Login-Form:user")).click();
+    driver.findElement(By.id("Login-Form:user")).sendKeys("carlos");
+    driver.findElement(By.id("Login-Form:pass")).sendKeys("alumno");
+    driver.findElement(By.id("Login-Form:repass")).sendKeys("alumno");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("PaginaPrincipalid")).click();
+    assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Pagina Principal"));
+    driver.close();
+  }
+
+  @Test
+  public void registroFallido() {
+    driver.get("http://0.0.0.0:8080/project-war/");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("indexIndex:registro_usuario")).click();
+    driver.findElement(By.id("Login-Form:user")).click();
+    driver.findElement(By.id("Login-Form:user")).sendKeys("1");
+    driver.findElement(By.id("Login-Form:pass")).sendKeys("carlos");
+    driver.findElement(By.id("Login-Form:repass")).sendKeys("carlos");
+    driver.findElement(By.id("Login-Form")).click();
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Registro Usuario"));
+    driver.close();
+  }
+
+  @Test
+  public void ConsultarSaldo_CLIENTE() {
+    driver.get("http://0.0.0.0:8080/project-war/login.xhtml");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("1");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys(Keys.ENTER);
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:saldo_cliente")).click();
+    driver.findElement(By.id("indexIndex:idi")).click();
+    driver.findElement(By.id("indexIndex:idi")).sendKeys("ES2000");
+    driver.findElement(By.id("indexIndex:crearCliente")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Saldo del cliente"));
+    driver.findElement(By.cssSelector(".login-box")).click();
+    driver.close();
+  }
+
+  @Test
+  public void ConsultarDatos_USUARIO() {
+    driver.get("http://0.0.0.0:8080/project-war/login.xhtml");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("1");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys(Keys.ENTER);
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:datos_cliente")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Datos del cliente"));
+    driver.close();
+  }
+
+  @Test
+  public void TransferenciaUsuario() {
+    driver.get("http://0.0.0.0:8080/project-war/login.xhtml");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("1");
+    driver.findElement(By.cssSelector("html")).click();
+    driver.findElement(By.id("Login-Form:Login-Contra")).click();
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:transferencias_usuario")).click();
+    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
+    driver.findElement(By.id("Transfer-Form:Origen_s")).sendKeys("ES2000");
+    driver.findElement(By.id("Transfer-Form:Destino_ID")).click();
+    driver.findElement(By.id("Transfer-Form:Destino_ID")).sendKeys("ES1497");
+    driver.findElement(By.id("Transfer-Form:Dinero")).click();
+    driver.findElement(By.id("Transfer-Form:Dinero")).sendKeys("200");
+    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
+    driver.findElement(By.id("Transfer-Form:Origen_s")).sendKeys("ES1496");
+    driver.findElement(By.id("Transfer-Form:transferCash")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Transferencia exitosa"));
+    driver.close();
+  }
+
+  @Test
+  public void TransferenciaAdmin() {
+    driver.get("http://0.0.0.0:8080/project-war/vista_admin.xhtml");
+    driver.manage().window().setSize(new Dimension(1440, 868));
+    driver.findElement(By.id("indexIndex")).click();
+    driver.findElement(By.id("indexIndex:transferencias_usuario")).click();
+    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
+    driver.findElement(By.id("Transfer-Form:Origen_s")).sendKeys("ES1496");
+    driver.findElement(By.id("Transfer-Form:Destino_ID")).sendKeys("ES1497");
+    driver.findElement(By.id("Transfer-Form:Dinero")).sendKeys("1");
+    driver.findElement(By.id("Transfer-Form:transferCash")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Transferencia exitosa"));
+  }
 }
