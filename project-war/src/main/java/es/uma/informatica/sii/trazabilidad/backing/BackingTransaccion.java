@@ -64,6 +64,7 @@ public class BackingTransaccion {
        Cuenta origen = cuentas.BuscarCuenta(IBAN_origen);
        Cuenta destino = cuentas.BuscarCuenta(IBAN_destino);
        String id_cliente = sesion.getUsuario().getId();
+
        String id_cuenta_cliente = ((Cuenta_Fintech) origen).getCliente().getID();
        if(id_cliente.equals(id_cuenta_cliente) ){
 

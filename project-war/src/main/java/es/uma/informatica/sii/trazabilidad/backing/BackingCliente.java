@@ -9,9 +9,12 @@ import es.uma.interneteros.jpa.*;
 import org.eclipse.persistence.internal.jpa.rs.metadata.model.Query;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Typed;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -177,25 +180,27 @@ public class BackingCliente {
 
     }
 
+
     public String mostrarApellido() throws ClienteException {
         return clientes.BuscarCliente(sesion.getUsuario().getId()).getApellidos();
     }
 
-    /*
+
     public String mostrarSaldo() throws ClienteException, CuentaException {
 
-        String res= null;
+        String res= "vista_cliente.xhtml";
         boolean ok=false;
 
         ok = comprobarCliente(IBAN,sesion.getUsuario().getId());
 
         if(ok) {
-            Cuenta_referencia c = (Cuenta_referencia) cuentas.BuscarCuenta(this.IBAN);
+            Segregated aux = (Segregated) cuentas.BuscarCuenta(this.IBAN);
+            Cuenta_referencia c = aux.getC_ref();
 
             String id = sesion.getUsuario().getId();
 
 
-            this.saldo = c.getSaldo();
+            setSaldo(c.getSaldo());
 
             res="Saldo.xhtml";
         }
@@ -204,22 +209,33 @@ public class BackingCliente {
 
     }
 
+    public String res(){
+        String ident = sesion.getUsuario().getId();
+
+        TypedQuery<Individual> q = em.createQuery("Select id FROM Individual id where id.ID = :id ",Individual.class);
+        q.setParameter("id",ident);
+        List<Individual> l = q.getResultList();
+        return l.get(0).getNombre();
+    }
+
     public boolean comprobarCliente(String iban , String id) throws CuentaException {
 
         boolean res=false;
 
-        Cuenta_Fintech c = (Cuenta_Fintech) cuentas.BuscarCuenta(IBAN);
-        String cliente = c.getCliente().getID();
+        TypedQuery<Cuenta_Fintech> q = em.createQuery("Select c FROM Cuenta_Fintech c  where c.IBAN = :iban ",Cuenta_Fintech.class);
+        q.setParameter("iban",iban);
+        Cuenta_Fintech l = q.getSingleResult();
+        Cliente c = l.getCliente();
         //Tenemos el id del cliente de la cuenta en concreto.
-        if(id==cliente){
+        if(id.equals(c.getID())){
             res=true;
         }
 
 
         return res;
     }
-    */
 
+/*
     public String mostrarSaldo() throws CuentaException {
 
         //String res= null;
@@ -239,6 +255,7 @@ public class BackingCliente {
 
     }
 
+
     public boolean comprobarCliente(String iban , String id) throws CuentaException {
 
         Cuenta_referencia c = (Cuenta_referencia) cuentas.BuscarCuenta(iban);
@@ -251,7 +268,7 @@ public class BackingCliente {
             return id.equals(cliente);
         }
 
-    }
+    }*/
 
 
 }
