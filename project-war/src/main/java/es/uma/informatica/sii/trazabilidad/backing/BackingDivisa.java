@@ -60,15 +60,18 @@ public class BackingDivisa {
         this.divisa = divisa;
     }
 
-    public String realizarcambio() throws CuentaException, SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException, DivisaException {
+    public String realizarcambio() throws CuentaException, DivisaException {
 
         String res = "vista_admin.xhtml";
 
         Cuenta_referencia c = (Cuenta_referencia) cuentas.BuscarCuenta(IBAN_cuenta);
-        if(c!=null){
-            divisas.CambioDivisa(c,divisa);
-            res = "CambioDivisaExito.xhtml";
+        if (c != null) {
+            res = "Cambio_Exito.xhtml";
+            divisas.CambioDivisa(c, divisa);
+
         }
+        return res;
+    }
        /* Divisa euros = new Divisa("EUR","Euro","€");
         Divisa libras = new Divisa("GBD","Libra","£");
         Divisa dolares = new Divisa("USD", "Dolar", "$");
@@ -114,8 +117,8 @@ public class BackingDivisa {
 
 
            }*/
-               return res;
-    }
+
+
 
     public String mostrarBanco() throws CuentaException {
         Cuenta_referencia c = (Cuenta_referencia)  cuentas.BuscarCuenta(IBAN_cuenta);
