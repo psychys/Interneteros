@@ -315,24 +315,7 @@ public class ProjectSelenium {
     driver.findElement(By.cssSelector(".login-box")).click();
     assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Creacion de cuenta exitosa"));
   }
-  @Test
-  public void editarCuenta_ADMIN() {
-    driver.get("http://0.0.0.0:8080/project-war/Cuenta.xhtml");
-    driver.manage().window().setSize(new Dimension(800, 568));
-    driver.findElement(By.id("indexIndex:Editar_cuenta")).click();
-    driver.findElement(By.id("Login-Form:Login-IBAN")).click();
-    driver.findElement(By.id("Login-Form:Login-IBAN")).sendKeys("123A");
-    driver.findElement(By.id("Login-Form:editar_cuenta")).click();
-    driver.findElement(By.id("Login-Form:SWIFT")).click();
-    driver.findElement(By.id("Login-Form:SWIFT")).sendKeys("998");
-    driver.findElement(By.cssSelector(".user-box:nth-child(4)")).click();
-    driver.findElement(By.id("Login-Form:estado")).click();
-    driver.findElement(By.id("Login-Form:estado")).sendKeys("baja");
-    driver.findElement(By.id("Login-Form:buscarCuenta")).click();
-    driver.findElement(By.cssSelector("h2")).click();
-    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Datos cuenta buscada"));
-    driver.close();
-  }
+
   @Test
   public void ConsultarDatosUsuario() {
     driver.get("http://0.0.0.0:8080/project-war/login.xhtml");
@@ -460,29 +443,119 @@ public class ProjectSelenium {
   }
 
   @Test
-  public void CambioDivisa() {
-    driver.get("http://0.0.0.0:8080/project-war/vista_admin.xhtml");
-    driver.manage().window().setSize(new Dimension(800, 568));
-    driver.findElement(By.id("indexIndex:cambio_divisas")).click();
-    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
-    driver.findElement(By.id("Transfer-Form:Origen_s")).sendKeys("ES2000");
-    driver.findElement(By.id("Transfer-Form:Destino_ID")).click();
-    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
-    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
-    {
-      WebElement element = driver.findElement(By.id("Transfer-Form:Origen_s"));
-      Actions builder = new Actions(driver);
-      builder.doubleClick(element).perform();
-    }
-    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
-    driver.findElement(By.id("Transfer-Form:Destino_ID")).sendKeys("USD");
-    driver.findElement(By.id("Transfer-Form:transferCash")).click();
-    driver.findElement(By.cssSelector("h2")).click();
-    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Cambiar divisa exitoso"));
+  public void crearusuario() {
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:usuarios")).click();
+    driver.findElement(By.id("indexIndex:Crear_usuario")).click();
+    driver.findElement(By.id("Login-Form:id")).sendKeys("999");
+    driver.findElement(By.id("Login-Form:contrasena")).sendKeys("999");
+    driver.findElement(By.id("Login-Form:estadoU")).sendKeys("activo");
+    driver.findElement(By.id("Login-Form:crearCliente")).click();
+    assertThat(driver.findElement(By.linkText("ID: 999")).getText(), is("ID: 999"));
+    assertThat(driver.findElement(By.cssSelector(".user-box:nth-child(3) > a")).getText(), is("CONTRASEÑA: 999"));
+    assertThat(driver.findElement(By.cssSelector(".user-box:nth-child(4) > a")).getText(), is("ADMIN: FALSE"));
+    assertThat(driver.findElement(By.cssSelector(".user-box:nth-child(5) > a")).getText(), is("ESTADO: ACTIVO"));
     driver.close();
   }
 
+  @Test
+  public void crearusuariofallido() {
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:usuarios")).click();
+    driver.findElement(By.id("indexIndex:Crear_usuario")).click();
+    driver.findElement(By.id("Login-Form:id")).sendKeys("777");
+    driver.findElement(By.id("Login-Form:contrasena")).sendKeys("777");
+    driver.findElement(By.id("Login-Form:estadoU")).sendKeys("activo");
+    driver.findElement(By.id("Login-Form:crearCliente")).click();
+    assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Creacion de Usuario"));
+    driver.close();
+  }
 
+  @Test
+  public void editarusuario() {
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:usuarios")).click();
+    driver.findElement(By.id("indexIndex:Editar_usuario")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("777");
+    driver.findElement(By.id("Login-Form:editarUsuario")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Rellene los datos del usuario a editar"));
+    driver.findElement(By.id("Login-Form:contrasena")).sendKeys("888");
+    driver.findElement(By.id("Login-Form:estadoU")).sendKeys("activo");
+    driver.findElement(By.id("Login-Form:editarUsuario")).click();
+    assertThat(driver.findElement(By.cssSelector(".user-box:nth-child(3) > a")).getText(), is("CONTRASEÑA: 888"));
+    assertThat(driver.findElement(By.cssSelector(".user-box:nth-child(5) > a")).getText(), is("ESTADO: ACTIVO"));
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Datos del usuario buscado"));
+    driver.close();
+  }
 
+  @Test
+  public void editarusuariofallido() {
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:usuarios")).click();
+    driver.findElement(By.id("indexIndex:Editar_usuario")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("874");
+    driver.findElement(By.id("Login-Form:editarUsuario")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Edicion de Usuario"));
+    driver.close();
+  }
 
+  @Test
+  public void eliminarusuario() {
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:usuarios")).click();
+    driver.findElement(By.id("indexIndex:Eliminar_usuario")).click();
+    driver.findElement(By.id("Login-Form:client")).sendKeys("777");
+    driver.findElement(By.id("Login-Form:eliminarUsuario")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Eliminacion de usuario exitosa"));
+    assertThat(driver.findElement(By.linkText("ID: 777")).getText(), is("ID: 777"));
+    driver.close();
+  }
+
+  @Test
+  public void eliminarusuariofallido() {
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:usuarios")).click();
+    driver.findElement(By.id("indexIndex:Eliminar_usuario")).click();
+    driver.findElement(By.id("Login-Form:client")).sendKeys("41532");
+    driver.findElement(By.id("Login-Form:eliminarUsuario")).click();
+    assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Eliminacion de Usuario"));
+    driver.close();
+  }
+
+  @Test
+  public void mostrarusuario() {
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:usuarios")).click();
+    driver.findElement(By.id("indexIndex:Mostrar_usuarios")).click();
+    assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Lista de Usuarios"));
+    driver.close();
+  }
 }
