@@ -182,7 +182,7 @@ public class ProjectSelenium {
   }
 
   @Test
-  public void cONSULTARDATOSCLIENTEVISTAADMIN() {
+  public void ConsultarDatosCliente_ADMIN() {
     driver.get("http://0.0.0.0:8080/project-war/");
     driver.manage().window().setSize(new Dimension(800, 568));
     driver.findElement(By.id("indexIndex:login_autorizados")).click();
@@ -201,20 +201,59 @@ public class ProjectSelenium {
 
   @Requisitos("RF9")
   @Test
-  public void bajacuenta() {
-    driver.get("http://0.0.0.0:8080/project-war/EliminarCuenta.xhtml");
-
-    driver.findElement(By.id("Login-Form:iban")).sendKeys("123A");
-
+  public void EliminarCuenta_ADMIN() {
+    driver.get("http://0.0.0.0:8080/project-war/Cuenta.xhtml");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("indexIndex:Eliminar_cuenta")).click();
+    driver.findElement(By.id("Login-Form:iban")).click();
+    driver.findElement(By.id("Login-Form:iban")).click();
+    driver.findElement(By.id("Login-Form:iban")).sendKeys("123");
     driver.findElement(By.id("Login-Form:eliminarCuenta")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("ELiminacion exitosa"));
+  }
 
-    assert(driver.findElement(By.id("Login-Form:estado")).getText().equals("baja"));
-
+  @Test
+  public void ConsultarCuenta_ADMIN() {
+    driver.get("http://0.0.0.0:8080/project-war/");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("indexIndex:login_autorizados")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).click();
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:cuentas")).click();
+    driver.findElement(By.id("indexIndex:Buscar_cuenta")).click();
+    driver.findElement(By.id("Login-Form:iban")).click();
+    driver.findElement(By.id("Login-Form:iban")).sendKeys("ES2000");
+    driver.findElement(By.id("Login-Form:buscacue")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Datos cuenta buscada"));
     driver.close();
   }
 
   @Test
-  public void cONSULTARDATOSUSUARIO() {
+  public void CrearCuenta_ADMIN() {
+    driver.get("http://0.0.0.0:8080/project-war/Cuenta.xhtml");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("indexIndex:Crear_cuenta")).click();
+    driver.findElement(By.name("indexIndex:j_idt7")).click();
+    driver.findElement(By.name("indexIndex:j_idt7")).sendKeys("ES1111");
+    driver.findElement(By.name("indexIndex:j_idt9")).click();
+    driver.findElement(By.name("indexIndex:j_idt9")).sendKeys("12345678");
+    driver.findElement(By.name("indexIndex:j_idt11")).click();
+    driver.findElement(By.name("indexIndex:j_idt11")).sendKeys("activa");
+    driver.findElement(By.name("indexIndex:j_idt13")).click();
+    driver.findElement(By.name("indexIndex:j_idt13")).sendKeys("segregated");
+    driver.findElement(By.name("indexIndex:j_idt15")).click();
+    driver.findElement(By.name("indexIndex:j_idt15")).sendKeys("1");
+    driver.findElement(By.id("indexIndex:crearCliente")).click();
+    driver.findElement(By.cssSelector(".login-box")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Creacion de cuenta exitosa"));
+  }
+
+  @Test
+  public void ConsultarDatosUsuario() {
     driver.get("http://0.0.0.0:8080/project-war/login.xhtml");
     driver.manage().window().setSize(new Dimension(800, 568));
     driver.findElement(By.id("Login-Form:Login-ID")).click();
