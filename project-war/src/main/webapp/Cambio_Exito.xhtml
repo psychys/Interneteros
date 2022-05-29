@@ -13,16 +13,16 @@
         <h2>Cambiar divisa exitoso</h2>
         <h:form id="Transfer-Form">
             <div class="user-box">
-                        <a>IBAN: <h:outputText value="#{divi.getIBAN_cuenta()}"/></a>
-                    </div> -
+                <a>IBAN: <h:outputText value="#{divi.getIBAN_cuenta()}"/></a>
+            </div> -
 
-                    <div class="user-box">
-                        <a>Nombre Banco: <h:outputText value="#{divi.mostrarBanco()}"/></a>
-                    </div>
+            <div class="user-box">
+                <a>Nombre Banco: <h:outputText value="#{divi.mostrarBanco()}"/></a>
+            </div>
 
-                    <div class="user-box">
-                        <a>Saldo: <h:outputText value="#{divi.mostrarSaldo()}"/></a>
-                    </div>
+            <div class="user-box">
+                <a>Saldo: <h:outputText value="#{divi.mostrarSaldo()}"/></a>
+            </div>
 
             <h:link outcome="vista_admin.xhtml" id = "Volver_atras"> Volver </h:link>
 
