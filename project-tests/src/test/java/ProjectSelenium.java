@@ -215,14 +215,32 @@ public class ProjectSelenium {
   @Requisitos("RF4")
   @Test
   public void bajacliente() {
-    driver.get("http://0.0.0.0:8080/project-war/EliminarCliente.xhtml");
-
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:clientes")).click();
+    driver.findElement(By.id("indexIndex:Eliminar_cliente")).click();
     driver.findElement(By.id("Login-Form:client")).sendKeys("1");
-
     driver.findElement(By.id("Login-Form:eliminarCliente")).click();
+    assertThat(driver.findElement(By.id("Login-Form:estado")).getText(), is("BAJA"));
+    driver.close();
+  }
 
-    assert(driver.findElement(By.id("Login-Form:estado")).getText().equals("baja"));
-
+  @Requisitos("RF4")
+  @Test
+  public void bajaclientefallido() {
+    driver.get("http://0.0.0.0:8080/project-war/loginAdmin.xhtml");
+    driver.manage().window().setSize(new Dimension(934, 1119));
+    driver.findElement(By.id("Login-Form:Login-ID")).sendKeys("000");
+    driver.findElement(By.id("Login-Form:Login-Contra")).sendKeys("123");
+    driver.findElement(By.id("Login-Form:EntrarLoginid")).click();
+    driver.findElement(By.id("indexIndex:clientes")).click();
+    driver.findElement(By.id("indexIndex:Eliminar_cliente")).click();
+    driver.findElement(By.id("Login-Form:client")).sendKeys("1234567");
+    driver.findElement(By.id("Login-Form:eliminarCliente")).click();
+    assertThat(driver.findElement(By.id("PaginaPrincipalid")).getText(), is("Menu de Clientes"));
     driver.close();
   }
 
