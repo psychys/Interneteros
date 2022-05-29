@@ -110,7 +110,7 @@ public class DivisaEJB implements GestionDivisa {
 
             } else if (abreviatura.equals("EUR") && divisa.equals("USD")) {
                 c.setDivisa(BuscarDivisaCliente("USD"));
-                c.setSaldo((int) (c.getSaldo() * 2));
+                c.setSaldo((int) (c.getSaldo() * 1.07));
 
             } else if (abreviatura.equals("GBD") && divisa.equals("USD")) {
                 c.setDivisa(BuscarDivisaCliente("USD"));

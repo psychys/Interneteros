@@ -205,8 +205,6 @@ public class BackingCliente {
             res="Saldo.xhtml";
         }
         return res;
-
-
     }
 
     public String res(){

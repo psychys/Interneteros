@@ -295,7 +295,7 @@ public class ProjectSelenium {
     driver.close();
 
   }
-
+  @Requisitos("RF5")
   @Test
   public void CrearCuenta_ADMIN() {
     driver.get("http://0.0.0.0:8080/project-war/Cuenta.xhtml");
