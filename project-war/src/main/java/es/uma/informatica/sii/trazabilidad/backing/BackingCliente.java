@@ -212,8 +212,6 @@ public class BackingCliente {
 
         }
         return res;
-
-
     }
 
     public String res(){
