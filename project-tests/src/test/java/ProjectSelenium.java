@@ -315,7 +315,24 @@ public class ProjectSelenium {
     driver.findElement(By.cssSelector(".login-box")).click();
     assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Creacion de cuenta exitosa"));
   }
-
+  @Test
+  public void editarCuenta_ADMIN() {
+    driver.get("http://0.0.0.0:8080/project-war/Cuenta.xhtml");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("indexIndex:Editar_cuenta")).click();
+    driver.findElement(By.id("Login-Form:Login-IBAN")).click();
+    driver.findElement(By.id("Login-Form:Login-IBAN")).sendKeys("123A");
+    driver.findElement(By.id("Login-Form:editar_cuenta")).click();
+    driver.findElement(By.id("Login-Form:SWIFT")).click();
+    driver.findElement(By.id("Login-Form:SWIFT")).sendKeys("998");
+    driver.findElement(By.cssSelector(".user-box:nth-child(4)")).click();
+    driver.findElement(By.id("Login-Form:estado")).click();
+    driver.findElement(By.id("Login-Form:estado")).sendKeys("baja");
+    driver.findElement(By.id("Login-Form:buscarCuenta")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Datos cuenta buscada"));
+    driver.close();
+  }
   @Test
   public void ConsultarDatosUsuario() {
     driver.get("http://0.0.0.0:8080/project-war/login.xhtml");
@@ -441,4 +458,31 @@ public class ProjectSelenium {
     driver.findElement(By.cssSelector("h2")).click();
     assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Transferencia exitosa"));
   }
+
+  @Test
+  public void CambioDivisa() {
+    driver.get("http://0.0.0.0:8080/project-war/vista_admin.xhtml");
+    driver.manage().window().setSize(new Dimension(800, 568));
+    driver.findElement(By.id("indexIndex:cambio_divisas")).click();
+    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
+    driver.findElement(By.id("Transfer-Form:Origen_s")).sendKeys("ES2000");
+    driver.findElement(By.id("Transfer-Form:Destino_ID")).click();
+    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
+    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
+    {
+      WebElement element = driver.findElement(By.id("Transfer-Form:Origen_s"));
+      Actions builder = new Actions(driver);
+      builder.doubleClick(element).perform();
+    }
+    driver.findElement(By.id("Transfer-Form:Origen_s")).click();
+    driver.findElement(By.id("Transfer-Form:Destino_ID")).sendKeys("USD");
+    driver.findElement(By.id("Transfer-Form:transferCash")).click();
+    driver.findElement(By.cssSelector("h2")).click();
+    assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Cambiar divisa exitoso"));
+    driver.close();
+  }
+
+
+
+
 }
