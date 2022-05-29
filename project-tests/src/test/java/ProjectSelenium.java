@@ -275,6 +275,7 @@ public class ProjectSelenium {
     driver.findElement(By.cssSelector("h2")).click();
     assertThat(driver.findElement(By.cssSelector("h2")).getText(), is("Datos cuenta buscada"));
     driver.close();
+
   }
 
   @Test
