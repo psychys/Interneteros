@@ -67,10 +67,14 @@ public class BackingTransaccion {
 
        String id_cuenta_cliente = ((Cuenta_Fintech) origen).getCliente().getID();
        if(id_cliente.equals(id_cuenta_cliente) ){
+           try{
+               Transaccion t = new Transaccion(Integer.parseInt(cantidad), origen, destino, new Date(), "transferencia");
+               trans.CrearTransaccion(t);//,div.BuscarDivisaCliente("EUR"));
+               res = "Transferencia_correcta.xhtml";
+           }catch(TransaccionException e){
+               res = "Sin_Dinero.xhtml";
+           }
 
-           Transaccion t = new Transaccion(Integer.parseInt(cantidad), origen, destino, new Date(), "transferencia");
-           trans.CrearTransaccion(t);//,div.BuscarDivisaCliente("EUR"));
-           res = "Transferencia_correcta.xhtml";
        }else{
            res = "vista_cliente.xhtml";
        }
