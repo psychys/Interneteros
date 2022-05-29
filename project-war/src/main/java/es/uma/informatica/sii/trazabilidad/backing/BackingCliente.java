@@ -194,15 +194,22 @@ public class BackingCliente {
         ok = comprobarCliente(IBAN,sesion.getUsuario().getId());
 
         if(ok) {
-            Segregated aux = (Segregated) cuentas.BuscarCuenta(this.IBAN);
-            Cuenta_referencia c = aux.getC_ref();
+            if(cuentas.BuscarCuenta(this.IBAN).getTipo().equals("segregated")){
+                Segregated aux = (Segregated) cuentas.BuscarCuenta(this.IBAN);
+                Cuenta_referencia c = aux.getC_ref();
 
-            String id = sesion.getUsuario().getId();
+                String id = sesion.getUsuario().getId();
 
 
-            setSaldo(c.getSaldo());
+                setSaldo(c.getSaldo());
 
-            res="Saldo.xhtml";
+                res="Saldo.xhtml";
+            }else if(cuentas.BuscarCuenta(this.IBAN).getTipo().equals("referencia")){
+                Cuenta_referencia aux = (Cuenta_referencia) cuentas.BuscarCuenta(this.IBAN);
+                setSaldo(aux.getSaldo());
+                res="Saldo.xhtml";
+            }
+
         }
         return res;
 
@@ -222,14 +229,33 @@ public class BackingCliente {
 
         boolean res=false;
 
-        TypedQuery<Cuenta_Fintech> q = em.createQuery("Select c FROM Cuenta_Fintech c  where c.IBAN = :iban ",Cuenta_Fintech.class);
-        q.setParameter("iban",iban);
-        Cuenta_Fintech l = q.getSingleResult();
-        Cliente c = l.getCliente();
-        //Tenemos el id del cliente de la cuenta en concreto.
-        if(id.equals(c.getID())){
-            res=true;
+        Cuenta prueba = cuentas.BuscarCuenta(iban);
+        if(prueba.getTipo().equals("segregated")){
+            TypedQuery<Cuenta_Fintech> q = em.createQuery("Select c FROM Cuenta_Fintech c  where c.IBAN = :iban ",Cuenta_Fintech.class);
+            q.setParameter("iban",iban);
+
+            Cuenta_Fintech l = q.getSingleResult();
+            Cliente c = l.getCliente();
+            //Tenemos el id del cliente de la cuenta en concreto.
+            if(id.equals(c.getID())){
+                res=true;
+            }
+        }else if(prueba.getTipo().equals("referencia")){
+            TypedQuery<Cuenta_referencia> w = em.createQuery("Select c FROM Cuenta_referencia c  where c.IBAN = :iban ",Cuenta_referencia.class);
+            w.setParameter("iban",iban);
+            Cuenta_referencia l = w.getSingleResult();
+
+            TypedQuery<DepositadaPooledReferencia> z = em.createQuery("Select c FROM DepositadaPooledReferencia c  where c.cuenta_referencia = :iban ",DepositadaPooledReferencia.class);
+            z.setParameter("iban",l);
+            Cuenta_Fintech r = z.getSingleResult().getCuenta_pooled();
+            Cliente c = r.getCliente();
+            //Tenemos el id del cliente de la cuenta en concreto.
+            if(id.equals(c.getID())){
+                res=true;
+            }
         }
+
+
 
 
         return res;

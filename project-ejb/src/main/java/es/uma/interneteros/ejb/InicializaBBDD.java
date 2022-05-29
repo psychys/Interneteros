@@ -69,8 +69,8 @@ public class InicializaBBDD {
         Cuenta_referencia c_ref1 = new Cuenta_referencia("ES1492", "1234", "activo", "Banco de pesas", 400,"referencia");
         em.persist(c_ref1);
 
-        Pooled p1 = new Pooled("ES1493","1234","activo", new Date(),"pooled");
-        p1.setFecha_apertura(new Date());
+        Pooled p1 = new Pooled("ES1493","1234","activo", new Date(),"pooled",i);
+        //p1.setFecha_apertura(new Date());
         em.persist(p1);
 
         Segregated s1 = new Segregated("ES1496","1234","activa",new Date(),c_ref1,"segregated",i);
@@ -100,14 +100,17 @@ public class InicializaBBDD {
         m.setC_fintech(l2);
         em.merge(m);
 
-        Pooled p2 = new Pooled("ES1495","1234","activo", new Date(),"pooled");
-        p2.setFecha_apertura(new Date());
+        Pooled p2 = new Pooled("ES1495","1234","activo", new Date(),"pooled",m);
+        //p2.setFecha_apertura(new Date());
         em.persist(p2);
 
         DepositadaId id2 = new DepositadaId();
-        id.setIban_pooled(p2.getIBAN());
-        id.setIban_referencia(c_ref2.getIBAN());
-        id.setSaldo(c_ref2.getSaldo());
+        id2.setIban_pooled(p2.getIBAN());
+        id2.setIban_referencia(c_ref2.getIBAN());
+        id2.setSaldo(c_ref2.getSaldo());
+
+        DepositadaPooledReferencia d2 = new DepositadaPooledReferencia(id2,p2,c_ref2, c_ref2.getSaldo()) ;
+        em.persist(d2);
 
         Usuario admin = new Usuario("000", "123", true, "activo");
         em.persist(admin);
@@ -117,6 +120,18 @@ public class InicializaBBDD {
 
         Cuenta_referencia quesada = new Cuenta_referencia("ES2000", "1234", "activo", "PAD THAI WOK", 50000,"referencia");
         em.persist(quesada);
+
+        Pooled p3 = new Pooled("ES2001","1234","activo", new Date(),"pooled",i);
+      //  p3.setFecha_apertura(new Date());
+        em.persist(p3);
+
+        DepositadaId id3 = new DepositadaId();
+        id3.setIban_pooled(p3.getIBAN());
+        id3.setIban_referencia(quesada.getIBAN());
+        id3.setSaldo(quesada.getSaldo());
+
+        DepositadaPooledReferencia d3 = new DepositadaPooledReferencia(id3,p3,quesada, quesada.getSaldo()) ;
+        em.persist(d3);
 
         Divisa dolares = new Divisa("USD", "Dolar", "$");
         em.persist(dolares);
