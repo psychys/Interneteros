@@ -181,6 +181,7 @@ public class BackingCliente {
         return clientes.BuscarCliente(sesion.getUsuario().getId()).getApellidos();
     }
 
+    /*
     public String mostrarSaldo() throws ClienteException, CuentaException {
 
         String res= null;
@@ -196,7 +197,7 @@ public class BackingCliente {
 
             this.saldo = c.getSaldo();
 
-             res="Saldo.xhtml";
+            res="Saldo.xhtml";
         }
         return res;
 
@@ -216,6 +217,40 @@ public class BackingCliente {
 
 
         return res;
+    }
+    */
+
+    public String mostrarSaldo() throws CuentaException {
+
+        //String res= null;
+        boolean ok=false;
+
+        ok = comprobarCliente(IBAN,sesion.getUsuario().getId());
+
+        if(ok) {
+            Cuenta_referencia c = (Cuenta_referencia) cuentas.BuscarCuenta(IBAN);
+
+            this.saldo = c.getSaldo();
+
+             return "Saldo.xhtml";
+        } else {
+            return "vista_cliente.xhtml";
+        }
+
+    }
+
+    public boolean comprobarCliente(String iban , String id) throws CuentaException {
+
+        Cuenta_referencia c = (Cuenta_referencia) cuentas.BuscarCuenta(iban);
+
+        //Tenemos el id del cliente de la cuenta en concreto.
+        if(c.getC_fintech_segregada() == null || c.getC_fintech_segregada().getCliente() == null || c.getC_fintech_segregada().getCliente().getU_usuario() == null || c.getC_fintech_segregada().getCliente().getU_usuario().getId() == null) {
+            return false;
+        } else {
+            String cliente = c.getC_fintech_segregada().getCliente().getU_usuario().getId();
+            return id.equals(cliente);
+        }
+
     }
 
 
