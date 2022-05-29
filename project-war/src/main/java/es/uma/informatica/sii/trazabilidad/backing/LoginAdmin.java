@@ -44,11 +44,11 @@ public class LoginAdmin {
 
     public synchronized String entrar() {
         try {
-            //usuario = usuarioEJB.BuscarUsuario(usuario.getId());
 
             boolean logeado = usuarioEJB.LoginAdministrador(usuario, usuario.getId(), usuario.getContrasena());
 
             if (logeado) {
+                usuario = usuarioEJB.BuscarUsuario(usuario.getId());
                 sesion.setUsuario(usuario);
                 return "vista_admin.xhtml";
             }
