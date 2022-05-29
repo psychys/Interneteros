@@ -253,7 +253,7 @@ public class BackingAdmin {
         } catch (ClienteException e) {
             //FacesMessage fm = new FacesMessage("El usuario no existe");
             //FacesContext.getCurrentInstance().addMessage("Usuario:id", fm);
-            res = "vista_cliente.xhtml";
+            res = "Cliente.xhtml";
         }
 
         return res;
