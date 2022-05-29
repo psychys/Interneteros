@@ -16,15 +16,15 @@
         <h:form id="Login-Form">
 
             <div class="user-box">
-                <a>IBAN: <h:outputText value="#{admin.IBAN}"/></a>
+                <a>IBAN: <h:outputText value="#{admin.IBAN}" id="iban"/></a>
             </div>
 
             <div class="user-box">
-                <a>SWIFT: <h:outputText value="#{admin.SWIFT}"/></a>
+                <a>SWIFT: <h:outputText value="#{admin.SWIFT}" id="swift"/></a>
             </div>
 
             <div class="user-box">
-                <a>Estado: <h:outputText value="#{admin.estado}"/></a>
+                <a>Estado: <h:outputText value="#{admin.estado}" id="estado"/></a>
             </div>
 
             <h:link outcome="Cuenta.xhtml" id = "volver_index" >  Volver </h:link>
